@@ -30,5 +30,11 @@ jobs:
     - name: Run Hyas test script
       run: npm test
 
+    - name: Prepare fonts (1)
+      run: mkdir -P static
+
+    - name: Prepare fonts (2)
+      run: npm run copy:katex-fonts
+
     - name: Build production website
       run: npm run build

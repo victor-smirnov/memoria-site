@@ -1,6 +1,7 @@
 node_modules
 public
 resources
+static
 # Local Netlify folder
 .netlify
 TODO
