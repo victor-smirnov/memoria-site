@@ -31,7 +31,7 @@ jobs:
       run: npm test
 
     - name: Prepare fonts (1)
-      run: mkdir -P static
+      run: mkdir -p static
 
     - name: Prepare fonts (2)
       run: npm run copy:katex-fonts
