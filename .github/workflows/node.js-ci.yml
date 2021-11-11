@@ -27,9 +27,6 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Run Hyas test script
-      run: npm test
-
     - name: Prepare fonts (1)
       run: mkdir -p static
 
