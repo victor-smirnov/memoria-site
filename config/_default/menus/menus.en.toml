@@ -1,50 +1,60 @@
 
 [[docs]]
   name = "Overview"
-  weight = 10
+  weight = 1
   identifier = "overview"
   url = "/docs/overview/"
 
 
 [[docs]]
   name = "Data Zoo"
-  weight = 30
+  weight = 1000
   identifier = "datazoo"
   url = "/docs/data-zoo/"
 
 [[docs]]
-  name = "AI & ML"
-  weight = 40
-  identifier = "aiml"
-  url = "/docs/aiml/"
+  name = "Storage Engines"
+  weight = 2000
+  identifier = "storage"
+  url = "/docs/storage/"
 
 [[docs]]
-  name = "Metaprogramming"
-  weight = 45
+  name = "Runtime Environment"
+  weight = 3000
+  identifier = "runtime"
+  url = "/docs/runtime/"
+
+[[docs]]
+  name = "Linked Data & SDN"
+  weight = 4000
+  identifier = "linked-data"
+  url = "/docs/linked-data/"
+
+
+[[docs]]
+  name = "Digital Philosophy"
+  weight = 5000
+  identifier = "d-phil"
+  url = "/docs/d-phil/"
+
+[[docs]]
+  name = "Memoria Build Tool"
+  weight = 6000
   identifier = "mbt"
   url = "/docs/mbt/"
 
 
 [[docs]]
-  name = "Storage Engines"
-  weight = 50
-  identifier = "storage"
-  url = "/docs/storage/"
-
-[[docs]]
-  name = "Datascope"
-  weight = 60
-  identifier = "datascope"
-  url = "/docs/datascope/"
-
-
-[[docs]]
   name = "Testing Framework"
-  weight = 90
+  weight = 7000
   identifier = "tests"
   url = "/docs/tests/"
 
-
+[[docs]]
+  name = "Datascope"
+  weight = 8000
+  identifier = "datascope"
+  url = "/docs/datascope/"
 
 
 
