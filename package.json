@@ -25,6 +25,7 @@
     "lint:styles": "stylelint \"assets/scss/**/*.{css,sass,scss,sss,less}\"",
     "lint:markdown": "markdownlint \"*.md\" \"content/**/*.md\"",
     "server": "exec-bin node_modules/.bin/hugo/hugo server",
+    "cname": "shx cp CNAME public/",
     "test": "npm run -s lint",
     "env": "env",
     "precheck": "npm version",
