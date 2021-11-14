@@ -12,3 +12,19 @@ menu:
 weight: 20
 toc: true
 ---
+
+Below there are few definitions that ware used intensively throughout the docs.
+
+## Data Structure
+
+## Container
+
+## Store
+
+## Dataflow 
+
+## Single Writter Mutiple Readers (SWMR)
+
+## Multiple Writers Multiple Readers (MWMR)
+
+
