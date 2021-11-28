@@ -56,6 +56,11 @@
   identifier = "datascope"
   url = "/docs/datascope/"
 
+[[docs]]
+  name = "Misc"
+  weight = 9000
+  identifier = "misc"
+  url = "/docs/misc/"
 
 
 [[main]]
@@ -83,10 +88,24 @@
   weight = 50
   url = "/subprojects/overview/"
 
+
 [[main]]
-  name = "Blog"
-  url = "/blog/"
+  name = "Issues"
+  url = "https://github.com/victor-smirnov/memoria/issues"
   weight = 60
+
+
+[[main]]
+  name = "Discussions"
+  url = "https://github.com/victor-smirnov/memoria/discussions"
+  weight = 70
+
+[[main]]
+  name = "Releases"
+  url = "https://github.com/victor-smirnov/memoria/wiki"
+  weight = 80
+
+
 
 [[social]]
   name = "GitHub"
