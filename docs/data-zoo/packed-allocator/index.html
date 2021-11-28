@@ -1,0 +1,272 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=preload as=font href=https://memoria-framework.dev/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://memoria-framework.dev/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://memoria-framework.dev/fonts/KaTeX_Main-Regular.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://memoria-framework.dev/fonts/KaTeX_Math-Italic.woff2 type=font/woff2 crossorigin><link rel=stylesheet href=https://memoria-framework.dev/main.98406c26a4c6aa55a61b74ca69fb5f6a490b608eb1f400a2aa25ac22d476d961cb4606848ee9909eec7ca4ea171b71fc63ae3fada05c9cac041fca1eef1961d9.css integrity="sha512-mEBsJqTGqlWmG3TKaftfakkLYI6x9ACiqiWsItR22WHLRgaEjumQnux8pOoXG3H8Y64/raBcnKwEH8oe7xlh2Q==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><meta name=robots content="index, follow"><meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><title>Packed Allocator - Memoria</title><meta name=description content><link rel=canonical href=https://memoria-framework.dev/docs/data-zoo/packed-allocator/><meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Packed Allocator"><meta property="og:description" content="We need to place several, possibly resizable (see below), objects into a single contiguous memory block of limited size. Classical malloc-like memory allocator is not suitable here because it doesn&rsquo;t work well with resizable objects. Especially if they are allocated in a relatively small memory block. To maintain resizability efficiently we have to relocate other objects if some object is resized.
+Resizable Object Pattern Resizable object is an object that has unbounded size."><meta property="og:url" content="https://memoria-framework.dev/docs/data-zoo/packed-allocator/"><meta property="og:site_name" content="Memoria"><meta property="article:published_time" content="2021-10-28T02:07:01-04:00"><meta property="article:modified_time" content="2021-10-28T02:07:01-04:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content><meta name=twitter:creator content><meta name=twitter:title content="Packed Allocator"><meta name=twitter:description content><meta name=twitter:card content="summary"><meta name=twitter:image:alt content="Packed Allocator"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://memoria-framework.dev/#/schema/person/1","name":"Memoria","url":"https://memoria-framework.dev/","sameAs":[],"image":{"@type":"ImageObject","@id":"https://memoria-framework.dev/#/schema/image/1","url":"https://memoria-framework.dev/\u003cnil\u003e","width":null,"height":null,"caption":"Memoria"}},{"@type":"WebSite","@id":"https://memoria-framework.dev/#/schema/website/1","url":"https://memoria-framework.dev/","name":"Memoria","description":"","publisher":{"@id":"https://memoria-framework.dev/#/schema/person/1"}},{"@type":"WebPage","@id":"https://memoria-framework.dev/docs/data-zoo/packed-allocator/","url":"https://memoria-framework.dev/docs/data-zoo/packed-allocator/","name":"Packed Allocator","description":"","isPartOf":{"@id":"https://memoria-framework.dev/#/schema/website/1"},"about":{"@id":"https://memoria-framework.dev/#/schema/person/1"},"datePublished":"2021-10-28T02:07:01CET","dateModified":"2021-10-28T02:07:01CET","breadcrumb":{"@id":"https://memoria-framework.dev/docs/data-zoo/packed-allocator/#/schema/breadcrumb/1"},"primaryImageOfPage":{"@id":"https://memoria-framework.dev/docs/data-zoo/packed-allocator/#/schema/image/2"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://memoria-framework.dev/docs/data-zoo/packed-allocator/"]}]},{"@type":"BreadcrumbList","@id":"https://memoria-framework.dev/docs/data-zoo/packed-allocator/#/schema/breadcrumb/1","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://memoria-framework.dev/","url":"https://memoria-framework.dev/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://memoria-framework.dev/docs/","url":"https://memoria-framework.dev/docs/","name":"Docs"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://memoria-framework.dev/docs/data-zoo/","url":"https://memoria-framework.dev/docs/data-zoo/","name":"Data Zoo"}},{"@type":"ListItem","position":4,"item":{"@id":"https://memoria-framework.dev/docs/data-zoo/packed-allocator/"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://memoria-framework.dev/#/schema/article/1","headline":"Packed Allocator","description":"","isPartOf":{"@id":"https://memoria-framework.dev/docs/data-zoo/packed-allocator/"},"mainEntityOfPage":{"@id":"https://memoria-framework.dev/docs/data-zoo/packed-allocator/"},"datePublished":"2021-10-28T02:07:01CET","dateModified":"2021-10-28T02:07:01CET","author":{"@id":"https://memoria-framework.dev/#/schema/person/2"},"publisher":{"@id":"https://memoria-framework.dev/#/schema/person/1"},"image":{"@id":"https://memoria-framework.dev/docs/data-zoo/packed-allocator/#/schema/image/2"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://memoria-framework.dev/#/schema/person/2","name":"Victor Smirnov","sameAs":[]}]},{"@context":"https://schema.org","@graph":[{"@type":"ImageObject","@id":"https://memoria-framework.dev/docs/data-zoo/packed-allocator/#/schema/image/2","url":null,"contentUrl":null,"caption":"Packed Allocator"}]}]}</script><meta name=theme-color content="#fff"><link rel=apple-touch-icon sizes=180x180 href=https://memoria-framework.dev/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://memoria-framework.dev/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://memoria-framework.dev/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://memoria-framework.dev/site.webmanifest></head><body class="docs single"><div class=header-bar></div><header class="navbar navbar-expand-md navbar-light doks-navbar"><nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation"><a class="navbar-brand p-0 me-auto" href=/ aria-label=Memoria>Memoria</a>
+<button class="btn btn-menu d-block d-md-none order-5" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasDoks aria-controls=offcanvasDoks aria-label="Open main menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="offcanvas offcanvas-start border-0 py-md-1" tabindex=-1 id=offcanvasDoks data-bs-backdrop=true aria-labelledby=offcanvasDoksLabel><div class="header-bar d-md-none"></div><div class="offcanvas-header d-md-none"><h2 class="h5 offcanvas-title ps-2" id=offcanvasDoksLabel><a class=text-dark href=/>Memoria</a></h2><button type=button class="btn-close text-reset me-2" data-bs-dismiss=offcanvas aria-label="Close main menu"></button></div><div class="offcanvas-body px-4"><h3 class="h6 text-uppercase mb-3 d-md-none">Main</h3><ul class="nav flex-column flex-md-row ms-md-n3"><li class=nav-item><a class="nav-link ps-0 py-1 active" href=/docs/overview/introduction/>Docs</a></li><li class=nav-item><a class="nav-link ps-0 py-1" href=/tutorial/quick-start>Tutorial</a></li><li class=nav-item><a class="nav-link ps-0 py-1" href=/api/overview/>API</a></li><li class=nav-item><a class="nav-link ps-0 py-1" href=/python/overview/>Python</a></li><li class=nav-item><a class="nav-link ps-0 py-1" href=/subprojects/overview/>Subprojects</a></li><li class=nav-item><a class="nav-link ps-0 py-1" href=/blog/>Blog</a></li></ul><hr class="text-black-50 my-4 d-md-none"><h3 class="h6 text-uppercase mb-3 d-md-none">Socials</h3><ul class="nav flex-column flex-md-row ms-md-auto me-md-n5 pe-md-2"><li class=nav-item><a class="nav-link ps-0 py-1" href=https://github.com/victor-smirnov/memoria><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg><small class="ms-2 d-md-none">GitHub</small></a></li></ul></div></div></nav></header><nav class="doks-subnavbar py-2 sticky-lg-top" aria-label="Secondary navigation"><div class="container-xxl d-flex align-items-md-center"><form class="doks-search position-relative flex-grow-1 me-auto"><input id=search class="form-control is-search" type=search placeholder="Search docs..." aria-label="Search docs..." autocomplete=off><div id=suggestions class="shadow bg-white rounded d-none"></div></form><button class="btn doks-sidebar-toggle d-lg-none ms-3 order-3 collapsed" type=button data-bs-toggle=collapse data-bs-target=#doks-docs-nav aria-controls=doks-docs-nav aria-expanded=false aria-label="Toggle documentation navigation"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg></button></div></nav><div class=container-xxl><aside class=doks-sidebar><nav id=doks-docs-nav class="collapse d-lg-none" aria-label="Tertiary navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-overview aria-expanded=false>
+Overview</button><div class=collapse id=section-overview><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/overview/introduction/>Introduction to Memoria</a></li><li><a class="docs-link rounded" href=/docs/overview/definitions/>Basic Definitions</a></li><li><a class="docs-link rounded" href=/docs/overview/whyc++/>Why C++</a></li><li><a class="docs-link rounded" href=/docs/overview/hardware-accel/>Hardware Acceleration in Memoria</a></li><li><a class="docs-link rounded" href=/docs/overview/faq/>FAQ</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-datazoo aria-expanded=true>
+Data Zoo</button><div class="collapse show" id=section-datazoo><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/data-zoo/overview/>Core Data Structures -- Overview</a></li><li><a class="docs-link rounded" href=/docs/data-zoo/partial-sum-tree/>Partial Sums Tree</a></li><li><a class="docs-link rounded" href=/docs/data-zoo/searchable-seq/>Searchable Sequence</a></li><li><a class="docs-link rounded" href=/docs/data-zoo/louds-tree/>Level Order Unary Degree Sequence (LOUDS)</a></li><li><a class="docs-link rounded" href=/docs/data-zoo/wavelet-tree/>Multiary Wavelet Trees</a></li><li><a class="docs-link rounded" href=/docs/data-zoo/mutistream-tree/>Mutistream Balanced Tree</a></li><li><a class="docs-link rounded active" href=/docs/data-zoo/packed-allocator/>Packed Allocator</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-storage aria-expanded=false>
+Storage Engines</button><div class=collapse id=section-storage><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/storage/overview/>Storage Engines Overview</a></li><li><a class="docs-link rounded" href=/docs/storage/memory-store/>Memory Store</a></li><li><a class="docs-link rounded" href=/docs/storage/swmr-store/>SWMR Store</a></li><li><a class="docs-link rounded" href=/docs/storage/overlay-store/>Overlay Store</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-runtime aria-expanded=false>
+Runtime Environment</button></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-linked-data aria-expanded=false>
+Linked Data & SDN</button></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-d-phil aria-expanded=false>
+Digital Philosophy</button><div class=collapse id=section-d-phil><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/d-phil/overview/>Memoria for AI - Overview</a></li><li><a class="docs-link rounded" href=/docs/d-phil/ai/>Memoria and Artificial Intelligence</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-mbt aria-expanded=false>
+Memoria Build Tool</button><div class=collapse id=section-mbt><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/mbt/overview/>MBT Overview</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-tests aria-expanded=false>
+Testing Framework</button><div class=collapse id=section-tests><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/tests/overview/>Tests -- Overview</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-datascope aria-expanded=false>
+Datascope</button><div class=collapse id=section-datascope><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/datascope/overview/>Datascope Overview</a></li></ul></div></li></ul></nav></aside></div><div class="wrap container-xxl" role=document><div class=content><div class="row flex-xl-nowrap"><div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block"><nav class=docs-links aria-label="Main navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-overview aria-expanded=false>
+Overview</button><div class=collapse id=section-overview><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/overview/introduction/>Introduction to Memoria</a></li><li><a class="docs-link rounded" href=/docs/overview/definitions/>Basic Definitions</a></li><li><a class="docs-link rounded" href=/docs/overview/whyc++/>Why C++</a></li><li><a class="docs-link rounded" href=/docs/overview/hardware-accel/>Hardware Acceleration in Memoria</a></li><li><a class="docs-link rounded" href=/docs/overview/faq/>FAQ</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-datazoo aria-expanded=true>
+Data Zoo</button><div class="collapse show" id=section-datazoo><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/data-zoo/overview/>Core Data Structures -- Overview</a></li><li><a class="docs-link rounded" href=/docs/data-zoo/partial-sum-tree/>Partial Sums Tree</a></li><li><a class="docs-link rounded" href=/docs/data-zoo/searchable-seq/>Searchable Sequence</a></li><li><a class="docs-link rounded" href=/docs/data-zoo/louds-tree/>Level Order Unary Degree Sequence (LOUDS)</a></li><li><a class="docs-link rounded" href=/docs/data-zoo/wavelet-tree/>Multiary Wavelet Trees</a></li><li><a class="docs-link rounded" href=/docs/data-zoo/mutistream-tree/>Mutistream Balanced Tree</a></li><li><a class="docs-link rounded active" href=/docs/data-zoo/packed-allocator/>Packed Allocator</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-storage aria-expanded=false>
+Storage Engines</button><div class=collapse id=section-storage><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/storage/overview/>Storage Engines Overview</a></li><li><a class="docs-link rounded" href=/docs/storage/memory-store/>Memory Store</a></li><li><a class="docs-link rounded" href=/docs/storage/swmr-store/>SWMR Store</a></li><li><a class="docs-link rounded" href=/docs/storage/overlay-store/>Overlay Store</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-runtime aria-expanded=false>
+Runtime Environment</button></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-linked-data aria-expanded=false>
+Linked Data & SDN</button></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-d-phil aria-expanded=false>
+Digital Philosophy</button><div class=collapse id=section-d-phil><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/d-phil/overview/>Memoria for AI - Overview</a></li><li><a class="docs-link rounded" href=/docs/d-phil/ai/>Memoria and Artificial Intelligence</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-mbt aria-expanded=false>
+Memoria Build Tool</button><div class=collapse id=section-mbt><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/mbt/overview/>MBT Overview</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-tests aria-expanded=false>
+Testing Framework</button><div class=collapse id=section-tests><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/tests/overview/>Tests -- Overview</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-datascope aria-expanded=false>
+Datascope</button><div class=collapse id=section-datascope><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/docs/datascope/overview/>Datascope Overview</a></li></ul></div></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation"><div class=page-links><h3>On this page</h3><nav id=TableOfContents><ul><li><a href=#resizable-object-pattern>Resizable Object Pattern</a></li><li><a href=#linear-contiguous-allocator>Linear Contiguous Allocator</a></li><li><a href=#allocator-aware-objects>Allocator-Aware Objects</a></li><li><a href=#recursive-allocator>Recursive Allocator</a></li><li><a href=#packedallocator-api>PackedAllocator API</a></li><li><a href=#resizable-object-example-seachable-sequence>Resizable Object Example: Seachable Sequence</a></li></ul></nav></div></nav><main class="docs-content col-lg-11 col-xl-9"><h1>Packed Allocator</h1><p class=lead></p><nav class=d-xl-none aria-label="Quaternary navigation"><div class=page-links><h3>On this page</h3><nav id=TableOfContents><ul><li><a href=#resizable-object-pattern>Resizable Object Pattern</a></li><li><a href=#linear-contiguous-allocator>Linear Contiguous Allocator</a></li><li><a href=#allocator-aware-objects>Allocator-Aware Objects</a></li><li><a href=#recursive-allocator>Recursive Allocator</a></li><li><a href=#packedallocator-api>PackedAllocator API</a></li><li><a href=#resizable-object-example-seachable-sequence>Resizable Object Example: Seachable Sequence</a></li></ul></nav></div></nav><p>We need to place several, possibly resizable (see below), objects into a single contiguous memory block of limited size. Classical malloc-like memory allocator is not suitable here because it doesn&rsquo;t work well with resizable objects. Especially if they are allocated in a relatively small memory block. To maintain resizability efficiently we have to relocate other objects if some object is resized.</p><h2 id=resizable-object-pattern>Resizable Object Pattern<a href=#resizable-object-pattern class=anchor aria-hidden=true>#</a></h2><p>Resizable object is an object that has unbounded size. Usually it has the following pattern:</p><pre><code class=language-c++>class ResizableObject {
+  int object_size_;
+  char[] variable_size_data_;
+};
+</code></pre><p>Here, the last member <code>char[] variable_size_data_</code> is an unbounded array. For any object <code>sizeof()</code> does
+not count the last member if it is unbounded array. For example, <code>sizeof(ResizableObject) == sizeof(int)</code>.</p><p>If a custom allocator allocates more memory than necessary for resizable objects, this memory can be accessed via the last member. Usually such an object should know length of the memory block it is mapper to. But it can also be stored by memory allocator.</p><h2 id=linear-contiguous-allocator>Linear Contiguous Allocator<a href=#linear-contiguous-allocator class=anchor aria-hidden=true>#</a></h2><p>The idea is to place all abjects contiguously in a memory block and shift them if some object is resized. Separate layout dictionary is used to locate objects in a block. Objects are accessed by their indexes, not by direct addresses in the block.</p><p>Layout dictionary is an ordered list of block offsets. If dictionary if large, <a href=/docs/data-zoo/partial-sum-tree>partial sum tree</a> can be used to speedup access.</p><p><figure class=figure><img class="figure-img img-fluid lazyload blur-up" data-sizes=auto src=https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_20x0_resize_box_3.png data-srcset="https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_900x0_resize_box_3.png 900w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_800x0_resize_box_3.png 800w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_700x0_resize_box_3.png 700w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_600x0_resize_box_3.png 600w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_500x0_resize_box_3.png 500w" width=880 height=250 alt="Contiguous Resizable Allocator"><noscript><img class="figure-img img-fluid" sizes=100vw srcset="https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_900x0_resize_box_3.png 900w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_800x0_resize_box_3.png 800w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_700x0_resize_box_3.png 700w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_600x0_resize_box_3.png 600w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator_hucf214c62334c6501cdcf430fd778874f_31718_500x0_resize_box_3.png 500w" src=https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_contiguous_allocator.png width=880 height=250 alt="Contiguous Resizable Allocator"></noscript></figure></p><p>Layout dictionary is placed into the same memory block as object&rsquo;s data.</p><h2 id=allocator-aware-objects>Allocator-Aware Objects<a href=#allocator-aware-objects class=anchor aria-hidden=true>#</a></h2><p>The main property of resizable objects is that their size can be changed dynamically, that requires interaction with allocator. Consider the following example:</p><pre><code class=language-c++>class ResizableObject {
+  //...
+  int insert(int index, int value); // enlarge object
+  int remove(int index);            // shrink object
+  //...
+};
+</code></pre><p>We have two methods affecting object&rsquo;s size. And it is good to incapsulate required interaction with allocator within resizable objects. But the problem is we don&rsquo;t want to store raw memory pointers to the allocator withing objects for various reasons. The main reason is we want allocators to be relocatable. If the allocator itself is relocated, all pointers have to be updated.</p><p>The idea is to put allocator and objects into a single addressable memory block. In this case we can get address of allocator having only address of the object and its relative offset in the memory block. Let&rsquo;s consider <code>PackedAllocatable</code> base class for any allocator-aware resizable object:</p><pre><code class=language-c++>
+class PackedAllocator;
+
+class PackedAllocatable {
+  typedef PackedAllocator Allocator;
+  int allocator_offset_; // resizable object offset in the allocator's memory block
+public:
+  Allocator* allocator() {
+    if (allocator_offset_ &gt; 0) {
+      return reinterpret_cast&lt;Allocator*&gt;(reinterpret_cast&lt;char*&gt;(this) - allocator_offset_);
+    }
+    else return nullptr;
+  }
+
+  // Other methods go here...
+};
+
+</code></pre><p>See the following figure how it may look like:</p><p><figure class=figure><img class="figure-img img-fluid lazyload blur-up" data-sizes=auto src=https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_20x0_resize_box_3.png data-srcset="https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_900x0_resize_box_3.png 900w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_800x0_resize_box_3.png 800w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_700x0_resize_box_3.png 700w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_600x0_resize_box_3.png 600w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_500x0_resize_box_3.png 500w" width=880 height=250 alt="Packed Allocator Brief"><noscript><img class="figure-img img-fluid" sizes=100vw srcset="https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_900x0_resize_box_3.png 900w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_800x0_resize_box_3.png 800w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_700x0_resize_box_3.png 700w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_600x0_resize_box_3.png 600w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief_hu77d89cfdca7bbc495de55839a7b8518e_44474_500x0_resize_box_3.png 500w" src=https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_brief.png width=880 height=250 alt="Packed Allocator Brief"></noscript></figure></p><p>In Memoria we call such allocator <em>packed</em>, because it packs all objects and itself into single self-sufficient memory block that can be relocated or serialized. That doesn&rsquo;t affect relative positions of objects within the memory block.</p><p>Each allocator-aware resizable object must derive from <code>PackedAllocatable</code> class that maintains relative offset of an object to the allocator. The following figure explains it in greater details:</p><p><figure class=figure><img class="figure-img img-fluid lazyload blur-up" data-sizes=auto src=https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_20x0_resize_box_3.png data-srcset="https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_900x0_resize_box_3.png 900w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_800x0_resize_box_3.png 800w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_700x0_resize_box_3.png 700w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_600x0_resize_box_3.png 600w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_500x0_resize_box_3.png 500w" width=880 height=250 alt="Packed Allocator Full"><noscript><img class="figure-img img-fluid" sizes=100vw srcset="https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_900x0_resize_box_3.png 900w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_800x0_resize_box_3.png 800w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_700x0_resize_box_3.png 700w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_600x0_resize_box_3.png 600w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_hue6b1fd5d48b6c63d83966908cd50a33b_59206_500x0_resize_box_3.png 500w" src=https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full.png width=880 height=250 alt="Packed Allocator Full"></noscript></figure></p><p>Here we have four resizable objects with sizes 4, 7, 11, and 9 respectively. Each object maintains its relative offset in the memory block, that is converted to a pointer to the allocator.</p><p>Let&rsquo;s increase object #1 by 8 units:</p><p><figure class=figure><img class="figure-img img-fluid lazyload blur-up" data-sizes=auto src=https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_20x0_resize_box_3.png data-srcset="https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_900x0_resize_box_3.png 900w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_800x0_resize_box_3.png 800w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_700x0_resize_box_3.png 700w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_600x0_resize_box_3.png 600w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_500x0_resize_box_3.png 500w" width=880 height=250 alt="Packed Allocator Full, Enlarged"><noscript><img class="figure-img img-fluid" sizes=100vw srcset="https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_900x0_resize_box_3.png 900w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_800x0_resize_box_3.png 800w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_700x0_resize_box_3.png 700w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_600x0_resize_box_3.png 600w,https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged_hu03a970726d8042ead526e912ac825681_59233_500x0_resize_box_3.png 500w" src=https://memoria-framework.dev/docs/data-zoo/packed-allocator/packed_allocator_full_enlarged.png width=880 height=250 alt="Packed Allocator Full, Enlarged"></noscript></figure></p><p>We need to perform the following operations for objects #2 and #3.</p><ol><li>Shift objects' data right by 8 units.</li><li>Increase objects' offsets in layout dictionary by 8 units.</li><li>Increase <code>PackedAllocatable::allocator_offset_</code> by 8 units.</li></ol><p>Not all abjects are resizable, they don&rsquo;t need to maintain a pointer to the allocator. But now allocator has to know which objects are instances of <code>PackedAllocatable</code> and which are not to update pointers properly.</p><h2 id=recursive-allocator>Recursive Allocator<a href=#recursive-allocator class=anchor aria-hidden=true>#</a></h2><p>The next idea is to define packed allocator recursively by deriving from <code>PackedAllocatable</code>.</p><pre><code class=language-c++>class PackedAllocatable {/*...*}; // maintains a managed pointer to packed allocator
+
+class PackedAllocator: public PackedAllocatable {
+public:
+  //...
+};
+</code></pre><p>In this case it is possible to embed any packed allocator into another allocator just as any resizable object.</p><h2 id=packedallocator-api>PackedAllocator API<a href=#packedallocator-api class=anchor aria-hidden=true>#</a></h2><p>So we have:</p><ol><li><code>PackedAllocator</code> managing resizable memory regions withing contiguous relocatable memory block.</li><li>Allocator-aware objects derive from <code>PackedAllocatable</code>.</li><li>Packed allocator also derives from <code>PackedAllocatable</code> that mean it can be embedded into another packed allocator.</li></ol><p>The last idea is to use <code>PackedAllocator</code> as a base class for resizable objects. That enables them to have more than one resizable section.</p><p>The following code snippet explains basic PackedAllocator API:</p><pre><code class=language-c++>class PackedAllocatable {/*...*}; // maintains a managed pointer to packed allocator
+
+class PackedAllocator: public PackedAllocatable {
+public:
+  //...
+
+  template &lt;typename T&gt;
+  T* get(int i);             //returns address of i-th memory block, i = 0...
+  template &lt;typename T&gt;
+  const T* get(int i) const; //returns address of i-th memory block, i = 0...
+
+  template &lt;typename T&gt;
+  T* allocate(int i, int size); // allocates size bytes for i-th memory block and initializes
+                                // it properly if T derives from PackedAllocatable.
+
+  template &lt;typename T&gt;
+  T* allocate(int i); // Allocates space for i-th memory block and initializes
+                      // it properly if T derives from PackedAllocatable. 
+                      // Size of the block is got via T::empty_size() if T derives 
+                      // form PackedAllocatable and sizeof(T) otherwise.
+
+  // resize memory block at address 'addr', resize parent allocator if necessary
+  // throws PackedOOMException if top-most allocator runs out of memory
+  void resize(const void* addr, int new_size); 
+
+  //the same as above but returns size of i-th block in bytes
+  void resize(int i, int new_size);
+
+  int size(int i) const; 
+
+  void init(int entries); // initializes allocator with the specified number of 
+                          // empty blocks (entries)
+ 
+  // returns size in bytes of empty allocator having specified number of entries
+  static int empty_size(int entries); 
+
+  static int round(int size); // round size to alignment blocks. e.g. if alignment block is 8 bytes
+                              // round(1) = 8; round(12) = 16
+
+  //...
+};
+</code></pre><p>To interact with PackedAllocator each allocatable object provides two methods. One of them is for initialization, and another one is to query object size:</p><pre><code class=language-c++>class SimpleResizableObject: public PackedAllocatable {
+public:
+  
+  // initialize the object
+  void init();
+  
+  // returns smallest size of the object in bytes
+  static int empty_size();
+};
+
+class AdvancedResizableObject: public PackedAllocator {
+public:
+  
+  // initialize the object
+  void init();
+  
+  // returns smallest size of the object in bytes
+  static int empty_size();
+};
+</code></pre><p>Note that resizable objects must be <a href=http://en.cppreference.com/w/cpp/types/is_trivial>trivial</a>.</p><p>Note also that Memoria doesn&rsquo;t currently use placement <a href=http://en.cppreference.com/w/cpp/memory/new/operator_new>new</a> и <a href=http://en.cppreference.com/w/cpp/language/delete>delete</a>.</p><pre><code class=language-c++>// There is no way to specify custom allocator and other parameters here, only address 
+// of the object to delete. PackedAllocator does not allow to get allocator address given
+// only address of a block it manages. so it provides explicit API for allocation 
+// and deallocation.
+
+void operator delete (void *ptr); // placement delete operator
+</code></pre><p>See this <a href=https://github.com/victor-smirnov/memoria/blob/master/include/memoria/core/packed/tools/packed_allocator.hpp>source</a> for more details about PackedAllocator implementation.</p><h2 id=resizable-object-example-seachable-sequence>Resizable Object Example: Seachable Sequence<a href=#resizable-object-example-seachable-sequence class=anchor aria-hidden=true>#</a></h2><p>Let&rsquo;s consider a relatively simple but live example: <a href=/docs/data-zoo/searchable-seq>searchable sequence</a>. It is a sequence of symbols providing rank and select operations performed in logarithmic time. To provide such time complexity, data structure uses additional index that have to be quite complex for large alphabets. Let&rsquo;s say that in general case the index is compressed and we don&rsquo;t know it&rsquo;s actual size ahead of time. The size of index is a variable value depending of a sequence content.</p><p>So the sequence has at least two resizable blocks: index, and symbols.</p><p>Below there is a code snipped explaining how update operations on the object interact with its allocator(s).</p><pre><code class=language-c++>
+template &lt;int BitsPerSymbol&gt;
+class SearchableSequence: public PackedAllocator {
+  typedef PackedAllocator                              Base;
+  typedef SearchableSequence&lt;BitsPerSymbol&gt;            MyType;
+
+  typedef unsigned int                                 Symbol;
+
+  // Instantiate index only if the sequence is larger
+  // than this value.
+  static const int IndexSizeThreshold                  = 64;
+
+  // no members should be declared here
+  // use Metadata class instead
+public:
+  class Metadata {
+    int size_;
+    int&amp; size() {return size_;} 
+    const int&amp; size() const {return size_;} 
+  };
+
+  class Index: public PackedAllocator {
+    // index data structure for this SearchableSequence
+  };
+
+  // This enum codes memory block indexes.
+  enum {
+    METADATA, // Metadata block
+    INDEX,    // Indexes block
+    SYMBOLS   // Symbols block
+  };
+
+  // returns address of Metadata object
+  Metadata* metadata() {
+    return Base::template get&lt;Metadata&gt;(METADATA);
+  }
+  const Metadata* metadata() const {
+    return Base::template get&lt;Metadata&gt;(METADATA);
+  }
+
+  // returns address of Index object
+  Index* index() {
+    return Base::template get&lt;Index&gt;(INDEX);
+  }
+  const Index* index() const {
+    return Base::template get&lt;Index&gt;(INDEX);
+  }
+
+  // returns address of symbols block
+  Symbol* symbols() {
+    return Base::template get&lt;Symbol&gt;(SYMBOS);
+  }
+  const Symbol* symbols() const {
+    return Base::template get&lt;Symbol&gt;(SYMBOS);
+  }
+  
+  // returns size in bytes of empty sequence. this method is used by 
+  // PackedAllocator::allocateEmpty(int) to get object's default size
+  static int empty_size() 
+  {
+    int allocator_size = Base::empty_size(); // size of allocator itself
+    int metadata_size  = Base::round(sizeof(Metadata)); // size of metadata block
+    int index_size     = 0; // index is empty for empty sequence
+    int symbols_size   = 0; // symbols block is also empty for empty sequence
+
+    return allocator_size + metadata_size + index_size + symbols_size;
+  }
+
+  void init() 
+  {
+    Base::init(3); // the object has three resizable sections.
+    
+    // Allocate metadata block and initialize it
+    Base::template allocate&lt;Metadata&gt;(METADATA);
+
+    // Allocate empty block for index. Do not initialize it
+    Base::template allocate&lt;Index&gt;(INDEX, 0);
+    
+    // Allocate empty block for symbols. 
+    Base::template allocate&lt;Symbol&gt;(SYMBOLS, 0);    
+  }
+
+  // change the value of idx-th symbol
+  void setSymbol(int idx, int symbol);
+
+  // insert new symbol at the specified position
+  int insert(int idx, int symbol) 
+  {
+    enlarge(1);              // enalrge SYMBOLS block
+    insertSpace(idx, 1);     // shift symbols
+    setSymbol(idx, symbol);  // set new symbol value
+
+    reindex();               // update search index
+  }
+
+  int size() const 
+  {
+    return metadata()-&gt;size();
+  }
+
+  // update index for the searchable sequence
+  void reindex() 
+  {
+     // check if the sequence if large enough to have index
+     if (size() &gt; IndexSizeThreshold) 
+     {
+       if (Base::size(INDEX) == 0)
+       {
+         Base::template allocate&lt;Index&gt;(0); // create empty index if it doesn't exist
+       }
+
+       Index* index = this-&gt;index();
+
+       // compute index size for given symbols and resize the index.
+       index-&gt;resize_for(this-&gt;symbols(), size());
+
+       // rebuild the index
+       // note that any resize operation invalidates pointers to blocks
+       // going after the resized one.
+       index-&gt;update(this-&gt;symbols(), size());
+     }
+     else {
+       // the sequence if not full enough to have the index,
+       // free it.
+       Base::resize(INDEX, 0); // free index block
+     }
+  }
+  
+private:
+  // insert empty space into symbols's data block,
+  // shift symbols in the range [idx, size()) 'length' positions right.
+  void insertSpace(int idx, int length);
+
+  // returns symbols block size for specified number of symbols
+  static int symbols_size(int symbols);
+
+  //enlarge symbols block by 'items' elements.
+  void enlarge(int items) 
+  {
+    // get new size for SYMBOLS block
+    int new_symbols_size = MyType::symbols_size(size() + items)
+    
+    // enlarge SYMBOLS block
+    Base::resize(SYMBOLS, new_symbols_size);
+  }
+};
+</code></pre><p>This pattern is used intensively for packed data structures in Memoria.</p><div class="docs-navigation d-flex justify-content-between"><a href=/docs/data-zoo/mutistream-tree/><div class="card my-1"><div class="card-body py-2">&larr; Mutistream Balanced Tree</div></div></a><a class=ms-auto href=/docs/storage/overview/><div class="card my-1"><div class="card-body py-2">Storage Engines Overview &rarr;</div></div></a></div></main></div></div></div><footer class="footer text-muted"><div class=container-xxl><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>Powered by <a href=https://www.github.com/>Github</a>, <a href=https://gohugo.io/>Hugo</a>, and <a href=https://getdoks.org/>Doks</a></li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline><li class=list-inline-item><a href=/privacy-policy/>Privacy</a></li></ul></div></div></div></footer><script src=/js/bootstrap.min.73ca27033146a505b6a0f66b79d99f613a18e778bc9606fd223476d0ebf0fc10508b0d4f5c448b0a946fa1d71fbeffaae9732adc0c2890e61c449217fd6ee1c0.js integrity="sha512-c8onAzFGpQW2oPZredmfYToY53i8lgb9IjR20Ovw/BBQiw1PXESLCpRvodcfvv+q6XMq3AwokOYcRJIX/W7hwA==" crossorigin=anonymous defer></script>
+<script src=/js/highlight.min.20b134e1144736c37382377dc01a9a460e52977eddf8b128d70c597f1073660effc532a82d05184541720a95a88efcda25a0528b0f47d23a04f4e3bd997122eb.js integrity="sha512-ILE04RRHNsNzgjd9wBqaRg5Sl37d+LEo1wxZfxBzZg7/xTKoLQUYRUFyCpWojvzaJaBSiw9H0joE9OO9mXEi6w==" crossorigin=anonymous defer></script>
+<script src=/js/vendor/katex/dist/katex.min.849bcb0a26d9f709f5e2355f5188d1c21e07bb04544918a1c2a6d290dc2ebcb9b787ba92911f609242c898b7ce8009c541be9153a357e673818164f829d917fe.js integrity="sha512-hJvLCibZ9wn14jVfUYjRwh4HuwRUSRihwqbSkNwuvLm3h7qSkR9gkkLImLfOgAnFQb6RU6NX5nOBgWT4KdkX/g==" crossorigin=anonymous defer></script>
+<script src=/js/vendor/katex/dist/contrib/auto-render.min.916823ec103cf367b71e28a6f01513cb9c3ac6708ccb5229402ec46b8e30a8b25003db694df35d80e9dd666a371f327c6152790617b6256390c164109a90bd4c.js integrity="sha512-kWgj7BA882e3Hiim8BUTy5w6xnCMy1IpQC7Ea44wqLJQA9tpTfNdgOndZmo3HzJ8YVJ5Bhe2JWOQwWQQmpC9TA==" crossorigin=anonymous defer></script>
+<script src=/main.min.56cf146845ee56429c57a9bb74bee52540a1aa942a32506ad0d185db760f2f7a5d76f39cde824735c8b7e89f2e4453cc4da383eaa2c2a7d6a2c9dafd7061e74d.js integrity="sha512-Vs8UaEXuVkKcV6m7dL7lJUChqpQqMlBq0NGF23YPL3pddvOc3oJHNci36J8uRFPMTaOD6qLCp9aiydr9cGHnTQ==" crossorigin=anonymous defer></script>
+<script src=https://memoria-framework.dev/index.min.71fdbb0f39dd685ac7913e4c8009278b349bbb5c416e4eb9b784e64eaca3b7d8f03d93d72fd44bacdeb85a2efaaba7a211c116ab4a104679eec7ce3072490e9c.js integrity="sha512-cf27DzndaFrHkT5MgAknizSbu1xBbk65t4TmTqyjt9jwPZPXL9RLrN64Wi76q6eiEcEWq0oQRnnux84wckkOnA==" crossorigin=anonymous defer></script></body></html>
