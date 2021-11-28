@@ -96,9 +96,9 @@ In Memoria, Multiary wavelet tree consists of four distinct data structures.
 3. Tree-ordered sequence of sizes for tree node's sub-sequences.
 4. Tree-ordered sequence of node's symbols.
 
-The first three structures are implemented as single [Labeled Tree](LabeledTree) with two labels. The first one is cardinality of the node in its parent. The second one is size of node's subsequence. 
+The first three structures are implemented as single [Labeled Tree](/docs/data-zoo/louds-tree) with two labels. The first one is cardinality of the node in its parent. The second one is size of node's subsequence. 
 
-The fourth data structure is a separate [Searchable Sequence](Searchable Sequence) for small sized alphabets. The overall structure of dynamic WT is very similar to custom version of [VectorTree](VectorTree).
+The fourth data structure is a separate [Searchable Sequence](/docs/data-zoo/searchable-seq) for small sized alphabets.
 
 Memoria has two different implementations of WT algorithm. The first one is dynamic WT that provides access/insert/select/rank operations performing in O(log _N_) time. 
 
