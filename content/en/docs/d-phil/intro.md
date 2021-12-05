@@ -1,5 +1,5 @@
 ---
-title: "Memoria for AI - Overview"
+title: "Philosophy of Memoria - Intro"
 description: ""
 lead: ""
 date: 2021-10-28T02:07:12-04:00

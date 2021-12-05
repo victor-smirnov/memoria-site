@@ -19,11 +19,11 @@ Let us consider data structure mapping an integer `ID` to a dynamic vector. Noth
 
 The solution is to store all data values in a single dynamic vector and use an additional data structure for the dictionary of data values. This dictionary is a set of pairs in the form `<ID, DataOffset>`.
 
-![Data Structure For ID->Vector<> Mapping](vector_map.png)
+ {{< figure src="vector_map.svg" >}}
 
 The dictionary can be easily represented via a balanced partial sum tree having two indexes, one for `ID` and one for `DataOffset` as it is shown on the following figure: 
 
-![Multi-index Balanced Partial Sum Tree](double_index.png)
+ {{< figure src="double_index.svg" >}}
 
 An multi-index partial sums tree is just an ordinary [partial sum tree](/docs/data-zoo/partial-sum-tree) except that scalar values of sums regarded as vectors.
 
@@ -37,7 +37,7 @@ Let us think that a balanced tree of a dictionary entry is the primary one. If a
 
 The following figure shows how it can be done:
 
-![Multistream Balanced Tree Nodes Layout](multistream_tree_nodes.png)
+ {{< figure src="multistream_tree_nodes.svg" >}}
 
 In the leaf nodes of balanced tree we put two dynamic array: 
 
@@ -54,6 +54,6 @@ This joined balanced partial sum tree contains all information from both source 
 
 Then total balanced tree structure will look like this: 
 
-![Multistream Balanced Tree Structure](multistream_tree.png)
+ {{< figure src="multistream_tree.svg" >}}
 
 It can be shown that entries can be placed in any place relative to their data providing that sequences of entries is ordered correctly. But logically linked entities should be placed closer to each other in terms of leaf nodes for performance reasons. 

@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="880"
+   height="220"
+   id="svg11842"
+   version="1.1"
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="vector_map.svg">
+  <defs
+     id="defs11844">
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path3933"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.4) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;">
+      <path
+         id="path3791"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-2"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3791-6"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-0"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3791-9"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-4"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3791-1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="335.51724"
+     inkscape:cy="239.33742"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1858"
+     inkscape:window-height="940"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid11850" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata11847">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 310,105 0,20 10,0 0,-20 z"
+       id="path11852"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 320,105 0,20 10,0 0,-20 z"
+       id="path11852-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 330,105 0,20 10,0 0,-20 z"
+       id="path11852-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 340,105 0,20 10,0 0,-20 z"
+       id="path11852-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 350,105 0,20 10,0 0,-20 z"
+       id="path11852-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 360,105 0,20 10,0 0,-20 z"
+       id="path11852-0-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 370,105 0,20 10,0 0,-20 z"
+       id="path11852-8-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 380,105 0,20 10,0 0,-20 z"
+       id="path11852-2-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 390,105 0,20 10,0 0,-20 z"
+       id="path11852-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 400,105 0,20 10,0 0,-20 z"
+       id="path11852-0-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 410,105 0,20 10,0 0,-20 z"
+       id="path11852-8-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 420,105 0,20 10,0 0,-20 z"
+       id="path11852-2-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 430,105 0,20 10,0 0,-20 z"
+       id="path11852-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 440,105 0,20 10,0 0,-20 z"
+       id="path11852-0-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 450,105 0,20 10,0 0,-20 z"
+       id="path11852-8-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 460,105 0,20 10,0 0,-20 z"
+       id="path11852-2-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 470,105 0,20 10,0 0,-20 z"
+       id="path11852-81"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 480,105 0,20 10,0 0,-20 z"
+       id="path11852-0-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 490,105 0,20 10,0 0,-20 z"
+       id="path11852-8-99"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 500,105 0,20 10,0 0,-20 z"
+       id="path11852-2-23"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 510,105 0,20 10,0 0,-20 z"
+       id="path11852-34"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 520,105 0,20 10,0 0,-20 z"
+       id="path11852-0-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 530,105 0,20 10,0 0,-20 z"
+       id="path11852-8-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 540,105 0,20 10,0 0,-20 z"
+       id="path11852-2-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 550,105 0,20 10,0 0,-20 z"
+       id="path11852-36"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 560,105 0,20 10,0 0,-20 z"
+       id="path11852-0-01"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 570,105 0,20 10,0 0,-20 z"
+       id="path11852-8-59"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 580,105 0,20 10,0 0,-20 z"
+       id="path11852-2-58"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 590,105 0,20 10,0 0,-20 z"
+       id="path11852-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 600,105 0,20 10,0 0,-20 z"
+       id="path11852-0-48"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 610,105 0,20 10,0 0,-20 z"
+       id="path11852-8-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.70710677px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 620,105 0,20 10,0 0,-20 z"
+       id="path11852-2-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 305,45 0,20 20,0 0,-20 z"
+       id="path11852-82"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 305,65 0,19.999997 20,0 L 325,65 z"
+       id="path11852-82-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 375,45 0,20 20,0 0,-20 z"
+       id="path11852-82-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 375,65 0,19.999997 20,0 L 395,65 z"
+       id="path11852-82-6-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 415,45 0,20 20,0 0,-20 z"
+       id="path11852-82-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 415,65 0,19.999997 20,0 L 435,65 z"
+       id="path11852-82-6-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 545,45 0,20 20,0 0,-20 z"
+       id="path11852-82-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 545,65 0,19.999997 20,0 L 565,65 z"
+       id="path11852-82-6-42"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="310"
+       y="145"
+       id="text12068"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12070"
+         x="310"
+         y="145">0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="616.42859"
+       y="145"
+       id="text12072"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12074"
+         x="616.42859"
+         y="145">31</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="311"
+       y="80"
+       id="text12076"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12078"
+         x="311"
+         y="80">0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="381"
+       y="80"
+       id="text12080"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12082"
+         x="381"
+         y="80">7</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="416"
+       y="80"
+       id="text12084"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12086"
+         x="416"
+         y="80">11</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="546"
+       y="80"
+       id="text12088"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12090"
+         x="546"
+         y="80">24</tspan></text>
+    <path
+       style="fill:#666666;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 310.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12092"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#666666;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 320.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12094"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#666666;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 330.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12096"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#666666;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 340.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12098"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#666666;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 350.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12100"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#666666;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 360.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12102"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#808080;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 370.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12104"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#cccccc;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 380.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12106"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#cccccc;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 390.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12108"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#cccccc;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 400.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12110"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#cccccc;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 410.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12112"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 420.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12114"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 439.84288,114.86275 c 0.001,-5.5 0.11324,-7.65558 0.24917,-4.79018 0.13592,2.8654 0.13501,7.3654 -0.002,10 -0.13704,2.6346 -0.24825,0.29018 -0.24714,-5.20982 z"
+       id="path12116"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 430.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12118"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 440.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12120"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 450.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12122"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 460.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12124"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 470.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12126"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 480.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12128"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 490.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12130"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 500.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12132"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 510.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12134"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 520.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12136"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 530.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12138"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffaaaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 540.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12140"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#aaffaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 550.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12142"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#aaffaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 560.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12144"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#aaffaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 579.84288,114.86275 c 10e-4,-5.5 0.11324,-7.65558 0.24917,-4.79018 0.13592,2.8654 0.13501,7.3654 -0.002,10 -0.13704,2.6346 -0.24825,0.29018 -0.24714,-5.20982 z"
+       id="path12146"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#aaffaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 570.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12148"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#aaffaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 580.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12150"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#aaffaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 590.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12152"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#aaffaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 600.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12154"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#aaffaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 610.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12156"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#aaffaa;stroke-width:1;stroke-miterlimit:1.33333325;stroke-dasharray:none"
+       d="m 620.98963,115.21989 0,-9.28571 4.28571,0 4.28571,0 0,9.28571 0,9.28571 -4.28571,0 -4.28571,0 0,-9.28571 z"
+       id="path12158"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 315,85 0,20"
+       id="path12160"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 385,85 0,20"
+       id="path12160-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 425,85 0,20"
+       id="path12160-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 555,85 0,20"
+       id="path12160-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="310"
+       y="60"
+       id="text13080"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan13082"
+         x="310"
+         y="60">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="381"
+       y="60"
+       id="text13084"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan13086"
+         x="381"
+         y="60">2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="421"
+       y="60"
+       id="text13088"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan13090"
+         x="421"
+         y="60">3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="551"
+       y="60"
+       id="text13092"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan13094"
+         x="551"
+         y="60">4</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="380"
+       y="145"
+       id="text13096"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan13098"
+         x="380"
+         y="145">7</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="415"
+       y="145"
+       id="text13100"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan13102"
+         x="415"
+         y="145">11</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="545"
+       y="145"
+       id="text13104"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan13106"
+         x="545"
+         y="145">24</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="575"
+       y="60"
+       id="text13127"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan13129"
+         x="575"
+         y="60">Keys</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="575"
+       y="80"
+       id="text13131"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan13133"
+         x="575"
+         y="80">Offsets</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="240"
+       y="110"
+       id="text13131-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan13133-5"
+         x="240"
+         y="110">Dynamic</tspan><tspan
+         sodipodi:role="line"
+         x="240"
+         y="127.5"
+         id="tspan3120">Vector</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="450"
+       y="160"
+       id="text3122"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3124"
+         x="450"
+         y="160">Value data</tspan><tspan
+         sodipodi:role="line"
+         x="450"
+         y="177.5"
+         id="tspan3126">for key 3</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend-4)"
+       d="m 430,130 60,15 50,-15"
+       id="path3130"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="340"
+       y="25"
+       id="text3122-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="340"
+         y="25"
+         id="tspan3126-7">VectorMap internal structure</tspan></text>
+    <rect
+       style="fill:none;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4592"
+       width="345"
+       height="60"
+       x="235"
+       y="30" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.97864527;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.97864522, 0.97864522;stroke-dashoffset:0"
+       d="m 300,40 340,0 0,50 -340,0 z"
+       id="path4594"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="240"
+       y="60"
+       id="text13131-4-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/vector-map.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="240"
+         y="60"
+         id="tspan3120-2">Set of</tspan><tspan
+         sodipodi:role="line"
+         x="240"
+         y="77.5"
+         id="tspan4622">pairs</tspan></text>
+  </g>
+</svg>

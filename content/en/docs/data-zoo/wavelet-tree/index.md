@@ -22,7 +22,7 @@ Let we have a sequence of integers, say, 54.03.12.21.47.03.17.54.22.51 drawn fro
 
 First we need to represent our sequence in a different format. Our WT is 4-ary and has 3 layers. We need to "split" the sequence in 3 layers horizontally where symbols of each layer are drawn from 2-bit alphabet. In other words, we need to recode our sequence from base of 10 to base of 4, and then write numbers vertically:
 
-![Multiary Wavelet Tree](multiary_wavelet_tree.png)
+ {{< figure src="multiary_wavelet_tree.svg" >}}
 
 Note that this is just a logical operation, it doesn't require any transformation of the sequence itself.
 
@@ -45,19 +45,19 @@ Also, it is not necessary to keep empty nodes in the tree (they are shown in gra
 To insert a value into WT we need:
 
 1. find the path from root to leaf for inserted values, insert tree nodes if necessary;
-2. find correct position in the node's subsequence to insert current symbol.
+1. find correct position in the node's subsequence to insert current symbol.
 
 The path in the wavelet tree is determined by "layered" representation if inserted symbol. Computation of insertion position is a bit tricky.
 
 Let we insert the value of 37 into position 7. Layered representation of 37 is "211".
 
 1. Level 2. Insert "2" into position 7 of root node's subsequence of WT.
-2. Level 1. Next child is "2". Insertion position for "1" is `rank(7 + 1, 2) - 1 = rank(8, 2) - 1 = 1` computed in the parent node's sequence for this child.
-3. Level 0. Next child is "1", create it. Repeat the procedure for Layer 1. Insertion position for "1" is `rank(1 + 1, 1) - 1 = rank(2, 1) - 1 = 0` computed in the parent node's sequence for this child.
+1. Level 1. Next child is "2". Insertion position for "1" is `rank(7 + 1, 2) - 1 = rank(8, 2) - 1 = 1` computed in the parent node's sequence for this child.
+1. Level 0. Next child is "1", create it. Repeat the procedure for Layer 1. Insertion position for "1" is `rank(1 + 1, 1) - 1 = rank(2, 1) - 1 = 0` computed in the parent node's sequence for this child.
 
 See the following figure for details:
 
-![Multiary Wavelet Tree Element Insertion](multiary_wavelet_tree_insert.png)
+ {{< figure src="multiary_wavelet_tree_insert.svg" >}}
 
 
 Access is similar, but instead of to insert a symbol to a node's subsequence, take the symbol form it and use it to select next child. 
@@ -67,9 +67,9 @@ Access is similar, but instead of to insert a symbol to a node's subsequence, ta
 To compute rank(position, symbol) we need:
 
 1. find the leaf in WT for the symbol;
-2. find position in the leaf to compute the final rank.
+1. find position in the leaf to compute the final rank.
 
-![Multiary Wavelet Tree Rank](multiary_wavelet_tree_rank.png)
+ {{< figure src="multiary_wavelet_tree_rank.svg" >}}
 
 
 ## Select
@@ -85,7 +85,7 @@ Let we need to select position of the 2nd 3 in the original sequence. Layered re
 
 Check the following figure for details:
 
-![Multiary Wavelet Tree Select](multiary_wavelet_tree_select.png)
+ {{< figure src="multiary_wavelet_tree_select.svg" >}}
 
 ## Implementations
 

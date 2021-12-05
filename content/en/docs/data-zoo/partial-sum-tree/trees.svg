@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="880.0"
+   height="660"
+   id="svg4475"
+   version="1.1"
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="trees.svg"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4477">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         id="path3809"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path3803"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="DotM"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="DotM"
+       style="overflow:visible">
+      <path
+         id="path3847"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;marker-end:none"
+         transform="scale(0.4) translate(7.4, 1)" />
+    </marker>
+    <marker
+       inkscape:stockid="DotL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="DotL"
+       style="overflow:visible">
+      <path
+         id="path3844"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;marker-end:none"
+         transform="scale(0.8) translate(7.4, 1)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Sstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Sstart"
+       style="overflow:visible">
+      <path
+         id="path3794"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.2) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mstart"
+       style="overflow:visible">
+      <path
+         id="path3806"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path3788"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.4) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend-3"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3809-6"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6,-0.6)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="310.83828"
+     inkscape:cy="379.48205"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1858"
+     inkscape:window-height="940"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4483" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4480">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="62.124382"
+       y="47.765476"
+       id="text4489"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4491"
+         x="62.124382"
+         y="47.765476" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="50.507626"
+       y="57.361923"
+       id="text4493"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4495"
+         x="50.507626"
+         y="57.361923" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="63.63961"
+       y="59.887306"
+       id="text4497"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4499"
+         x="63.63961"
+         y="59.887306" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4596"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Verdana;font-style:normal;font-weight:normal;font-size:14px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4598"><rect
+           id="rect4600"
+           width="93.944183"
+           height="102.02541"
+           x="171.22086"
+           y="10.894908" /></flowRegion><flowPara
+         id="flowPara4602" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4639"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Verdana;font-style:normal;font-weight:normal;font-size:14px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4641"><rect
+           id="rect4643"
+           width="1.0101526"
+           height="16.667517"
+           x="315.1676"
+           y="30.592882" /></flowRegion><flowPara
+         id="flowPara4645" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4647"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Verdana;font-style:normal;font-weight:normal;font-size:14px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4649"><rect
+           id="rect4651"
+           width="82.832512"
+           height="113.64216"
+           x="274.76151"
+           y="39.17918" /></flowRegion><flowPara
+         id="flowPara4653" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4663"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Verdana;font-style:normal;font-weight:normal;font-size:14px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4665"><rect
+           id="rect4667"
+           width="150.00766"
+           height="140.41121"
+           x="273.75134"
+           y="10.389832" /></flowRegion><flowPara
+         id="flowPara4669" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4725"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Verdana;font-style:normal;font-weight:normal;font-size:14px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4727"><rect
+           id="rect4729"
+           width="442.44681"
+           height="111.62186"
+           x="17.172594"
+           y="13.420289" /></flowRegion><flowPara
+         id="flowPara4731" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="350.01785"
+       y="109.88986"
+       id="text4928"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4930"
+         x="350.01785"
+         y="109.88986" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="72.85714"
+       y="421.64789"
+       id="text7352"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7354"
+         x="72.85714"
+         y="421.64789" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 319.64286,92.36218 0,40 39.375,0 0,-40 z"
+       id="path4487"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="334.07559"
+       y="119.41815"
+       id="text4501"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503"
+         x="334.07559"
+         y="119.41815"
+         style="font-size:25.39921379px">8</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 359.01786,92.36218 0,40 39.375,0 0,-40 z"
+       id="path4487-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="365.82462"
+       y="119.41815"
+       id="text4501-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8"
+         x="365.82462"
+         y="119.41815"
+         style="font-size:25.39921379px">14</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 398.39286,92.36218 0,40 39.375,0 0,-40 z"
+       id="path4487-9-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="405.51093"
+       y="119.41815"
+       id="text4501-3-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-2"
+         x="405.51093"
+         y="119.41815"
+         style="font-size:25.39921379px">17</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 280.26786,92.36218 0,40.00001 39.375,0 0,-40.00001 z"
+       id="path4487-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="294.38934"
+       y="119.41815"
+       id="text4501-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-7"
+         x="294.38934"
+         y="119.41815"
+         style="font-size:25.39921379px">3</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 437.76786,92.36218 0,40.00001 39.375,0 0,-40.00001 z"
+       id="path4487-9-0-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="445.19714"
+       y="119.41815"
+       id="text4501-3-0-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-2-3"
+         x="445.19714"
+         y="119.41815"
+         style="font-size:25.39921379px">21</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 477.14286,92.36218 0,40.00001 39.375,0 0,-40.00001 z"
+       id="path4487-9-0-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="484.88342"
+       y="119.41815"
+       id="text4501-3-0-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         x="484.88342"
+         y="119.41815"
+         style="font-size:25.39921379px"
+         id="tspan4659">26</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 516.51786,92.36218 0,40.00001 39.375,0 0,-40.00001 z"
+       id="path4487-9-0-4-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="524.56976"
+       y="119.41815"
+       id="text4501-3-0-0-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         x="524.56976"
+         y="119.41815"
+         style="font-size:25.39921379px"
+         id="tspan4659-0">33</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 555.89286,92.36218 0,40 39.375,0 0,-40 z"
+       id="path4487-9-0-4-63"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="564.25598"
+       y="119.41815"
+       id="text4501-3-0-0-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         x="564.25598"
+         y="119.41815"
+         style="font-size:25.39921379px"
+         id="tspan4659-2">38</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 319.45536,354.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="333.88663"
+       y="379.36322"
+       id="text4501-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-0"
+         x="333.88663"
+         y="379.36322"
+         style="font-size:25.39921379px">5</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 358.83036,354.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-9-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="373.63589"
+       y="379.56323"
+       id="text4501-3-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-8"
+         x="373.63589"
+         y="379.56323"
+         style="font-size:25.39921379px">6</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 398.20536,354.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-9-0-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="413.95209"
+       y="380.63885"
+       id="text4501-3-0-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-2-1"
+         x="413.95209"
+         y="380.63885"
+         style="font-size:25.39921379px">3</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 280.08036,354.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-2-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="294.20035"
+       y="379.36322"
+       id="text4501-5-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-7-9"
+         x="294.20035"
+         y="379.36322"
+         style="font-size:25.39921379px">3</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 437.58036,354.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-9-0-5-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="454.1629"
+       y="380.77304"
+       id="text4501-3-0-1-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-2-3-2"
+         x="454.1629"
+         y="380.77304"
+         style="font-size:25.39921379px">4</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 476.95536,354.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-9-0-4-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="493.05737"
+       y="380.09476"
+       id="text4501-3-0-0-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         x="493.05737"
+         y="380.09476"
+         style="font-size:25.39921379px"
+         id="tspan4659-3">5</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 516.33036,354.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-9-0-4-6-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="532.01678"
+       y="380.36545"
+       id="text4501-3-0-0-2-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         x="532.01678"
+         y="380.36545"
+         style="font-size:25.39921379px"
+         id="tspan4659-0-2">7</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 555.70536,354.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-9-0-4-63-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="572.72119"
+       y="380.1149"
+       id="text4501-3-0-0-5-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         x="572.72119"
+         y="380.1149"
+         style="font-size:25.39921379px"
+         id="tspan4659-2-5">5</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 301.33036,299.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-9-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="314.73996"
+       y="325.27557"
+       id="text4501-3-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-1"
+         x="314.73996"
+         y="325.27557"
+         style="font-size:25.39921379px">8</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 381.33036,299.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-9-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="395.94952"
+       y="324.79459"
+       id="text4501-3-06"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-26"
+         x="395.94952"
+         y="324.79459"
+         style="font-size:25.39921379px">9</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 456.33036,299.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-9-76"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="472.05151"
+       y="324.29346"
+       id="text4501-3-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-4"
+         x="472.05151"
+         y="324.29346"
+         style="font-size:25.39921379px">9</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 536.33036,299.36217 0,40 39.375,0 0,-40 z"
+       id="path4487-9-14"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="544.53882"
+       y="324.79459"
+       id="text4501-3-56"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-7"
+         x="544.53882"
+         y="324.79459"
+         style="font-size:25.39921379px">12</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 341.33036,244.36218 0,40 39.375,0 0,-40 z"
+       id="path4487-9-16"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="347.99728"
+       y="270.22598"
+       id="text4501-3-54"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-19"
+         x="347.99728"
+         y="270.22598"
+         style="font-size:25.39921379px">17</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 496.33036,244.36218 0,39.99999 39.375,0 0,-39.99999 z"
+       id="path4487-9-70"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="504.22266"
+       y="270.22595"
+       id="text4501-3-01"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-11"
+         x="504.22266"
+         y="270.22595"
+         style="font-size:25.39921379px">21</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79372543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 420.89286,187.36218 0,40 39.375,0 0,-40 z"
+       id="path4487-9-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.11215591px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="428.18878"
+       y="213.67303"
+       id="text4501-3-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(0.99215671,1.0079053)"><tspan
+         sodipodi:role="line"
+         id="tspan4503-8-6"
+         x="428.18878"
+         y="213.67303"
+         style="font-size:25.39921379px">38</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#DotM)"
+       d="m 360.26786,242.36218 80,-15 75,15"
+       id="path4932"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#DotM)"
+       d="m 320.26786,297.36218 40.50508,-12.97969 39.49492,12.97969"
+       id="path4934"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#DotM)"
+       d="m 475.26786,297.36218 39.74746,-13.23223 40.25254,13.23223"
+       id="path4936"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#DotM)"
+       d="m 300.26786,352.36218 19.49492,-12.97969 20.50508,12.97969"
+       id="path4938"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#DotM)"
+       d="m 380.26786,352.36218 19.74746,-13.23223 20.25254,13.23223"
+       id="path4940"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#DotM)"
+       d="m 455.26786,352.36218 22.27284,-12.72716 22.72716,12.72716"
+       id="path4942"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#DotM)"
+       d="m 535.26786,352.36218 19.74746,-12.47462 20.25254,12.47462"
+       id="path4944"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Mend)"
+       d="m 440.26786,142.36218 0,30"
+       id="path6956"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="279.28574"
+       y="75.933609"
+       id="text7348"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7350"
+         x="279.28574"
+         y="75.933609"
+         style="font-size:18px">An ordered sequence of numbers...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+       x="436.7948"
+       y="399.50507"
+       id="text7356"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7358"
+         x="436.7948"
+         y="399.50507"
+         style="font-size:18px;text-align:center;text-anchor:middle" /><tspan
+         sodipodi:role="line"
+         x="436.7948"
+         y="422.00507"
+         style="font-size:18px;text-align:center;text-anchor:middle"
+         id="tspan3170">delata sequence + partial</tspan><tspan
+         sodipodi:role="line"
+         x="436.7948"
+         y="444.50507"
+         style="font-size:18px;text-align:center;text-anchor:middle"
+         id="tspan7443">sums tree above it</tspan><tspan
+         sodipodi:role="line"
+         x="436.7948"
+         y="467.00507"
+         style="font-size:18px;text-align:center;text-anchor:middle"
+         id="tspan3168" /></text>
+    <g
+       id="g7763"
+       transform="translate(114.28571,67.14286)"
+       inkscape:export-filename="/home/developer/Документы/packed_tree_wiki.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531"
+         d="m 33.180695,451.4697 39.382156,0 0,39.61062 -39.382156,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533"
+         y="475.18011"
+         x="41.176044"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="41.176044"
+           id="tspan7535"
+           sodipodi:role="line">38</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-9"
+         d="m 72.562851,451.4697 39.382149,0 0,39.61062 -39.382149,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-4"
+         y="475.18011"
+         x="80.672256"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="80.672256"
+           id="tspan7535-0"
+           sodipodi:role="line">17</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-5"
+         d="m 111.945,451.4697 39.38217,0 0,39.61062 -39.38217,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-9"
+         y="475.18011"
+         x="120.16849"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="120.16849"
+           id="tspan7535-2"
+           sodipodi:role="line">21</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3"
+         d="m 151.32717,451.4697 39.38215,0 0,39.61062 -39.38215,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8"
+         y="475.18011"
+         x="166.24741"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="166.24741"
+           id="tspan7535-00"
+           sodipodi:role="line">8</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3-8"
+         d="m 190.70932,451.4697 39.38216,0 0,39.61062 -39.38216,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8-3"
+         y="475.18011"
+         x="205.74364"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="205.74364"
+           id="tspan7535-00-5"
+           sodipodi:role="line">9</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3-5"
+         d="m 230.09148,451.4697 39.38214,0 0,39.61062 -39.38214,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8-6"
+         y="475.18011"
+         x="245.23984"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="245.23984"
+           id="tspan7535-00-1"
+           sodipodi:role="line">9</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-5-8"
+         d="m 269.47362,451.4697 39.38217,0 0,39.61062 -39.38217,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-9-4"
+         y="475.18011"
+         x="278.15338"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="278.15338"
+           id="tspan7535-2-7"
+           sodipodi:role="line">12</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3-1"
+         d="m 308.85579,451.4697 39.38214,0 0,39.61062 -39.38214,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8-7"
+         y="475.18011"
+         x="324.2323"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="324.2323"
+           id="tspan7535-00-9"
+           sodipodi:role="line">3</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3-8-2"
+         d="m 348.23793,451.4697 39.38216,0 0,39.61062 -39.38216,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8-3-3"
+         y="475.18011"
+         x="363.72852"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="363.72852"
+           id="tspan7535-00-5-7"
+           sodipodi:role="line">5</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3-5-7"
+         d="m 387.62009,451.4697 39.38216,0 0,39.61062 -39.38216,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8-6-8"
+         y="475.18011"
+         x="403.22479"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="403.22479"
+           id="tspan7535-00-1-1"
+           sodipodi:role="line">6</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3-9"
+         d="m 427.00225,451.4697 39.38216,0 0,39.61062 -39.38216,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8-78"
+         y="475.18011"
+         x="442.72095"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="442.72095"
+           id="tspan7535-00-7"
+           sodipodi:role="line">3</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3-8-7"
+         d="m 466.38441,451.4697 39.38216,0 0,39.61062 -39.38216,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8-3-2"
+         y="475.18011"
+         x="482.21719"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="482.21719"
+           id="tspan7535-00-5-2"
+           sodipodi:role="line">4</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3-5-4"
+         d="m 505.76657,451.4697 39.38215,0 0,39.61062 -39.38215,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8-6-9"
+         y="475.18011"
+         x="521.71344"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="521.71344"
+           id="tspan7535-00-1-18"
+           sodipodi:role="line">5</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3-8-7-8"
+         d="m 545.14872,451.4697 39.38216,0 0,39.61062 -39.38216,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8-3-2-0"
+         y="475.18011"
+         x="561.20959"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="561.20959"
+           id="tspan7535-00-5-2-0"
+           sodipodi:role="line">7</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7531-3-5-4-1"
+         d="m 584.53088,451.4697 39.38216,0 0,39.61062 -39.38216,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.98740566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711198,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7533-8-6-9-7"
+         y="475.18011"
+         x="600.70581"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="475.18011"
+           x="600.70581"
+           id="tspan7535-00-1-18-1"
+           sodipodi:role="line">5</tspan></text>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7753"
+         d="m 72.562851,438.26616 0,66.01769"
+         style="fill:none;stroke:#000000;stroke-width:1.31654072px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7755"
+         d="m 151.32717,438.26616 0,66.01769"
+         style="fill:none;stroke:#000000;stroke-width:1.31654072px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         inkscape:connector-curvature="0"
+         id="path7757"
+         d="m 308.85579,438.26616 0,66.01769"
+         style="fill:none;stroke:#000000;stroke-width:1.31654072px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.99711197,1.0028964)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/developer/Документы/packed-tree.png"
+         sodipodi:linespacing="125%"
+         id="text7759"
+         y="525.31653"
+         x="80.09153"
+         style="font-size:18.43156815px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana"
+         xml:space="preserve"><tspan
+           y="525.31653"
+           x="80.09153"
+           id="tspan7761"
+           sodipodi:role="line">Balanced sums tree packed in an array - no pointers!!!</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Mend)"
+       d="m 444.24728,457.14201 0,30"
+       id="path6956-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/developer/Документы/packed_tree_wiki.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

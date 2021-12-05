@@ -36,7 +36,7 @@ The idea is to place all abjects contiguously in a memory block and shift them i
 
 Layout dictionary is an ordered list of block offsets. If dictionary if large, [partial sum tree](/docs/data-zoo/partial-sum-tree) can be used to speedup access.
 
-![Contiguous Resizable Allocator](packed_contiguous_allocator.png)
+ {{< figure src="packed_contiguous_allocator.svg" >}}
 
 Layout dictionary is placed into the same memory block as object's data.
 
@@ -79,19 +79,19 @@ public:
 
 See the following figure how it may look like:
 
-![Packed Allocator Brief](packed_allocator_brief.png)
+ {{< figure src="packed_allocator_brief.svg" >}}
 
 In Memoria we call such allocator _packed_, because it packs all objects and itself into single self-sufficient memory block that can be relocated or serialized. That doesn't affect relative positions of objects within the memory block.
 
 Each allocator-aware resizable object must derive from `PackedAllocatable` class that maintains relative offset of an object to the allocator. The following figure explains it in greater details:
 
-![Packed Allocator Full](packed_allocator_full.png)
+ {{< figure src="packed_allocator_full.svg" >}}
 
 Here we have four resizable objects with sizes 4, 7, 11, and 9 respectively. Each object maintains its relative offset in the memory block, that is converted to a pointer to the allocator.
 
 Let's increase object #1 by 8 units:
 
-![Packed Allocator Full, Enlarged](packed_allocator_full_enlarged.png)
+ {{< figure src="packed_allocator_full_enlarged.svg" >}}
 
 We need to perform the following operations for objects #2 and #3.
 
