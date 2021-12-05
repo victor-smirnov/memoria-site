@@ -97,7 +97,7 @@ So far...
 
 1. In the search tree "Blessing of Dimensionality" is fighting with "Curse of Dimensionality", it's kind of $0 \cdot \infty$. In higher dimensions data tends to be extremely _sparse_ because volume size grows exponentially with number of dimensions. So, normally, even in high dimensions, buckets will tend to have small number of elements. The bigger the number -- the better, because it improves data compression and speeds up queries. But beware of the worst case, when the tree has one big bucket that all queries are visiting. It has also been observed for similar K-d trees, that with higher number of dimensions, _overwork_ also tens to increase (the blessing vs curse situation, $0 \cdot \infty$, who wins?). 
 
-1. In case if LOUDS tree is dynamic and implemented using B-tree, _insert_, _update_ and _delete_ operations to the search tree have $O(H + log(N))$ time complexity. 
+1. In case if LOUDS tree is dynamic and implemented using B-tree, _insert_, _update_ and _delete_ operations to the search tree have $O(H log(N))$ time complexity for point-like updates and $O(H(log(N) + M))$ for batch updates of size $M$. 
 
 1. The data structure representation in memory is very compact. It's the size of original table $R$ + (up to) the size of two columns from $R$ for LOUDS tree + 5-10% of the tree to auxiliary data structures. Overhead of the tree is constant and is amortizing with higher number of dimensions.
 
@@ -106,3 +106,7 @@ So far...
 ## Hardware Acceleration
 
 LOUDS tree-based Associative memory seems to be impractical specifically for RDF triple stores, but if hardware accelerated, can be cost-effective at scale, providing also many other benefits, not just memory savings (which are huge for higher dimensions). The bottleneck is on the update operations, where insertion and deletion may require tens of B-tree updates. Fortunately, this operation is well-parallelizable so we can use thousands of small RISC-V cores equipped with special command for direct and energy-efficient implementation of essential operations (partial/prefix sums, rank and select). An array or cluster of such cores can even be embedded into [storage memory controller](/subprojects/smart-storage).
+
+Advanced data structures like LOUDS-based associative memory, considered to be impractical in the past, relative to more traditional things, like sorted tables and pointer-based data structures (trees, lists, graphs, ...) for main memory. But progress in computer hardware makes task-specific hardware accelerator a much more viable options, opening the road to completely new applications.
+
+In the [next post](/docs/data-zoo/associative-memory-2) it will be shown how LOUDD-backed associative memory can be used for generic function approximation and inversion.
