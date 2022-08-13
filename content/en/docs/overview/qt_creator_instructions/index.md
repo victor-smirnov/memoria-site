@@ -19,10 +19,13 @@ toc: true
 # Assuming current folder is /home/guest/cxx
 $ git clone https://github.com/microsoft/vcpkg.git
 $ cd vcpkg
+$ git checkout 2022.05.10
 $ ./bootstrap-vcpkg.sh
-$ ./vcpkg install boost icu abseil yaml-cpp fmt
+$ ./vcpkg install boost icu abseil yaml-cpp fmt inja
 $ ./vcpkg install llvm[clang,libcxx,libcxxabi,compiler-rt,tools,enable-rtti,enable-threads,enable-eh]
 ```
+
+For now, supporting compiler is Clang. Gcc 10/11/12 are crashing on Memoria.
 
 ## Configuring VCPkg's provided cmake tool
 
