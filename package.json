@@ -50,7 +50,7 @@
     "flexsearch": "^0.7.21",
     "highlight.js": "^11.5.1",
     "instant.page": "^5.1",
-    "katex": "^0.15.3",
+    "katex": "^0.16.4",
     "lazysizes": "^5.3",
     "markdownlint-cli": "^0.29",
     "mermaid": "^8.13",
