@@ -16,8 +16,9 @@ toc: true
 ## Build and install VCPkg for Memoria
 
 ```
-# Assuming current folder is /home/guest/cxx
 $ git clone https://github.com/victor-smirnov/vcpkg-memoria.git
+$ cd vcpkg-memoria
+$ git checkout memoria-libs
 ```
 
 For now, supporting compiler is Clang. Gcc 10/11/12 are crashing on Memoria.
