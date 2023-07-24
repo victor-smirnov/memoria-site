@@ -31,11 +31,11 @@
   url = "/docs/linked-data/"
 
 
-[[docs]]
-  name = "Digital Philosophy"
-  weight = 5000
-  identifier = "d-phil"
-  url = "/docs/d-phil/"
+#[[docs]]
+#  name = "Digital Philosophy"
+#  weight = 5000
+#  identifier = "d-phil"
+#  url = "/docs/d-phil/"
 
 [[docs]]
   name = "Memoria Build Tool"
