@@ -14,7 +14,7 @@ toc: true
 
 Level Order Unary Degree Sequence or LOUDS is a special form of ordered tree encoding. To get it we first need to enumerate all nodes of a tree in level order as it is shown of the following figure.
 
- {{< figure src="louds.svg" >}}
+ {{< figure src="louds.png" >}}
 
 Then for each node we write its degree in unitary encoding. For example, degree of the fist node is 3, then its unitary encoding is '1110'. To finish LOUDS string we need to prepend substring '10' to it as it is shown on the figure. Given an ordered tree on N nodes LOUDS takes no more than 2N + 1 bits. This is very succinct implicit data structure.
 
