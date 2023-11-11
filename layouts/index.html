@@ -6,9 +6,14 @@
     </div>
     <div class="col-lg-9 col-xl-8 text-center">
       <p class="lead">{{ .Params.lead | safeHTML }} <a href="/docs/overview/introduction">Read more...</a></p>
-      <a class="btn btn-primary btn-lg px-4 mb-2" href="/tutorial/{{ if .Site.Params.options.docsVersioning }}{{ .Site.Params.docsVersion }}/{{ end }}quick-start/" role="button">Get Started</a>
+      <a class="btn btn-primary btn-lg px-4 mb-2" href="https://github.com/victor-smirnov/memoria#build-and-run" role="button">Get Started</a>
       <p class="meta">Open-source ASLv2 Licensed. <a href="https://github.com/victor-smirnov/memoria">GitHub</a></p>
     </div>
+  </div>
+  <div class="row justify-content-center text-center">
+      <div class="col-lg-5">
+        <p>Project documentation is being transitioned to a different engine...</p>
+      </div>
   </div>
 </section>
 {{ end }}
@@ -17,39 +22,6 @@
 <section class="section section-sm">
   <div class="container">
     <div class="row justify-content-center text-center">
-      <div class="col-lg-5">
-        <h2 class="h4">Fast ⚡</h2>
-        <p>Memoria is built in an architecture-conscious 
-           way to get the most out of the hardware.
-           If sepcific hadware accelerators are provided,
-           they can be utilized.</p>
-      </div>
-      <div class="col-lg-5">
-        <h2 class="h4">Automated</h2>
-        <p>Extensively relies on the advanced metaprogramming techniques
-           by utilizing C++ Template Metaprogramming, Clang Libraries
-           and Python to improve programmer's productivity. <a href="/docs/mbt/overview">Read more...</a></p>
-      </div>
-      <div class="col-lg-5">
-        <h2 class="h4">Batteries Included</h2>
-        <p>Provides a lot of ready to use data types, containers and storage engines. <a href="/docs/data-zoo/overview">Read more...</a></p>
-      </div>
-    </div>
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-5">
-        <h2 class="h4">Database and Storage Engineering</h2>
-        <p>Strictly serializable ACID transactions, cryptographic data integrity,
-           high performance asyncronous IO. Persistent immutable data,
-           log-structured storage, in-memory storage. <a href="/docs/storage/overview/">Read more...</a></p>
-      </div>
-      <div class="col-lg-5">
-        <h2 class="h4">AI/ML</h2>
-        <p>Advanced data containers to support Artificial Intelligence and Machine Learning applications trading time for memory. <a href="/docs/d-phil/overview">Read more...</a></p>
-      </div>
-      <div class="col-lg-5">
-        <h2 class="h4">HW/SW Co-design</h2>
-        <p>Special design flow for RISC-V-based accelerators for Compute- and  IO-intensive Memoria functions. <a href="/subprojects/overview/">Read more...</a></p>
-      </div>
     </div>
   </div>
 </section>

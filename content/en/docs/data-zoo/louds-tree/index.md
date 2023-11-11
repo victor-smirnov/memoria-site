@@ -53,7 +53,7 @@ The first child for node 8 is node 12.
 
 The following figure shows how the parent() operation works:
 
- {{< figure src="louds-parent.svg" >}}
+ {{< figure src="louds-parent.png" >}}
 
 ## Limitations
 
