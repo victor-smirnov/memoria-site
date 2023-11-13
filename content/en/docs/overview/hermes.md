@@ -59,6 +59,8 @@ Generic types in Hermes are monomorphic.
 
 To distiguish between C++ types and Hermes types that may have type constructors, the letter are called *Datatypes*.
 
+Datatypes are first-class objects in Hermes and the rest of Memoria. So, we may have collections of datatypes, we cap process them as data and so on. We can also parse RTTI declaration of some C++ types as *normalized* datatypes and compute thier corresponding 32-byte *type hash*. (Note that this feature is currently may be compiler-specific).
+
 ## Document
 
 In Hermes 'document' has two meanings. 
@@ -103,14 +105,14 @@ Generic map between strings and objects:
 ```json
 {
   "key1": 1, 
-  "key2": [1, 2, true]},
+  "key2": [1, 2, true],
   "key3": @Array<Int> = [5,6,7,8]
 }
 ```
 
 ### TinyObjectMap
 
-There is a special memory-efficient variant of typed map, mapping from small integer in range [0, 51] to an Object. This map is very memory efficinet, using only 8 bytes overhead per map. It's also very fast for reading, because it uses just one `PopCnt()` instruction (usually 1 cycle on modern CPUs) to find the slot in the hash array, given the key. Values up to 56 bits (small strings, short integers, floats) may be embedded into the hash array. Hash array has no empty slots.
+There is a special memory-efficient variant of typed map, mapping from small integer in range [0, 51] to an Object. This map is very memory efficinet, using only 16 bytes overhead per collection. It's also very fast for reading, because it uses just one `PopCnt()` instruction (usually 1 cycle on modern CPUs) to find the slot in the hash array, given the key. Values up to 56 bits (small strings, short integers, floats) may be embedded into the hash array. Hash array has no empty slots.
 
 Given its runtime versatility, this type of a map is used extensively to represent C-like *dynamic* structuers in Hermes, without creating a corresponding C++ objects. DSLs over Hermes may combine this type of map with *code*, resulting in dynamically typed *objects*.
 
