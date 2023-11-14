@@ -49,7 +49,7 @@ Documents as containers have additional levels of reference counting indirection
 
 ### 56-bit types 
 
-1-byte tag size has special consequences in Hermes: we are using 56-bit integers and identifiers to be able to fit the entire value into a 64-bit memory slot of a pointer. That, in many cases, saves memory.
+1-byte tag size has special consequences in Hermes: together with 64-bit integers, we are using *56-bit* integers and identifiers to be able to fit the entire value into a 64-bit memory slot of a pointer. That, in many cases, saves memory.
 
 ## Datatypes
 
@@ -120,18 +120,38 @@ Given its runtime versatility, this type of a map is used extensively to represe
 
 Semantic graph (SG) in Hermes adopts [RDF](https://www.w3.org/RDF/)-*like* data representation to Hermes' object model. SG usually is a *binary relation* over *facts*  in some *domain*, plus some model of formal semantics reducible to binary relations. Note that Knowledge Graph (KG) is basically the same thing, but has more features to capture and represent real-life knowledge.
 
-SG have appealing theoretical and practical properties, but using them "at scale" (for large data sets) is a major technological challange. Grapghs or any form do not map well to memory hierarchies (a lot of random access), so it's a *very expensive* data representation and format.
+SG have appealing theoretical and practical properties, but using them "at scale" (for large data sets) is a major technological challenge. Graphs or any form do not map well to memory hierarchies (a lot of random access), so it's a *very expensive* data representation and format.
 
-Being multi-model, Memoria will be supporting various forms of graphs and binary relations anyway, so first-class support for SG in Hermes seems a consistent decision. 
+Being multi-model, Memoria will be supporting various forms of graphs and binary relations anyway, so first-class support for SG starting from Hermes seems a consistent decision. 
 
 ## HermesPath
 
+Hermes has minimalist but expressive query language for its document subset, modelled after [JMESPath](https://jmespath.org).
 
 ## Templating engine
 
+Templating (generating text) is possible with [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)-like templating language, integrated with HermesPath as expression language.
+
 ## Schema
 
+Hermes has schema processor to enforce declarative and imperative constraints on Hermes documents, semantic graphs and other types of structures. Schema processor is a major component of Hermes' stack, that may work in an interactive mode, like a *language server* for Hermes data structures.
+
 ## HRPC
+
+Hermes has its own gRPC-like protocol supporting streaming but instead of protocol buffers, HRPC (Hermes-RPC) uses serialized Hermes documents as messages. HRPC:
+
+1. Can work over any messaging transport. Default (and, currently, the only) implementation is using TCP. Can work on top of QUIC and HTTP/2/3, SCTP. Can work over many *message queues*.
+2. Is a session-based protocol. Session is initialized by client. For TCP transport, there is one HRPC Session per TCP connection.
+3. Both Client and Server may publish *service endpoints* and call them bidirectionally. 
+4. Resources are identified with 256-bit UIDs.
+5. Protocol implementation is versatile and, together with ability to share immutable Hermes documents between threads in a zero-copy way, can be used for *safe structured inter-thread messaging*. 
+
+Conceptually, HRPC is pretty close to the actor model, but has RPC-like API with streaming.
+
+See [headers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/hrpc.hpp) for basic API definitions. See [HRPC tests](https://github.com/victor-smirnov/memoria/tree/master/tests/hrpc) for the feature preview.
+
+The main practical difference between HRPC and gRPC is that the former does not require a lot of code-generation for application-level data structures. Basic types are supported by Hermes itself and [structured objects](#tinyobjectmap) can be wrapped into flyweight C++ [handlers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/schema.hpp) that will be optimized away at compile-time. HRPC does not require separate in-memory representation of messages.
+
 
 ## Interoperability with other languages
 
