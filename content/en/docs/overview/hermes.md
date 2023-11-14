@@ -17,19 +17,19 @@ toc: true
 
 ## Basic information
 
-In the context of Memoria Framework, Hermes is a solution to the "last mile" data modeling problem. Containers can be used to model lage amouts of *higly structured* data. Hermes is intended to represent relatively small amout of *unstructured or semi-structured data* and can be used together with containers. Notable feature of Hermes as a data format is that all objects and data types have canonical *textual representation*, so Hermes data can be consumed and produced by humans. Hense, the name of the data format. 
+In the context of Memoria Framework, Hermes is a solution to the "last mile" data modelling problem. Containers can be used to model large amounts of *highly structured* data. Hermes is intended to represent relatively small amount of *unstructured or semi-structured data* and can be used together with containers. Notable feature of Hermes as a data format is that all objects and data types have canonical *textual representation*, so Hermes data can be consumed and produced by humans. Hence, the name of the data format. 
 
-Hermes defines an arbitrarily structured *object graph* that is allocated in a continous memory segment (or a series of fixed size segments) working as an *arena*. Top-level object is a *document*. Document is a container for Hermes *objects*. Hermes objects internally use *relative pointers*, so the data is *relocatable*. Hermes objects in this form can be:
+Hermes defines an arbitrarily structured *object graph* that is allocated in a continuous memory segment (or a series of fixed size segments) working as an *arena*. Top-level object is a *document*. Document is a container for Hermes *objects*. Hermes objects internally use *relative pointers*, so the data is *relocatable*. Hermes objects in this form can be:
 * stored in Memoria containers, 
 * memory-mapped from files or between processes, 
 * embedded into an executable as a form of a *resource*, 
-* sent over a network or shared between host CPU and *hardware accenerators*, even if the latter have a separate *address space*.
+* sent over a network or shared between host CPU and *hardware accelerators*, even if the latter have a separate *address space*.
 
-Hermes documents can be of arbitrary memory size, the format internally has 64-bit poiters (even on 32-bit architectures). It's fine to have TB-size documents, but the format is not intended for that. Hermes documents are *garbage-collected* with a simple *copying GC* algorithm. So the larger documents are, the more time will be spent in compactifications. Ideally, Hermes documents *should* (but not required to) fit into a single storage block, that is typically 4-8KB and may be up to 1MB in Memoria. In this case, accessing Hermes objects stored in containers will be in a *zero-copy* way.
+Hermes documents can be of arbitrary memory size, the format internally has 64-bit pointers (even on 32-bit architectures). It's fine to have TB-size documents, but the format is not intended for that. Hermes documents are *garbage-collected* with a simple *copying GC* algorithm. So the larger documents are, the more time will be spent in compactifications. Ideally, Hermes documents *should* (but not required to) fit into a single storage block, that is typically 4-8KB and may be up to 1MB in Memoria. In this case, accessing Hermes objects stored in containers will be in a *zero-copy* way.
 
 There are three serialization formats for Hermes data.
 
-1. **Zero** serialization. Hermes data segment use relative addresses and can be extrnalized as is, as a raw memory block. All Hermes documents support fast *integrity checking* procedure to make sure that reading foreign segments is safe. This is the fasterst format but not particularily the densest one. This format is mainly for *data storage*.
+1. **Zero** serialization. Hermes data segment use relative addresses and can be externalized as is, as a raw memory block. All Hermes documents support fast *integrity checking* procedure to make sure that reading foreign segments is safe. This is the fastest format but not particularly the densest one. This format is mainly for *data storage*.
 2. **Text** serialization. Human-readable, safe, and the slowest (but still fast in raw numbers). 
 3. **Binary** serialization. The densest option, but faster than the textual one. Safe. Best for networking when human-readability is not a requirement.
 
@@ -41,7 +41,7 @@ Hermes memory is *tagged*. A tag is a type label and has various length, from 1 
 
 Memory for tag is allocated address-wise *before* the object. Objects may have gaps between them in memory caused by alignment requirements. In that case, if a tag fits into this gap, it's allocated there. With high probability, short tags (for commonly used objects) do not take extra memory.
 
-From the API's perspecitve, Hermes objects consist from two part. The first part is a private C++ object with verbose API conforming to certain rules. The second part is a public `View` for this object, this is much like `std::string_view` for string-like data. Mutable Hermes object receive a reference to the corresponding Document's arena allocator to allocate new data in. View object encapsulates all these complexities.
+From the API's perspective, Hermes objects consist from two part. The first part is a private C++ object with verbose API conforming to certain rules. The second part is a public `View` for this object, this is much like `std::string_view` for string-like data. Mutable Hermes object receive a reference to the corresponding Document's arena allocator to allocate new data in. View object encapsulates all these complexities.
 
 Views are *owning* in Hermes. Object's view holds a reference to the corresponding Document (for memory allocation) with a fast, *non-atomic*, reference counter. Hermes Views are nearly zero-cost, but not thread-safe.
 
@@ -57,15 +57,15 @@ Hermes has explicit notion of a type, and Hermes types are pretty close in seman
 
 Generic types in Hermes are monomorphic.
 
-To distiguish between C++ types and Hermes types that may have type constructors, the letter are called *Datatypes*.
+To distinguish between C++ types and Hermes types that may have type constructors, the letter are called *Datatypes*.
 
-Datatypes are first-class objects in Hermes and the rest of Memoria. So, we may have collections of datatypes, we cap process them as data and so on. We can also parse RTTI declaration of some C++ types as *normalized* datatypes and compute thier corresponding 32-byte *type hash*. (Note that this feature is currently may be compiler-specific).
+Datatypes are first-class objects in Hermes and the rest of Memoria. So, we may have collections of datatypes, we cap process them as data and so on. We can also parse RTTI declaration of some C++ types as *normalized* datatypes and compute their corresponding 32-byte *type hash*. (Note that this feature is currently may be compiler-specific).
 
 ## Document
 
 In Hermes 'document' has two meanings. 
 
-First, `Document` is a container for Hermes data. Second, 'document' is a specific set of predefined collections organaizing objects into a tree-like structure, similar to Json. Below there is a short walk-through Hermes document text-serialization features giving us json-like experience.
+First, `Document` is a container for Hermes data. Second, 'document' is a specific set of predefined collections organizing objects into a tree-like structure, similar to Json. Below there is a short walk-through Hermes document text-serialization features giving us json-like experience.
 
 ### Null object 
 This is the simplest document that has no object.
@@ -90,9 +90,9 @@ The same array but of datatype `Array<Int>` using optimized memory layout:
 @Array<Int> = [1, 2, 3, 4]
 ```
 
-Important note that notation above does not mean that collection `[]` will have the type specified before it. It means that we create a typed collection *from* a generic one. Parser may otimize this process by not creating the latter and supplying the data directly to the former. 
+Important note that notation above does not mean that collection `[]` will have the type specified before it. It means that we create a typed collection *from* a generic one. Parser may optimize this process by not creating the latter and supplying the data directly to the former. 
 
-The point is that there may be may ways to create a Hermes object at parse time from hermes data. For example, notation like `"string value"@SomeDataType` is a syntactic shortcat meaning that `"string value"` will be *converted* to Hermes object of datatype `SomeDataType` at the *parse time*:
+The point is that there may be may ways to create a Hermes object at parse time from Hermes data. For example, notation like `"string value"@SomeDataType` is a syntactic shortcut meaning that `"string value"` will be *converted* to Hermes object of datatype `SomeDataType` at the *parse time*:
 
 ```json
 "19345068945625345634563564094564563458.609"@Decimal(50,3)
@@ -112,13 +112,20 @@ Generic map between strings and objects:
 
 ### TinyObjectMap
 
-There is a special memory-efficient variant of typed map, mapping from small integer in range [0, 51] to an Object. This map is very memory efficinet, using only 16 bytes overhead per collection. It's also very fast for reading, because it uses just one `PopCnt()` instruction (usually 1 cycle on modern CPUs) to find the slot in the hash array, given the key. Values up to 56 bits (small strings, short integers, floats) may be embedded into the hash array. Hash array has no empty slots.
+There is a special memory-efficient variant of typed map, mapping from small integer in range [0, 51] to an Object. This map is very memory efficient, using only 16 bytes overhead per collection. It's also very fast for reading, because it uses just one `PopCnt()` instruction (usually 1 cycle on modern CPUs) to find the slot in the hash array, given the key. Values up to 56 bits (small strings, short integers, floats) may be embedded into the hash array. Hash array has no empty slots.
 
-Given its runtime versatility, this type of a map is used extensively to represent C-like *dynamic* structuers in Hermes, without creating a corresponding C++ objects. DSLs over Hermes may combine this type of map with *code*, resulting in dynamically typed *objects*.
+Given its runtime versatility, this type of a map is used extensively to represent C-like *dynamic* structures in Hermes, without creating a corresponding C++ objects. DSLs over Hermes may combine this type of map with *code*, resulting in dynamically typed *objects*.
 
 ## Semantic Graph
 
+Semantic graph (SG) in Hermes adopts [RDF](https://www.w3.org/RDF/)-*like* data representation to Hermes' object model. SG usually is a *binary relation* over *facts*  in some *domain*, plus some model of formal semantics reducible to binary relations. Note that Knowledge Graph (KG) is basically the same thing, but has more features to capture and represent real-life knowledge.
+
+SG have appealing theoretical and practical properties, but using them "at scale" (for large data sets) is a major technological challange. Grapghs or any form do not map well to memory hierarchies (a lot of random access), so it's a *very expensive* data representation and format.
+
+Being multi-model, Memoria will be supporting various forms of graphs and binary relations anyway, so first-class support for SG in Hermes seems a consistent decision. 
+
 ## HermesPath
+
 
 ## Templating engine
 
