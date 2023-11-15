@@ -13,11 +13,11 @@ weight: 20
 toc: true
 ---
 
-> In ancient Greece mythology Hermes is a messenger between gods and humans.
+> In ancient Greek mythology Hermes is a messenger between gods and humans.
 
 ## Basic information
 
-In the context of Memoria Framework, Hermes is a solution to the "last mile" data modelling problem. Containers can be used to model large amounts of *highly structured* data. Hermes is intended to represent relatively small amount of *unstructured or semi-structured data* and can be used together with containers. Notable feature of Hermes as a data format is that all objects and data types have canonical *textual representation*, so Hermes data can be consumed and produced by humans. Hence, the name of the data format. 
+In the context of Memoria Framework, Hermes is a solution to the "last mile" data modelling problem. [Containers](/docs/overview/containers/) can be used to model large amounts of *highly structured* data. Hermes is intended to represent relatively small amount of *unstructured or semi-structured data* and can be used together with containers. Notable feature of Hermes as a data format is that all objects and data types have canonical *textual representation*, so Hermes data can be consumed and produced by humans. Hence, the name of the data format. 
 
 Hermes defines an arbitrarily structured *object graph* that is allocated in a continuous memory segment (or a series of fixed size segments) working as an *arena*. Top-level object is a *document*. Document is a container for Hermes *objects*. Hermes objects internally use *relative pointers*, so the data is *relocatable*. Hermes objects in this form can be:
 * stored in Memoria containers, 
@@ -142,7 +142,7 @@ Hermes has its own gRPC-like protocol supporting streaming but instead of protoc
 
 1. Can work over any messaging transport. Default (and, currently, the only) implementation is using TCP. Can work on top of QUIC and HTTP/2/3, SCTP. Can work over many *message queues*.
 2. Is a session-based protocol. Session is initialized by client. For TCP transport, there is one HRPC Session per TCP connection.
-3. Both Client and Server may publish *service endpoints* and call them bidirectionally. 
+3. Both Client and Server may publish *service endpoints* and call them bidirectionally via Session object. 
 4. Resources are identified with 256-bit UIDs.
 5. Protocol implementation is versatile and, together with ability to share immutable Hermes documents between threads in a zero-copy way, can be used for *safe structured inter-thread messaging*. 
 
@@ -152,9 +152,14 @@ See [headers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/inc
 
 The main practical difference between HRPC and gRPC is that the former does not require a lot of code-generation for application-level data structures. Basic types are supported by Hermes itself and [structured objects](#tinyobjectmap) can be wrapped into flyweight C++ [handlers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/schema.hpp) that will be optimized away at compile-time. HRPC does not require separate in-memory representation of messages.
 
-
 ## Interoperability with other languages
+
+Hermes is a *C++-centric data model*, it relies heavily on RAII for memory management. Replicating it fully in other runtime environments may be difficult if even possible. To implement it fully, target runtime environment must support either RAII or at least ARC. D, Rust, Swift and CPython are in the green zone. For other environments like JavaScript, Java and Julia some functionality may be limited.
+
+Another important dependency is that Hermes' datatypes may be pretty complex, like arbitrary precision numbers or safe integers with deterministic overflow semantics. Also, DSLs (HermesPath) may rely on extensive libraries of functions. Re-implementing it all in target language will lead to a lot of complex code duplication. So, bindings to Hermes will be relying on FFI to C++. The caveat is that binary code for full set of Hermes may be pretty large in size (10MB+) so running it in a browser (WASM) may be *impractical*.
 
 ## Sources
 
-TBC...
+1. Main [headers](https://github.com/victor-smirnov/memoria/tree/master/core/include/memoria/core/hermes).
+2. Main [sources](https://github.com/victor-smirnov/memoria/tree/master/core/lib/hermes)
+3. HRPC [headers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/hrpc.hpp).
