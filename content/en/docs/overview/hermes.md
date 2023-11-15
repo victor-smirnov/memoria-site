@@ -162,4 +162,4 @@ Another important dependency is that Hermes' datatypes may be pretty complex, li
 
 1. Main [headers](https://github.com/victor-smirnov/memoria/tree/master/core/include/memoria/core/hermes).
 2. Main [sources](https://github.com/victor-smirnov/memoria/tree/master/core/lib/hermes)
-3. HRPC [headers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/hrpc.hpp).
+3. HRPC [headers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/hrpc.hpp). String representation parser, HermesPath, Template engine.
