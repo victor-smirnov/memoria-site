@@ -1,5 +1,5 @@
 ---
-title: "QT Creator Instructions"
+title: "Qt Creator Instructions"
 description: ""
 lead: ""
 date: 2022-07-06T08:48:57+00:00
