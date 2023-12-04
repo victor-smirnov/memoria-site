@@ -13,6 +13,8 @@ weight: 30
 toc: true
 ---
 
+## Basic Information
+
 Containers in Memoria are basic units of data modelling. Idiomatically, they are very much like STL containers except that, counterintuitively, container objects do not *own* their data, they use dedicated storage API for that. So data life-cycle is tied to the *storage* object, not the *container* object. In some cases (implementations) container objects may own their storage objects, but, typically, they don't.
 
 Note that there may be some terminological clash between Memoria containers discussed here and [Hermes](/docs/overview/hermes) containers. The latter are classical STL-like containers owning their data.
@@ -27,15 +29,21 @@ Lack of *sibling links* is not a big issue, because tree-walking overhead for B+
 
 Lack of *parent links* is more impacting, because iterators now need to keep *full path* form root to the current node. Iterator is a stack-like data structure, not just a current block ID. A lot fo tree-updating code becomes much more complicated comparing to the variant with parent links, but this is the price we pay for having persistence, concurrency and parallelism.
 
+## Concurrency and Parallelism
+
 Containers in Memoria are **not** thread safe, and this is foundational design decision to make data structures simpler. All thread-safety, if any, are provided at the level of storage engines. And the main concurrency and parallelism mechanism Memoria relies on is [persistent/functional](https://en.wikipedia.org/wiki/Persistent_data_structure) data structures. This feature also comes with its design costs, limitations and overheads. But it also gives Memoria all of its batteries and superpowers.
 
 So, B+Tree-based containers in Memoria can be of two implementation types:
 
 1. **Copy-on-Write-based (CoW)** containers. Persistence is supported at the level of containers. This is the fastest option but at the expense of more complicated container design. All container types need to align with CoW semantics, that is well-encapsulated by the Framework.
-2. **Epithemeral (non-CoW)** containers. This type of containers do not explicitly support CoW semantics themselves, so the *may* have parent and sibling links if necessary. But for the sake of code unification and reuse, they *don't*. CoW semantics may still be supported at the level of *storage engines*. For example, there is a variant of storage engine on top of the LMDB database that has strongly serialized CoW-based transactions. When working on top of such storage engines, containers do not need to provide their own CoW semantics. See more details on that in the [Storage engines](/docs/overview/storage/) section.
+2. **Epithemeral (non-CoW)** containers. This type of containers do not explicitly support CoW semantics themselves, so the *may* have parent and sibling links if necessary. But for the sake of code unification and reuse, they *don't*. CoW semantics may still be supported at the level of *storage engines*. For example, there is a variant of storage engine on top of the [LMDB](http://www.lmdb.tech/doc/) database that has strongly serialized CoW-based transactions. When working on top of such storage engines, containers do not need to provide their own CoW semantics. 
 
+## Storage-agnostic
 
+From a container's perspective, block storage is completely decoupled and can be fully software-defined.
 
+{{< figure src="io.svg" >}}
 
+For more details on that see the [Storage engines](/docs/overview/storage/) section.
 
 TBC...
