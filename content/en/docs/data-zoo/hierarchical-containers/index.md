@@ -68,17 +68,23 @@ The pattern above can be generalized. Single-level containers, like Map or Vecto
 
 There are basically two strategies of implementing generalized hierarchical containers for external memory:
 
-1. *One B+Tree per vector or sequence*. The easiest option because we just need to several separately engineered B+Trees. There are two main drawbacks here. First, small structures may take up to `L + 1` blocks of memory. Second, for each query we need to search in multiple B+Trees (from root down to leafs). 
-2. *Combine all vectors in one B+Tree*, enforcing locality principle: data accessed together shout be in the same block or very close to each other. This can make certain important queries faster, but by the expense of other types.
+1. *One B+Tree per vector or sequence*. This is the easiest option because we just need two separately engineered B+Trees. There are two main drawbacks here. First, small structures may take up to `L + 1` blocks of memory. Second, for each query we need to search in multiple B+Trees (from root down to leafs). 
+2. *Combine all vectors in one B+Tree*, enforcing locality principle: data accessed together shout be in the same block or very close to each other. It can make certain important queries faster, but by the expense of other types of queries.
 
 No strategy is universally the best, but the second one is better if we want to optimize things for *reading*. Memoria may use them both for different reasons, but it primarily relies on the second one -- *multistream B+Tree*.
 
-If we need to represent a Map with fixed size keys and values that fit into one block, doing it with B+Tree is easy: leaf not contains sorted set of entries, and each branch node contains sorted set of maximum keys for sub-tree, together with ID of child blocks. 
+The basic idea is simple. 
 
-Representing dynamic Vector is also easy. Leaf nodes contain vector's elements and branch node contain pairs of sub-tree's total number of elements and and child pointers. If we want this vector to be a searchable [partial/prefix sum tree](/docs/data-zoo/partial-sum-tree/) supporting `findLT()` and `findLE()` operations in logarithmic time, we just need to add *another dimension* to the entries of tree's branch nodes, containing sum of vector's elements in the sub-tree:
+If we are representing a Multimap with a multistream B+Tree, we need to split `Srle[]`, `K[]` and `V[]` in such way that all related array elements be put into the same leaf node. In this case, for example, if we found specific key, associated values will be either in this leaf (most likely) or in the next one (pretty quick operation).
 
- {{< figure src="double_index.svg" >}}
+Branch node's structure is similar. We need one array for maximum keys for each child (Key Stream), and two arrays for sums of `0` and `1` in the subtree's `Srle` sequence (Srle Stream). And, of course, child node ID array:
 
+{{< figure src="multistream_tree_nodes.svg" >}}
 
+Branch nodes for `Srle` sequence form a [partial/prefix sum tree](/docs/data-zoo/partial-sum-tree/), that can be used for efficient implementation of 'rank()' and 'select()' operations.
 
-TBC...
+Keys stream in this specific case may be searched in a usual way for max-type B+tree.
+
+Note that in this example branch nodes do not show Value Stream, because values are not searchable, so we don't need to store separate *index* info for values. 
+
+Note also that mutistream B+Tree implementation in Memoria is slightly different in the way how streams are represented in tree blocks, here we omitted some details for brevity.
