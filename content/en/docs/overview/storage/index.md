@@ -142,10 +142,55 @@ Store is transactional (within a single branch) and multi-threaded, MWMR, and is
 (*) Note that reference counters are not persistent and are not stored on each commit. Because of that, SWMRStore does not provide zero-time recovery. In case of crash or improper shutdown, we have to scan the store partially to rebuild counters. Fortunately, the amount of information that needs to be scanned this way is rather small (much less that 1%) and the store is readable at this time. Counters also take main memory, about 4 bytes per block.
 
 ### OLTPStore
-TBC...
+
+*(Note that this storage engine type is WIP and is not yet available for experiments)*
+
+OLTPStore is the main OLTP-optimied storage engine. It's using the same memory management algorithm as [LMDB](http://www.lmdb.tech/doc/) but implemented with means of Memoria containers. LMDB uses persistent CoW b-trees for its databases but it *does not* use counters for tracking references to blocks. In LMDB, when we clone a block, the cloned block's ID is put into so-called 'free list' under transaction ID this block was created in. This block will become eligible for reuse when when all readers which are alder than this block's TxnID terminate. So, the snapshot history is cleared only from its *tail*. The main limitation is that long-running *reader* will be blocking memory reclamation. Neither LMDB nor OLTPStore are suitable for analytical workloads (long-running queries). But it, *theoretically* (after all optimizations) may show very hight sustained transaction rates. 
+
+The following list summarizes OLTPStore's features and limitations:
+
+1. Unlike LMDB, OLTPStore *does not* use memory mapping. Instead, high-performance IO interfaces like Linux AIO or liburing are used instead.
+2. Unlike SWMRStore, neither branches, nor snapshot history are supported.
 
 ### OverlayStore
-TBC...
 
-### Note on High Availability and Scale-Out
-TBC...
+*(Note that this storage engine type is WIP and is not yet available for experiments)*
+
+This storage engine is very similar to the MemoryStore except that every snapshot is a separate storage unit (mainly, a file). 
+
+TBC ...
+
+### Note on High Availability
+
+It can be expected that persistent data structures, providing *linearized* update history out of the box within a single branch, are well-suitable for replication in a distributed mode. That's true in general, we can encapsulate a branch into a *patch*, transfer it via network and apply in a remote repository. But in case of high-performance SSDs it's not that simple. SSDs may support very high write speeds, dozens of GB/s if using multiple drives, but the network is *much* slower than that. Sending physical blocks over a network, even with good compression, will be a limiting factor. Logical, application-level, replication should be used instead. Memoria will be providing specialized containers to help tracking update history that application is doing.
+
+Despite performance limitations, block-level physical replication will be supported out of the box. It does not require any support from applications, it comes basically "for free", and it *may be useful* in some cases. For example, it will be useful for replication between drives within the same machine. But high-performance system designs should not rely on it.
+
+## CoW vs LSM
+
+[LSM](https://en.wikipedia.org/wiki/Log-structured_merge-tree) is currently the most popular data structure for database storage. LSM has some theoretical and practical properties that make them irreplaceable. Nevertheless they also have serious theoretical and practical limitations, so proper understanding of how they work may save time and money.
+
+LSM accumulate updates in an in-memory buffer (backing them also in a circular persistent buffer aka 'transaction log') and periodically drop this buffer to a durable storage as a single sorted files -- segments. Background process (garbage collector, GC) then picks up those segments and merges them into a large single file. GC's performance is the main limiting factor of the storage engine. LSM have the following main properties:
+
+1. _It may handle very high peak write speeds_, may be 10x-100x of the average rate. This is the reason why they are irreplaceable for internet applications (web-stores, etc) that should be able to handle *sudden* massive inflows of users.
+2. _Worst-case write complexity is `O(N)`_. Applications may see extremely high update latencies, that is hard to mitigate. Read latency may also spike, see below.
+3. _We can trade write performance for read performance_. If we merge segments not that aggressively, write performance will be better, but read performance will be degrading.
+4. _They rely on an underling filesystem for managing disk space_. Filesystem's performance may be a limiting factor, for example, it may introduce additional read/write latencies.
+5. _They require reserving a lot of extra free space (1-2x) for merges_ in a worst case. 
+6. _They theoretically have relatively low write amplification factor_ for SSDs, because all updates to disk are sequential.
+
+By and large, LSMs are very good in their niche, and sometimes they are the only option that fits the requirements (peak write speeds). But they also require extensive *expert-level* tuning and monitoring. 
+
+CoW trees are different:
+
+1. Their peak performance is lower than LSM, but their worst-case complexity is *logarithmic*, instead of linear. 
+2. They are block-structured and do not need an underling filesystem to allocate the space from. That make worst-case performance even more predictable.
+3. They do not *need* a GC, but specific implementations may use asynchronous space reclamation strategy for best-case performance reasons. Anyway, GC for CoW trees is much simpler than GC for LSM trees. CoW trees have much smaller tunable parameters space.
+
+Ideally, the storage engine should support both data structures, for different cases and purposes. Memoria is using CoW exclusively and may implement LSM with means of the Framework on top of the OLTPStore as an underling filesystem, but if we *need* LSM, we can try using RocksDB first and it doesn't fit, resort to a 'native' solution.
+
+## Distributed vs Decentralized
+
+Memoria *is not* explicitly addressing distributed environments and scale-out settings. Persistent data structures (PDS) may *seem* working well here: eventually consistent K/V store would be enough to host blocks, the problem is in the *memory management*. PDS require either deterministic (ARC-based) or tracing garbage collector that is pretty a challenge to build for a distributed environment. And, the most important, it has to be finely tuned to the specifics of selected hardware and application's requirements.
+
+Nevertheless, Memoria is explicitly addressing *decentralized* cease, when there is no single unit of control over a distributed environment. For Memoria's perspective, decentralized environment is a mesh of nodes (or small clusters) running local SWMRStore-based engines and exchanging data *explicitly* with using *patches*. Such architecture will be somewhat slower and more complex form the application's perspective (much more control is required) but it does not need a distributed GC. Currently it *seems* to be much more universal and fit both local and distributed usage cases.
