@@ -19,7 +19,7 @@ toc: true
 
 ### How it started...
 
-Memoria started back in 2007 out of a need of having a memory-efficient multi-dimensional spatial tree for function approximation, lake [this one](/docs/data-zoo/associative-memory-2/). Contrary to traditional approaches for function approximation, like neural networks, spatial trees have much smaller computational complexity (logarithmic on average) for inference and allow computing partial and inverse functions out of the same set of parameters. Advanced data structures to the rescue, [LOUDS tree](/docs/data-zoo/louds-tree/) has 2 bits per tree node of space complexity + some small overhead. What is also important, is that LOUDS trees can be *dynamic*, allowing point-like updates, so that tree-based function approximation method can support precise in-place tuning.
+Memoria started back in 2007 out of a need of having a memory-efficient multi-dimensional spatial tree for function approximation, like [this one](/docs/data-zoo/associative-memory-2/). Contrary to traditional approaches for function approximation, like neural networks, spatial trees have much smaller computational complexity (logarithmic on average) for inference and allow computing partial and inverse functions out of the same set of parameters. Advanced data structures to the rescue, [LOUDS tree](/docs/data-zoo/louds-tree/) has 2 bits per tree node of space complexity + some small overhead. What is also important, is that LOUDS trees can be *dynamic*, allowing point-like updates, so that tree-based function approximation method can support precise in-place tuning.
 
 ### Advanced data structures
 

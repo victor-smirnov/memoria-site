@@ -123,6 +123,17 @@ In other for this mechanism to be really lightweight at the call-cite and work p
 
 Containers have pretty complex lifecicle and metadata systems, as well as integration with Hermes and datatypes, so developing a new container may be a challenge. Memoria uses in-house [Build Tool](/docs/overview/mbt/) to automate these processes.
 
+## Metaprogramming Framework
+
+This is one of the most complex part of the Framework, especially because C++ isn't that good with *metaprogramming in large*. There were no much better alternatives back in the days when Memoria started, there are not that many of them now. This issue is going to be addressed low-level languages that support homoiconic compile-time metaprogramming, like Zig and (as it's being promised) Mojo. Memoria's [DSL subsystem](/docs/overview/vm) is also addressing this issue too. Nevertheless, for container-level metaprogramming we currently only have what *latest* C++ standard is offering.
+
+Memoria Containers are build using Partial Class programming pattern. Partial Class definition may be split between many files. Containers classes are built from [parts](https://github.com/victor-smirnov/memoria/tree/master/containers/include/memoria/containers/set/container) using the information provided from three places:
+
+1. Container [prototype](https://github.com/victor-smirnov/memoria/tree/master/containers/include/memoria/prototypes). Prototype is a complex, Memoria-specific, form of a *base class*.
+2. Container Datatype, like `Set<Varchar>`.
+3. [Profile](https://github.com/victor-smirnov/memoria/tree/master/containers-api/include/memoria/profiles). Profiles are an elaborate system of type traits (configurations) that define various *common* parameters, like CoW/non-Cow, type of block identifier, type of snapshot identifier and so on. Dozens of them.
+4. [Type Factory](https://github.com/victor-smirnov/memoria/blob/master/containers/include/memoria/prototypes/bt/bt_factory.hpp) is a metaprogramming engine building container classes out of all this stuff above.
+
 ## Source code entry points
 
 1. [Public Containers API](https://github.com/victor-smirnov/memoria/tree/master/containers-api/include/memoria/api). 
