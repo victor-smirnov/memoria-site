@@ -19,8 +19,10 @@ There are 2.5 RE 'backends' in Memoria:
 
 1. [Seastar](https://seastar.io/) framework. Best-in-class, high performance and well-supported. But _Linux-only_. 
 2. Boost Asio. Pretty high performance, perfect compatibility with various runtimes, cross platform, but no high-performance disk IO support.
-3. Reactor Engine. Initially it was meant to be in-house *cross-platform* variant of Seastar with Boost Finer support. But later it lost its momentum and currently is meany to be replaced with combination of Seastar and Asio. 
+3. Reactor Engine. Initially it was meant to be in-house *cross-platform* variant of Seastar with Boost Finer support. But later it lost its momentum and currently is meant to be replaced with combination of Seastar and Asio. 
 
 Memoria is not going to rely 100% on the Seastar or Asio API. Instead, the Framework will be trying to isolate specifics of underling API, making code porting easier. 100% cross-RE compatibility is not a goal.
+
+
 
 TBС...
