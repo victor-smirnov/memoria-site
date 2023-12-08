@@ -23,6 +23,4 @@ There are 2.5 RE 'backends' in Memoria:
 
 Memoria is not going to rely 100% on the Seastar or Asio API. Instead, the Framework will be trying to isolate specifics of underling API, making code porting easier. 100% cross-RE compatibility is not a goal.
 
-
-
-TBС...
+_This section is currently deeply incomplete, and looks like a mess, as well as a current state of runtime subsystem in Memoria. The section will be co-improving together with the runtime environment._
