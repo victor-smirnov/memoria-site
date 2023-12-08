@@ -62,10 +62,38 @@ M-code is meant to be memory/thread-safe and *UB-free* by default, but may suppo
 
 ### Native Hermes integration
 
-### Rich embedded metadata
+There are tree layers of integration:
+
+1. *Object/data model* integration. Hermes objects are distinct but first class data objects. HRPC services are first class objects, supported by the runtime.
+2. *Language-level* integration. Think dict/list comprehension of python. M-code explicitly support code blocks that can be used to model array and map (and some other) containers of Hermes.
+3. *Code Model* integration. M-code assemblies are just Hermes documents, so any Hermes data can be embedded with the application and instantly available to the code. Like reflection data and code annotations. 
 
 ### Compile-time metaprogramming
 
+C++ type-level template metaprogramming isn't that bad, actually. It does require *a lot* of attention every time we make a change to the meta-code, so it's a *high-maintenance* thing, but there is a lot of high-maintenance code here and there, so what's the issue? The issue is that *advanced* type-level metaprogramming is not needed in the industry. For systems programming language we need simple collections and class/function specialization, this is what C++ has been pretty good at.
+
+C++ does need advanced *AST-level* metaprogramming, usually provided by hygienic procedural macro systems, but, again, for what? Embedding DSLs? OK. Boilerplate code generation (serialization, bindings, etc)? OK. We can use external code generators for that. It will be hard to find definitive example that may justify the need for *advanced metaprogramming*.
+
+The point of Memoria, in this respect, is that multimodal databases do need advanced metaprogramming to craft data structures *optimized for applications' needs*. Databases in general benefit from metaprogramming, but usually they are isolated blackboxes, available via simplistic and inexpressive DSLs. General audience just doesn't know what's happening there. Memoria is trying to escape this historical trend by 'opening up' and providing it's internals to application developers, and exposing them (developers) to high-complexity data modelling problems.
+
+DSL Engine will be supporting compile-time metaprogramming at both type- and AST-levels. M-code interpreter is not actually an interpreter but a *dynamic compiler* paired with a *build system*. Metaprograms are just regular M-code, called at the compile-time, and can be AOT-compiled for better performance.
+
 ### Rule Engine
+
+There are two strategies of query execution -- *request-driven* and *data-driven*. In the first case we have a lot of data and a small number of complex queries. Query execution is usually initiated by an external actor (user or service). In the second case we have a lot of small queries and a small amount of quickly-changing data. And each time data is changed, relevant queries are re-evaluated automatically. If they update the data, the process continues until data updating stops. The first type is better known in the literature as *backward chaining* (BC) strategy of evaluation, the second one -- as *forward chaining* strategy of evaluation (FC). 
+
+In general case, with BC we have some *goal* (a query) and we need to check what is aligned with this goal (filter the data according to the query). With FC strategy we have some *change* (event) and we need to compute what are *consequences* of this change. Regular request-response databases use BC strategy for query evaluation. There are two main examples of FC systems:
+1. Complex Event Processing or CEP.
+2. Continuous Queries (CQ), or (better known as) Stream Processing (SP).
+
+CEP and CQ/SP target different use cases, they use different base algorithms. CEP may use a variant of RETE, that, basically, tries to find *patterns in data*. And patterns are described as a set of rules: *pattern*->*reaction*. The most prominent opensource implementation of this approach is [Drools](https://www.drools.org/). 
+
+Pattern-matching with RETE is pretty close to general data-flow (DF) programming, but more high-level (unlike plain DF, it has `join` operation). In this respect, conventional *control flow* (CF) programming is close to backward chaining external *control* is guiding the process to its *goal*. What is interesting about RETE is that it can be hardware-accelerated. RETE's Beta-nodes are just Cartesian product operations are similar to matrix multiplication and can be accelerated using the similar approach ([systolic arrays](https://en.wikipedia.org/wiki/Systolic_array)). Moreover, RETE is well-extandable, there can be variants for probabilistic and approximate inference, hybridizing with neural networks and so on...
+
+
+
+## Language Kit
+
+## Roadmap
 
 TBC...
