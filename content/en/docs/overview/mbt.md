@@ -2,8 +2,6 @@
 title: "Memoria Build Tool"
 description: ""
 lead: ""
-date: 2020-10-06T08:48:57+00:00
-lastmod: 2020-10-06T08:48:57+00:00
 draft: false
 images: []
 menu:
@@ -13,4 +11,14 @@ weight: 70
 toc: true
 ---
 
-TBD
+Memoria Build Tool (MBT) is a helper program with the scope of Memoria project (and out of it, if it's fount to be helpful). It basically reads C++ sources (via Clang libs) and can:
+
+1. Generate boilerplate code like bindings,
+2. Invoke compiler to do type inference,
+3. ...
+
+MBT is integrated with CMake and has a special mode to produce a list of artifacts that will be included into the project's build process.
+
+Currently MBT is used to instantiate containers in libraries, but later this scope will be extended.
+
+TBC ...

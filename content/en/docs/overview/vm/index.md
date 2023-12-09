@@ -100,6 +100,6 @@ But Boost Spirit isn't that scalable, so there are plans to integrate ANTLR4 wit
 
 ## Roadmap
 
-DSL Engine may look like it's a fully featured programming platform, but this specific part of the design is *highly experimental*. The goal is to support *DSL programming in the large*, with focus on advanced cases like first-class support for accelerated RETE inference engine. 
+DSL Engine may look like it's a fully featured programming *platform*, but this specific part of the design is *highly experimental*. The goal is to support *DSL programming in the large*, with focus on advanced cases like first-class support for accelerated RETE inference engine. 
 
 DSL Engine is going to be detachable, configurable and embeddable, so other projects may also use it even if don't need the rest of Memoria and have different runtime environments.
