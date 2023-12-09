@@ -21,7 +21,7 @@ The early experiment on this ground was an [attempt](https://github.com/victor-s
 
 ## What
 
-In/for Memoria we do not try to create a new general purpose *system* language *competing* with C++ or any its successor languages. Instead, we need a highly compatible *companion* language for domains where [descriptional complexity](/docs/overview/theory/) is very high, so "*code is a new data*". 
+In/for Memoria we do not try to create a new general purpose *system* language *competing* with C++ or any its successor languages. Instead, we need a highly compatible *companion* language for domains where [descriptional complexity](https://en.wikipedia.org/wiki/Kolmogorov_complexity) is very high, so "*code is a new data*". 
 
 Here is how Memoria is going to fit this niche. There are five key features:
 

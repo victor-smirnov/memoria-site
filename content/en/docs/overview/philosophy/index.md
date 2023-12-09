@@ -2,7 +2,7 @@
 title: "Philosophy"
 description: ""
 lead: ""
-draft: false
+draft: true
 images: []
 menu:
   docs:
