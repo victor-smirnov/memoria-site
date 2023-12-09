@@ -1,5 +1,5 @@
 ---
-title: "Theory & Background"
+title: "Philosophy"
 description: ""
 lead: ""
 draft: false

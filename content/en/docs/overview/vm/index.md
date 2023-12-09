@@ -90,10 +90,16 @@ CEP and CQ/SP target different use cases, they use different base algorithms. CE
 
 Pattern-matching with RETE is pretty close to general data-flow (DF) programming, but more high-level (unlike plain DF, it has `join` operation). In this respect, conventional *control flow* (CF) programming is close to backward chaining external *control* is guiding the process to its *goal*. What is interesting about RETE is that it can be hardware-accelerated. RETE's Beta-nodes are just Cartesian product operations are similar to matrix multiplication and can be accelerated using the similar approach ([systolic arrays](https://en.wikipedia.org/wiki/Systolic_array)). Moreover, RETE is well-extandable, there can be variants for probabilistic and approximate inference, hybridizing with neural networks and so on...
 
-
+The goal of Memoria's DSL Engine is to provide *integrated* execution environment for backward chaining strategy (regular queries, CF programs) and forward chaining (RETE-based CEP and SP).
 
 ## Language Kit
 
+M-code is an intermediate level language and is not intended for manual code authoring. For high-level languages and DSLs there is a Boost Spirit integration. The grammar may produce AST on a Hermes document format directly, without intermediate objects. This is how HermesPath and Hermes Template engine (Jinja-like syntax) works. 
+
+But Boost Spirit isn't that scalable, so there are plans to integrate ANTLR4 with Hermes. The idea is to write special ALTLR4 backend producing AST in the Hermes Document format and related helper classes.
+
 ## Roadmap
 
-TBC...
+DSL Engine may look like it's a fully featured programming platform, but this specific part of the design is *highly experimental*. The goal is to support *DSL programming in the large*, with focus on advanced cases like first-class support for accelerated RETE inference engine. 
+
+DSL Engine is going to be detachable, configurable and embeddable, so other projects may also use it even if don't need the rest of Memoria and have different runtime environments.
