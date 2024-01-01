@@ -31,6 +31,10 @@ Here is how Memoria is going to fit this niche. There are five key features:
 4. Homoiconic compile-time metaprogramming and supporting *metaprogramming platform*, integrated with runtime environment and the interpreter.
 5. RETE-based rule engine for advanced pattern matching.
 
+M-code and related infrastructure are targeting the **in-database programming** problem.
+
+General-purpose programming languages are targeting *compute-intensive* problems that use rather simple data structures: arrays and linked data structures like object graphs. Data structures are simple and ephemeral.
+
 ### M-code and Code Model
 
 Memoria does not introduce any new high-level programming language, like Java or Python. Instead, it defines intermediate-level *DSL Host* language M-code. M-code may have two forms:

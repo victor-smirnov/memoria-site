@@ -35,14 +35,16 @@ If you still want to start building your own database, prepare to suffer. Neithe
 
 ### What Memoria is...
 
-Memoria Framework is aiming to make our life in this world easier but you may be benefited too, depending on your needs and how well they fit into the project's model.
+Memoria Framework is aiming to make our life as a data/storage engineers in this world easier but you may be benefited too, depending on your needs and how well they fit into the project's model:
+
+{{< figure src="architecture.svg" >}}
 
 Memoria has the following components:
 
-1. [**Hermes**](/docs/overview/hermes) - arbitrarily structured object graphs allocated in relocatable contiguous memory segments, suitable for memory mapping and inter-process communication, with focus on data storage purposes. Hermes objects and containers are string-externalizable and may look like "Json with types". GRPC-style services and related tooling (IDL) is provided.
+1. [**Hermes**](/docs/overview/hermes) - arbitrarily structured object graphs allocated in relocatable contiguous memory segments, suitable for memory mapping and inter-process communication, with focus on data storage purposes. Hermes objects and containers are string-externalizable and may look like "Json with types". GRPC-style services and related tooling (IDL) is provided (HRPC).
 2. Extensible and customizable set of [**Data Containers**](/docs/overview/containers), internally based on B+Trees crafted from reusable building blocks by the metaprogramming framework. The spectrum of possible containers is from plain dynamic arrays and sets, via row-wise/column-wise tables, multitude of graphs, to compressed spatial indexes and beyond. Everything that maps well to B+Trees can be a first-class citizen of data containers framework. Containers and Hermes data objects are deeply integrated with each other.
 3. Pluggable [**Storage Engines**](/docs/overview/storage) based on Copy-on-Write principles. Storage is completely separated from containers via simple but efficient contracts. Out of the box, OLTP-optimized and HTAP-optimized storage, as well as In-Memory storage options, are provided, supporting advanced features like serializable transactions and Git-like branching.
-4. [**DSL execution engine**](/docs/overview/vm). Lightweight embeddable VM with Hermes-backed code model (classes, byte-code, resources) natively supporting Hermes data types. Direct Interpreter and AOT compilation to optimized C++.
+4. [**DSL execution engine** (DSL Engine)](/docs/overview/vm). Lightweight embeddable VM with Hermes-backed code model (classes, byte-code, resources) natively supporting Hermes data types. Direct Interpreter and AOT compilation to optimized C++.
 5. [**Runtime Environments**](/docs/overview/runtime). Single thread per CPU core, non-migrating fibers, high-performance IO on top of io-uring and hardware accelerators.
 6. [**Development Automation**](/docs/overview/mbt) tools. Clang-based build tools to extract metadata directly from C++ sources and generate boilerplate code.
 
@@ -50,7 +52,7 @@ The purpose of the project is to integrate all aspects and components described 
 
 ### What Memoria is not...
 
-First of all, Memoria is not a database engine. It may contain one as a part of the Framework, but its scope will be limited (like etcd for k8s). Large-scale *distributed* storage is intentionally outside of the scope of the project.
+First of all, Memoria is not a specific *database engine*. Memoria may/will contain one as a part of the Framework, but its scope will be limited (like etcd for k8s). Large-scale *distributed* storage is currently outside of the scope of the project.
 
 
 
