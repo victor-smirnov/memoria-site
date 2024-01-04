@@ -17,23 +17,33 @@ toc: true
 
 -- Rob Pike in [“Notes on Programming in C”](http://www.lysator.liu.se/c/pikestyle.html), 1989.
 
-### How it started...
+### What Memoria is...
+
+_Database_ = _storage_ + _type system_. This definition isn't strict, because a lot of designs can fall into this category under certain angle of sight. The distinctive property of a database is that the storage is _expected_ to be _reliable_. Reliable storage is defined by current _memory architecture_ and type system is defined by the _problem_ being solved (by algorithms and data structures). The problem is that both components are _rapidly evolving_, but the speed and consistency of this evolution is not uniform:
+
+1. Our OS-provided IO interfaces are modelled after _tape_ storage. 
+2. Modern solid-state drives have to provide block device interface to an OS that translates it to API originally intended for tape drives. Building up multiple abstraction layers on the go.
+3. Databases somehow have to provide _fast_ and _reliable_ storage on top of this.
+4. At the same time by using software architecture optimized for _rotating disks_ from 1980-90th.
+5. At the same time hardware is heterogeneous, with hundreds of CPU cores per machine, with multiple tightly connected hardware accelerators and complex memory hierarchies, with computations offloading directly into main memory and storage devices' chips.
+6. Emerging _hybrid_ AI is dictating completely new requirements for the entire HW/SW stacks. "Vector databases" are just the beginning.
+7. Popular programming languages are optimized for simple _main-memory_ data structures like arrays. Anything more complex requires data and process abstractions neither these languages, not their _runtimes_ can handle efficiently.
+
+Recent advancements in generative AI sparkled interest in GOFAI systems on the expectations that the latter can provide required level of accuracy and reliability for practical applications. Relational databases are remnants of deductive databases of 1980th that lost their "deductive" part. SQL is based on relational algebra that is based on relational calculus, that is a decidable subset of first-order logic (FOL) that can be evaluated in a polynomial time. If someone is doing a ore-or-less generic logical reasoning engine, they are doing a database, like it or not. Because relational calculus is a subset of FOL, so they end up building the same machinery needed for SQL query evaluation.
+
+Memoria isn't a perfect and ultimate answer for those challenges. It optimizes for data variety by providing a multitude of different high- and low-level data structures ("containers") optimized into a single vertically integrated data engineering framework for SW/HW co-design of storage, compute and algorithms:
+
+1. Memoria relies on C++ metaprogramming for data structures' _design space exploration_ ("type system", see above).
+2. These data structures are used to build multiple _storage engines_ optimized for OLTP and HTAP workloads ("storage").
+3. _Runtime Environment_ optimized for hardware-accelerated query execution in backward-, forward-, hybrid-chaining and streaming (continuous) modes and DSL hosting stack.
+
+### Motivating example: advanced spatial indexes
 
 Memoria started back in 2007 out of a need of having a memory-efficient multi-dimensional spatial tree for function approximation, like [this one](/docs/data-zoo/associative-memory-2/). Contrary to traditional approaches for function approximation, like neural networks, spatial trees have much smaller computational complexity (logarithmic on average) for inference and allow computing partial and inverse functions out of the same set of parameters. Advanced data structures to the rescue, [LOUDS tree](/docs/data-zoo/louds-tree/) has 2 bits per tree node of space complexity + some small overhead. What is also important, is that LOUDS trees can be *dynamic*, allowing point-like updates, so that tree-based function approximation method can support precise in-place tuning.
 
-### Advanced data structures
+LOUDS tree internally is a [*searchable* bit vector](/docs/data-zoo/searchable-seq/) supporting two additional operations -- `rank()` and `select()` by using two additional arrays. And all of this can be implemented as a dynamic array (with logarithmic complexity of updates). The problem is that besides those two search operations and traditional point-like query and update operations, we also need dozens of service operations like *batch updates*. Implementation complexity is already skyrocketing. But besides that we also need efficient concurrent multi-threaded access, external memory, transactions and versioning. In real life, implementational complexity of even apparently simple data structure, like a bitmap, may be 100-1000 times larger that one may expect by reading its description in a textbook. What is the worst thing, you may find that you need many (dozens of) different data structures...
 
-LOUDS tree internally is a [*searchable* bit vector](/docs/data-zoo/searchable-seq/) supporting two additional operations -- `rank()` and `select()` by using two additional arrays. And all of this can be implemented as a dynamic array (with logarithmic complexity of updates). The problem is that besides those two search operations and traditional point-like query and update operations, we also need dozens of service operations like *batch updates*. Implementation complexity is already skyrocketing. But besides that we also need efficient concurrent multi-threaded access, external memory, transactions and versioning. In real life, implementational complexity of even apparently simple data structure, like a bitmap, may be 100-1000 times larger that one may expect by reading its description in a textbook. What is the worst thing, you may find that you need may (dozens of) different data structures...
-
-### Should I tried a database?
-
-An obvious idea is to try using a database as a host... It's not that simple. Databases can be transactional, analytical or hybrid, and most of the time they are heavily optimized for *one* type of data: tabular, graph or document. Unix way: do *one* thing but do it well. Multi-model databases exist, but they are not that multi-model one may expect. Instead of one, they are doing tree things (tables, graphs and documents), and these are probably not what you what to *reuse* to speedup your development. Anyway one should definitely try this route before start even thinking about writing their own database engine. There were way less options back in 2000th when Memoria was started than now.
-
-### Or, maybe, create a new one?
-
-If you still want to start building your own database, prepare to suffer. Neither OS, nor programming languages are not for that. C is great, but only until you need a generic collection library. And, trust me, you will need a lot of them. Java is glorious, but prepare for low-level programming over raw memory buffers with memory leaks and undefined behaviour, or GC will be killing you every day. C++ is excellent but you will be controlling UB manually all the way down. Golang is good but its monomorphic generics story has only started recently. The same is true for Rust. High performance IO story is fully ruled by networking people who [killed fibers](https://github.com/victor-smirnov/green-fibers/wiki/Dialectics-of-fibers-and-coroutines-in-Cxx-and-successor-languages). Memory mapping hates your high-performance NVMe SSD even on reading. There is no way to *reliably* commit a transaction. Database engines are just *trying* their best in this respect. And this is, more or less, guaranteed only for certain combination of storage device, OS and drivers. And I haven't yet mentioned distributed computing. There is no reliable way to send a packet between computers. There is basically no part of your computer you can trust and rely on. And every failure may be fatal for your *state*. You want to sleep well at nights, right?
-
-### What Memoria is...
+### The project's structure
 
 Memoria Framework is aiming to make our life as a data/storage engineers in this world easier but you may be benefited too, depending on your needs and how well they fit into the project's model:
 
@@ -49,10 +59,5 @@ Memoria has the following components:
 6. [**Development Automation**](/docs/overview/mbt) tools. Clang-based build tools to extract metadata directly from C++ sources and generate boilerplate code.
 
 The purpose of the project is to integrate all aspects and components described above into a single vertical framework, starting from *bare silicon* up to networking and human-level interfaces. The framework may eventually grow up into a fully-featured *metaprogramming platform*.
-
-### What Memoria is not...
-
-First of all, Memoria is not a specific *database engine*. Memoria may/will contain one as a part of the Framework, but its scope will be limited (like etcd for k8s). Large-scale *distributed* storage is currently outside of the scope of the project.
-
 
 
