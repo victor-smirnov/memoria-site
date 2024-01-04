@@ -152,6 +152,18 @@ The following list summarizes OLTPStore's features and limitations:
 1. Unlike LMDB, OLTPStore *does not* use memory mapping. Instead, high-performance IO interfaces like Linux AIO or liburing are used instead.
 2. Unlike SWMRStore, neither branches, nor snapshot history are supported.
 
+### NANDStore
+
+*(Note that this storage engine type is WIP and is not yet available for experiments)*
+
+This is an experimental variant of OLTPStore working on top of simplified _virtualized_ NAND flash chips instead of block device interface. The main purpose of this storage engine is to research _proper layering_ between raw hardware and high-level algorithms in the context of SW/HW co-design:
+
+1. More deterministic and flexible commit and power failure handling.
+2. Exploring computational storage: partial offloading of application-level queries to the device.
+3. Computationally-assisted storage. Running storage-level queries in the device to improve application-level data management.
+
+Note that the code of this storage engine is not intended to be used as an SSD firmware. A lot of additional R&D will be needed for that to happen.
+
 ### OverlayStore
 
 *(Note that this storage engine type is WIP and is not yet available for experiments)*
