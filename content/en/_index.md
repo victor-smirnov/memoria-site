@@ -1,9 +1,7 @@
 ---
 title : "Memoria"
-description: "Lorem Ipsum"
-lead: "Memoria is a full stack data engineering framework written in modern C++."
-date: 2021-10-25T08:47:36+00:00
-lastmod: 2021-10-25T08:47:36+00:00
+description: ""
+lead: "Memoria is a data-centric framework for heterogeneous software and hardware co-development."
 draft: false
 images: []
 ---

@@ -12,6 +12,13 @@
   identifier = "datazoo"
   url = "/docs/data-zoo/"
 
+[[docs]]
+  name = "Applications"
+  weight = 2000
+  identifier = "apps"
+  url = "/docs/applications/"
+
+
 [[main]]
   name = "Docs"
   url = "/docs/overview/introduction/"

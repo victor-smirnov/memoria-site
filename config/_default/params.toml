@@ -3,7 +3,7 @@
 ## Homepage
 title = "Memoria"
 titleSeparator = "-"
-titleAddition = "Data Engineering Framework"
+titleAddition = "HW/SW Co-design Framework"
 description = ""
 
 ## Documentation
@@ -21,7 +21,7 @@ titleHome = "Memoria Framework"
 
 ## JSON-LD
 schemaType = "Person"
-# schemaType = "Organization"
+#schemaType = "Organization"
 schemaName = "Memoria"
 schemaAuthor = "Victor Smirnov"
 #schemaAuthorTwitter = "https://twitter.com/henkverlinde"
@@ -57,7 +57,7 @@ smallLimit = "300"
 footer = "Powered by <a href=\"https://www.github.com/\">Github</a>, <a href=\"https://gohugo.io/\">Hugo</a>, and <a href=\"https://getdoks.org/\">Doks</a>"
 
 # Feed
-copyRight = "Copyright (c) 2021-2022 The Memoria Authors"
+copyRight = "Copyright (c) 2021-2024 The Memoria Authors"
 
 # Alert
 alert = false

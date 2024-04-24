@@ -1,5 +1,5 @@
 ---
-title: "Philosophy"
+title: "Memoria Acceleration Architecture (MAA)"
 description: ""
 lead: ""
 draft: false
@@ -7,8 +7,7 @@ images: []
 menu:
   docs:
     parent: "overview"
-weight: 15
+weight: 65
 toc: true
 ---
 
-TBC...
