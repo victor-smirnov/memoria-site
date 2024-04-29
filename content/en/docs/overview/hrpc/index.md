@@ -55,5 +55,5 @@ HRPC is currently work-in-process, it has session-aware bidirectional communicat
 
 See [headers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/hrpc.hpp) for basic API definitions. See [HRPC tests](https://github.com/victor-smirnov/memoria/tree/master/tests/hrpc) for the feature preview.
 
-The main practical difference between HRPC and gRPC is that the former does not require a lot of code-generation for application-level data structures. Basic types are supported by Hermes itself and [structured objects](#tinyobjectmap) can be wrapped into flyweight C++ [handlers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/schema.hpp) that will be optimized away at compile-time. HRPC does not require separate in-memory representation of messages.
+The main practical difference between HRPC and gRPC is that the former does not require a lot of code-generation for application-level data structures. Basic types are supported by Hermes itself and [structured objects](/docs/overview/hermes#tinyobjectmap) can be wrapped into flyweight C++ [handlers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/schema.hpp) that will be optimized away at compile-time. HRPC does not require separate in-memory representation of messages.
 
