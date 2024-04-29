@@ -33,6 +33,8 @@ There are three serialization formats for Hermes data.
 2. **Text** serialization. Human-readable, safe, and the slowest (but still fast in raw numbers). 
 3. **Binary** serialization. The densest option, but faster than the textual one. Safe. Best for networking when human-readability is not a requirement.
 
+## Immutability
+
 Hermes documents are *mutable* and support run-time immutability enforcement ("make it immutable"). Immutable documents may be safely shared between threads with minor restrictions.
 
 ## Hermes Object
@@ -40,6 +42,8 @@ Hermes documents are *mutable* and support run-time immutability enforcement ("m
 Hermes memory is *tagged*. A tag is a type label and has various length, from 1 to 32 bytes. Most commonly used types, like `Int` have tag length of 1 byte. Rarely used types may have tags up 32 bytes, in that case it's most likely a SHA256 *hash code* of the *type's declaration*. Hermes assumes that type hash collisions will be an extremely rare event.
 
 Memory for tag is allocated address-wise *before* the object. Objects may have gaps between them in memory caused by alignment requirements. In that case, if a tag fits into this gap, it's allocated there. With high probability, short tags (for commonly used objects) do not take extra memory.
+
+Objects tags *may be* used for memory integrity checking, but this is left to implementations. To support integrity checking, every object pointer may contain 8- or 16-bit hash of the corresponding tag. Such type of integrity protection is probabilistic, not deterministic. Note that at this moment (2024) integrity checking _is not yet supported_.
 
 From the API's perspective, Hermes objects consist from two part. The first part is a private C++ object with verbose API conforming to certain rules. The second part is a public `View` for this object, this is much like `std::string_view` for string-like data. Mutable Hermes object receive a reference to the corresponding Document's arena allocator to allocate new data in. View object encapsulates all these complexities.
 
@@ -136,30 +140,43 @@ Templating (generating text) is possible with [Jinja](https://jinja.palletsproje
 
 Hermes has schema processor to enforce declarative and imperative constraints on Hermes documents, semantic graphs and other types of structures. Schema processor is a major component of Hermes' stack, that may work in an interactive mode, like a *language server* for Hermes data structures.
 
-## HRPC
+## Profiles
 
-Hermes has its own gRPC-like protocol supporting streaming but instead of protocol buffers, HRPC (Hermes-RPC) uses serialized Hermes documents as messages. HRPC:
+Hermes may support different _profiles_. A _profile_ is a set of features Hermes container is supporting. Supporting all the features and data-types may be unnecessary and resource-consuming, especially on web and embedded platforms. For example, typical web applications don't need much more than JSON is providing out of the box (generic object, array, null and a few data types). 
 
-1. Can work over any messaging transport. Default (and, currently, the only) implementation is using TCP. Can work on top of QUIC and HTTP/2/3, SCTP. Can work over many *message queues*.
-2. Is a session-based protocol. Session is initialized by client. For TCP transport, there is one HRPC Session per TCP connection.
-3. Both Client and Server may publish *service endpoints* and call them bidirectionally via Session object. 
-4. Resources are identified with 256-bit UIDs.
-5. Protocol implementation is versatile and, together with ability to share immutable Hermes documents between threads in a zero-copy way, can be used for *safe structured inter-thread messaging*. 
+* Minimalist _'pico'_ profile may support only generic *fixed size* array container, fixed sizevariant of [TinyObjectMap](#tinyobjectmap), 56- and 64-bit integers and strings. This profile will be the most compact one, yet functionality is sufficient for all basic interactions between code and devices.
 
-Conceptually, HRPC is pretty close to the actor model, but has RPC-like API with streaming.
+* _'Nano'_ profile may add generic fixed-size container mapping from Int56 to Object, that is sufficient for most of relational-type data (also, trees and graphs).
 
-See [headers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/hrpc.hpp) for basic API definitions. See [HRPC tests](https://github.com/victor-smirnov/memoria/tree/master/tests/hrpc) for the feature preview.
+* _'Micro'_ profile may add support of all integer (8, 16, 32 bit, including vlen), floating point types and sematic graph data-types. 
 
-The main practical difference between HRPC and gRPC is that the former does not require a lot of code-generation for application-level data structures. Basic types are supported by Hermes itself and [structured objects](#tinyobjectmap) can be wrapped into flyweight C++ [handlers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/schema.hpp) that will be optimized away at compile-time. HRPC does not require separate in-memory representation of messages.
+* _'Basic'_ profile may add essential dynamic (growable/shrinkable) containers that may be uses as a *working memory* by applications.
+
+* ...
+
+And so on... Profiles are not necessary hierarchical and inclusive. Hermes has open type system, and supporting all possible types is just infeasible. So may be application-specific profiles, staying completely aside from the main profile set.
+
+## Hardware implementation
+
+Implementing parts of Hermes protocol directly in hardware makes sense in two cases: embedded and multicore accelerators, because in both cases CPU cores are pretty simple (not OoOE) and we don't want to waste CPU cycles on complex data encodings. So, there are basic areas where we can do it:
+
+1. **Tag dispatching**. Mathematical operations on generic numbers go through either tag-indexed  switch statement or hash table over multiple handlers. Implementing this dispatching directly in hardware may save a lot of cycles.
+1. **Variable length integers** may save a lot of memory and are actively used in Hermes. Supporting them directly in hardware will improve performance significantly.
+1. **[Advanced Data Structures](/docs/data-zoo/searchable-seq/)**. Certain frequently used containers containers, like [TinyObjectMap](#tinyobjectmap), may rely on on advanced bit-parallel operations like rank/select (PopCnt and SelectN), implementing them in hardware will improve performance significantly (10-60x) over baseline. 
+1. **Immutability enforcement**. If hardware supports memory segmentation, blocks containing finalized Hermes documents may be marked immutable.
+
+Besides these simple cases, important operations like binary serialization and deserialization, as well as consistency checking (reference tags and object memory layout checking) may be partially implemented in hardware, improving performance in many important cases.
+
+Profile system may also be aligned with hardware acceleration. Profile may mean that certain datatypes are hardware-accelerated and using them is encouraged (other other possible datatypes).
 
 ## Interoperability with other languages
 
 Hermes is a *C++-centric data model*, it relies heavily on RAII for memory management. Replicating it fully in other runtime environments may be difficult if even possible. To implement it fully, target runtime environment must support either RAII or at least ARC. D, Rust, Swift and CPython are in the green zone. For other environments like JavaScript, Java and Julia some functionality may be limited.
 
-Another important dependency is that Hermes' datatypes may be pretty complex, like arbitrary precision numbers or safe integers with deterministic overflow semantics. Also, DSLs (HermesPath) may rely on extensive libraries of functions. Re-implementing it all in target language will lead to a lot of complex code duplication. So, bindings to Hermes will be relying on FFI to C++. The caveat is that binary code for full set of Hermes may be pretty large in size (10MB+) so running it in a browser (WASM) may be *impractical*.
+Another important dependency is that Hermes' datatypes may be pretty complex, like arbitrary precision numbers or safe integers with deterministic overflow semantics. Also, DSLs (HermesPath) may rely on extensive libraries of functions. Re-implementing it all in target language will lead to a lot of complex code duplication. So, bindings to Hermes will be relying on FFI to C++. The caveat is that binary code for full set of Hermes may be pretty large in size (10MB+) so running it in a browser (WASM) may be *impractical* (unless Hermes is supported natively).
 
 ## Sources
 
 1. Main [headers](https://github.com/victor-smirnov/memoria/tree/master/core/include/memoria/core/hermes).
 2. Main [sources](https://github.com/victor-smirnov/memoria/tree/master/core/lib/hermes)
-3. HRPC [headers](https://github.com/victor-smirnov/memoria/blob/master/runtimes/include/memoria/hrpc/hrpc.hpp). String representation parser, HermesPath, Template engine.
+
