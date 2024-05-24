@@ -462,9 +462,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.9899495"
-     inkscape:cx="375.77674"
-     inkscape:cy="346.9874"
+     inkscape:zoom="5.6"
+     inkscape:cx="262.5"
+     inkscape:cy="288.30357"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -522,28 +522,31 @@
        ry="53.951294" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)"
-       d="M 341.96546,762.19178 238.92739,888.28539"
+       d="m 339,765.36218 -97,119"
        id="path4683"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
        inkscape:connection-start="#path1267-7"
-       inkscape:connection-end="#path1267" />
+       inkscape:connection-end="#path1267"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)"
-       d="m 258.69419,930.02156 232.93248,-0.0918"
+       d="M 264,930.36218 H 487"
        id="path4687"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
        inkscape:connection-start="#path1267"
-       inkscape:connection-end="#path1267-5" />
+       inkscape:connection-end="#path1267-5"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)"
-       d="M 410,762.36218 511.60349,887.98077"
+       d="m 413,766.36218 95,118"
        id="path4871"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
        inkscape:connection-start="#path1267-7"
-       inkscape:connection-end="#path1267-5" />
+       inkscape:connection-end="#path1267-5"
+       sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px"
@@ -580,30 +583,30 @@
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
-       x="201.67087"
-       y="926.98138"
+       x="205.05612"
+       y="926.8028"
        id="text21667"><tspan
          sodipodi:role="line"
          id="tspan21665"
-         x="201.67087"
-         y="926.98138">Integrated</tspan><tspan
+         x="205.05612"
+         y="926.8028">Integrated</tspan><tspan
          sodipodi:role="line"
-         x="201.67087"
-         y="946.98138"
+         x="205.05612"
+         y="946.8028"
          id="tspan21669">Cirquits</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
-       x="373.93942"
-       y="716.54718"
+       x="376.41528"
+       y="716.59882"
        id="text32745"><tspan
          sodipodi:role="line"
          id="tspan32743"
-         x="373.93942"
-         y="716.54718">ControlFlow</tspan><tspan
+         x="376.41528"
+         y="716.59882">ControlFlow</tspan><tspan
          sodipodi:role="line"
-         x="373.93942"
-         y="736.54718"
+         x="376.41528"
+         y="736.59882"
          id="tspan32747">DataFlow</tspan></text>
     <text
        xml:space="preserve"
