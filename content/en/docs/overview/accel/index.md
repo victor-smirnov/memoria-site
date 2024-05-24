@@ -145,12 +145,20 @@ Here there are following essential components:
 1. Processing elements ([xPU](#processing-element)) -- RISC-V cores with hardware support for HRPC and essential Memoria algorithms and data structures.
 1. Network-on-Chip (NoC) in a form of a 2D array (best for matrix multiplication) or an N-dimensional hypercube (best for latency in general case).
 1. Main HRPC service gateway and many local HRPC routers. 
-1. Service endpoints for hardware-implemented functions like atomic reference counting and other shared concurrency primitives.
+1. Service endpoints for hardware-implemented functions like atomic reference counting (ARC) and other shared concurrency primitives.
 1. Shared on-die SRAM, accessible by all cores. It can be distributed and has many functions -- scratchpad memory, caching, ring buffers and other *hardware assisted* data structures, etc. May be physically split im many parts and distributed on the die.
 1. Smart DRAM controller with embedded PNM xPU and/or hardwired [Memoria functions](#memoria-containers). 
-1. External connectivity modules (Transivers, PCIe, etc).
+1. External connectivity modules (Transceivers, PCIe, etc).
 
-...
+The main feature of this architecture in the context of Memoria is that it's *scalable*. There are no inherent scalability bottlenecks like whole-chip cache coherence. Of course, synchronization primitives like ARC and mutexes *theoretically* aren't scalable, but they can be _practically_ made efficient enough if implemented in the hardware directly, instead of doing it in the software over a cache-coherency protocol (that can't even control).
+
+1. It can be _scaled down_ to the size and power budget of an MCU and _scaled up_ to the size of an entire wafer (and beyond). 
+1. It's _composable_. Memoria applications do not rely on a shared array-structured memory. They may use fast structured [transactional](/docs/overview/storage) memory for that. At the hardware level it's just bunch of chips talking to each other via an open messaging protocol.
+1. It's extensible. Extra functionality can be added into xPUs (regular RISC-V instruction set extensions), hardened shared functions, HRPC middleware and others. The only requirement is using HRPC protocol for communication and published HW/SW interfaces.
+
+## Programmability Considerations
+
+TBC...
 
 ## CPU mode
 
