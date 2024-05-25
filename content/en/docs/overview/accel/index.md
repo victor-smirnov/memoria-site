@@ -15,22 +15,24 @@ toc: true
 
 Processing can be compute-intensive, IO-intensive or combined/hybrid. Processing is compute intensive if each element of data is processed many times. Examples: sorting and matrix multiplication. Otherwise it's IO-intensive. Example: hashtable with random access. Hybrid processing may contain both compute-intensive and IO-intensive *stages*, but they will be clearly separable. Like, in evaluating SQL query, JOIN is IO-intensive and SORT is compute-intensive. Physically, the more processing is compute-intensive, the less it's IO-intensive. Just because while we are processing a data element intensively, we can't do IO.
 
+_(Note that common definitions of compute-/io-/memory-bound problems are applicable here but not exactly identical to compute-/io-intensity.)_
+
 Compute/IO-intensity is not always an intrinsic property of an algorithm, but rather a combination of algorithm and *memory architecture*. Memory architecture is *usually* a combination of memory buffers with different size and speed. Usually, *large* memory can't be *fast*. Although with current technology there may be many *partial* exceptions from this rule. From the practical perspective, by IO we mean *off-die traffic*, because it's usually 100-1000 times slower than intra-die traffic. Sometimes, on-dies memory architecture may be pretty complex, containing rather slow memory but relatively large that even *may be* considered an IO under certain conditions. But here we are not counting these cases, just for simplicity.
 
 Each algorithm is characterized by some access pattern that can be *predictable* (e.g., linear or regular) or *random*, or mixed. In general, we can find regularities in memory access patters, either *statically* or *dynamically*, and utilize them to optimize data structures placement in memory logically and physically, we can keep most memory access intra-die, minimizing extra-die IO. 
 
-1. Dynamic strategy use memory access caching and prefetching.
-1. Static strategy use various memory buffers as a fast SRAM and move data between them manually.
+1. Automatic strategy use memory access caching and prefetching.
+1. Manual strategy use various memory buffers as a fast SRAM and move data between them manually.
 1. Hybrid strategy implies using both caches and scratchpad memory, as well as explicit memory prefetching. 
 
 Caching and prefetching is, by far, the most popular way to reduce memory access latency. It works pretty well in many practically important cases. But caching has its drawbacks too:
 
 * Caching isn't free. *Cache miss* costs dozens of cycles and *cache hit* isn't free either (trying address lookup table). Raw scratchpad SRAM may be much faster in the *best case*.
-* Caching doesn't co-exist well with Virtual Memory because it needs to take address transaltion into account. Switching contexts invalidate caches, that may degrade performance several times.
+* Caching doesn't co-exist well with Virtual Memory because it needs to take address translation into account. Switching contexts invalidate caches (either cache or address translation), that may degrade performance several times.
 * Caching of mutable data isn't scalable with the number of cores because of cache-coherency traffic.
 * To maximize performance under rather irregular memory access latency we need sophisticated OoOE cores, which are large, hot and expensive to engineer.
 
-While raw DDR5 DRAM access latency is around 25-40 ns, the full system latency, or the time needed to move data through the memory hierarchy, is around 75 ns, that is more than 2 times higher. These numbers don't take into account virtual memory effects like TLB misses, which may again push the system latency up several times. 
+While raw DDR5 DRAM access latency is around 25-40 ns, the full system latency, or the time needed to move data through the memory hierarchy, is around 75 ns, that is more than 2 times higher. These numbers don't take into account virtual memory effects like TLB misses, which may again push the system latency up several times.
 
 Inter-core communication is mostly done via caches and coherency traffic. One way latencies may be from 5 ns for two *virtual* cores (SMT) to [hundreds os nanoseconds](https://chipsandcheese.com/2023/11/07/core-to-core-latency-data-on-large-systems) in case of multiple sockets. Average latency is pretty high -- around dozens of nanoseconds. What is the worst, it that those numbers may be significantly higher when all cores start talking to each other. Performance may be minuscule if underling Network-on-a-Chip (NoC) can't handle this coherency traffic gracefully. Even garbage collection via atomic reference counting may be a pathological case for these type of memory architectures.
 
@@ -156,12 +158,9 @@ The main feature of this architecture in the context of Memoria is that it's *sc
 1. It's _composable_. Memoria applications do not rely on a shared array-structured memory. They may use fast structured [transactional](/docs/overview/storage) memory for that. At the hardware level it's just bunch of chips talking to each other via an open messaging protocol.
 1. It's extensible. Extra functionality can be added into xPUs (regular RISC-V instruction set extensions), hardened shared functions, HRPC middleware and others. The only requirement is using HRPC protocol for communication and published HW/SW interfaces.
 
-## Programmability Considerations
-
-TBC...
-
 ## CPU mode
 
-Actually, despite all legacy hardware and [software baggage](https://github.com/victor-smirnov/green-fibers/wiki/Dialectics-of-fibers-and-coroutines-in-Cxx-and-successor-languages), multicore CPUs are awesome, and they are here to stay as long as we, humans, are writing programs. Because CPUs are optimized to run our code as fast as possible. So, Memoria is going to have first-class support for this type of architectures, but optimization/acceleration opportunities are fairly limited here. 
+As it has been noted above, multicore MMU-enabled CPUs aren't the best runtime environment for running Memoria applications because of the overhead caused by MMU, memory hierarchy and the [OS](https://github.com/victor-smirnov/green-fibers/wiki/Dialectics-of-fibers-and-coroutines-in-Cxx-and-successor-languages). Nevertheless, it's a pretty large deployment base that will only be increasing in size in the foreseeable future. And it's currently the only way to run Memoria applications.
 
-...
+So, Memoria Framework is going to support it as a first-class member in its hardware platform family. Once specialized hardware becomes available, it can be incrementally included into the ecosystem.
+
