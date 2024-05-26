@@ -34,7 +34,7 @@ Caching and prefetching is, by far, the most popular way to reduce memory access
 
 While raw DDR5 DRAM access latency is around 25-40 ns, the full system latency, or the time needed to move data through the memory hierarchy, is around 75 ns, that is more than 2 times higher. These numbers don't take into account virtual memory effects like TLB misses, which may again push the system latency up several times.
 
-Inter-core communication is mostly done via caches and coherency traffic. One way latencies may be from 5 ns for two *virtual* cores (SMT) to [hundreds os nanoseconds](https://chipsandcheese.com/2023/11/07/core-to-core-latency-data-on-large-systems) in case of multiple sockets. Average latency is pretty high -- around dozens of nanoseconds. What is the worst, it that those numbers may be significantly higher when all cores start talking to each other. Performance may be minuscule if underling Network-on-a-Chip (NoC) can't handle this coherency traffic gracefully. Even garbage collection via atomic reference counting may be a pathological case for these type of memory architectures.
+Inter-core communication is mostly done via caches and coherency traffic. One way latencies may be from 5 ns for two *virtual* cores (SMT) to [hundreds os nanoseconds](https://chipsandcheese.com/2023/11/07/core-to-core-latency-data-on-large-systems) in case of multiple sockets. Average latency is pretty high -- around dozens of nanoseconds. What is the worst, it that those numbers may be significantly higher when all cores start talking to each other. Performance may be minuscule if underling Network-on-Chip (NoC) can't handle this coherency traffic gracefully. Even garbage collection via atomic reference counting may be a pathological case for these type of memory architectures.
 
 Existing Linux-compatible OoOE multicore CPUs, despite currently being the best way to run latency-sensitive workloads like databases, symbolic reasoners, constraint solvers, etc, aren't really being optimized for that. Slow inter-core communication makes them not that suitable for fine-grained *dynamic parallelizm*. 
 
@@ -61,15 +61,15 @@ Each node of such search tree takes some space in memory, and the best performan
 * memory controller or
 * to processing cores attached directly to memory banks on DRAM dies.
 
-Embedding logic into DRAM is hard (but possible), because the process is not optimized for that. But memory parallelism (throughput _and_ latency) will be the best in this case, together with energy efficiency. 
+Embedding logic into DRAM is hard (but possible), because the process is not optimized for that. But memory parallelism (throughput _and_ latency) will be the best in this case, together with energy efficiency. This is what is called _Processing-In-Memory_ or PIM.
 
-The alternative is to put the logic as close to the memory *chips* as possible, probably right on the memory modules or into the CXL controller. Throughput will be lower, parallelism too, latency somewhat higher. But we can leverage existing manufacturing processes, so solution will be cheaper initially.
+The alternative is to put the logic as close to the memory *chips* as possible, probably right on the memory modules or into the CXL controller. Throughput will be lower, parallelism too, latency somewhat higher. But we can leverage existing manufacturing processes, so solution will be cheaper initially. This is what is called _Processing-Near-Memory_ or PNM.
 
-The point is that, by and large, accelerating container require as much memory parallelism as possible and corresponding number of xPU put as close to the physical memory as possible. Existing accelerators, optimizing for neural networks (matrix multiplication), do not optimize for that (for latency). Because matrix multiplication is latency-insensitive. Memoria applications need a separate class of accelerators, maximizing effective *memory parallelism*.
+The point is that, by and large, accelerating container require as much memory parallelism as possible and corresponding number of xPU is put as close to the physical memory as possible. Existing accelerators, optimizing for neural networks (matrix multiplication), do not optimize for that (for latency). Because matrix multiplication is _latency-insensitive_. Memoria applications need a separate class of accelerators, maximizing effective *memory parallelism*.
 
 ## Persistent Data Structures
 
-[Persistent data structures](https://en.wikipedia.org/wiki/Persistent_data_structure) or PDS are usually implemented as trees, and Memoria follows this way. PDS are very good for parallelism, because committed versions are immutable, and immutable data can easily be shared (cached) between xPU without any coordination. Nevertheless, they require *garbage collection*, either deterministic (via atomic reference counting) or generational. Both cases  require strongly-ordered message delivery and *exactly-once-processing*. The latter pretty hard to achieve in a massively distributed environment, but rack-scale or even DC-scale (of reasonable size) is OK. Nevertheless PDS have scalability limitations that may limit even very small systems -- if they are fast enough for them to hit the limitations.
+[Persistent data structures](https://en.wikipedia.org/wiki/Persistent_data_structure) or PDS are usually implemented as trees, and Memoria follows this way. PDS are very good for parallelism, because committed versions are immutable, and immutable data can easily be shared (cached) between parallel processing units without any coordination. Nevertheless, PDS require *garbage collection*, either deterministic (via atomic reference counting) or generational. Both cases require strongly-ordered message delivery and *exactly-once-processing*. The latter is pretty hard to achieve in a massively distributed environment, but rack-scale or even DC-scale (of reasonable size) is OK. Nevertheless PDS have scalability limitations that may limit even very small systems -- if they are fast enough for them to hit the limitations.
 
 To accelerate PDS we need acceleration for atomic counters and, probably, for some other concurrency primitives. We need to make sure that communication fabric supports robust exactly-once-delivery. The latter will require some limited form of idempotent counters, that is reducible to keeping update history for a counter for a limited amount of time.
 
@@ -87,17 +87,17 @@ Computational architecture in Memoria is inherently heterogeneous and explicitly
 
 Domains are connected with a unified hardware-accelerated RPC+streaming communication protocol, [HRPC](/docs/overview/hrpc), allowing intra- and cross-domain seamless communication. HRPC is very much like gRPC (that is used to communicate with services in distributed computing tasks), but optimized for direct hardware implementation. 
 
-HRPC, if it's implemented in hardware, eliminates the need for a fully-featured OS Kernel, reducing it to a nano-kernel, that can be as small, as the amount of HRPC functionality, implemented in the software. Memoria _computational kernel_, a program module, running on a CPU core inside an _accelerator_ can listen to a stream, generated by reconfigurable logic, running in an FPGA (and vice versa). Or, the same kernel may call storage functions running in the smart-storage device, or in a "far" memory (near-memory compute in a CXL device):
+HRPC, if it's implemented in hardware, eliminates the need for a fully-featured OS Kernel, reducing it to a nano-kernel, that can be as small, as the amount of HRPC functionality, implemented in the software. Memoria _computational kernel_, a program module, running on a CPU core inside an _accelerator_, can listen to a stream, generated by reconfigurable logic, running in an FPGA (and vice versa). Or, the same kernel may call storage functions running in the smart-storage device, or in a "far" memory (near-memory compute in a CXL device):
 
 {{< figure src="comp-arch.svg" >}}
 
-In this type of architecture, OS' kernel functionality is split into a services running on different computable devices. Storage functions is usually the larges OS-provided piece of functionality is managed directly by ['smart storage' devices](/docs/applications/storage), capable of running complex DB-like queries in streaming and batching modes.
+In this type of architecture, OS' kernel functionality is split into a services running on different computable devices. Storage functions, which are usually the largest OS-provided piece of functionality, are managed directly by ['smart storage' devices](/docs/applications/storage), capable of running complex DB-like queries in streaming and batching modes.
 
-This architecture design should not be considered as a hardware-assisted micro- or nano-kernel, but rather a **distributed system scaled down to a single machine**. Large multicore MMU-enabled CPU is no longer a _central_ PU in this architecture, but rather a PU for running legacy code and code benefited from using a Memory Management Unit.
+This architecture design should not be considered as a hardware-assisted micro- or nano-kernel, but rather a **distributed system scaled down to a single machine**. Large multicore MMU-enabled CPU is no longer a _central_ PU in this architecture, but rather a PU for running legacy code and code benefited from using a MMU.
 
-Notable feature of this architecture is that memory is no longer a single address space, but rather a set of buffer with different affinity with compute. Programming it directly will be a challenge, but it's already a mundane 9-to-5 job in the area of distributed programming.
+Notable feature of this architecture is that memory is no longer a single shared address space, but rather a set of buffer with different affinity with compute functions. Programming it directly will be a challenge, but it's already a mundane 9-to-5 job in the area of distributed programming.
 
-Note that in Memoria architecture, cross-environment code portability is _not ensured_. Different accelerators my provide different default runtime environments, memory and CPU cluster topologies. It's OK if some Memoria code needs a substantial rewrite to be run in different acceleration environment. But the framework will be trying to reduce portability costs and cross-environment code duplication by using metaprogramming and other types of development automation.
+Note that in Memoria architecture, cross-environment code portability is _not ensured_. Different accelerators may provide different default runtime environments, memory and CPU cluster topologies. It's OK if some Memoria code needs a substantial rewrite to be run in a different acceleration environment. But the framework will be trying to reduce portability costs and cross-environment code duplication by using metaprogramming and other types of development automation.
 
 ## Processing Element
 
@@ -105,36 +105,36 @@ Reconfigurable extensible processing unit (xPU) is the main structural element o
 
 1. All external (to the core) memory traffic, including cache transfers and DMA;
 1. All Debug and Observability traffic;
-1. Runtime exceptions signaling;
+1. Runtime exceptions signalling;
 1. Application-level HRPC communication.
 
-Such unification allows placing xPU to any place where HRPC network is available:
+Such unification allows placing xPU at any place where HRPC network is available:
 
 * In an accelerator's cluster;
 * Inside DDR memory controller;
 * On a DRAM memory module (*near* memory chips, CXL-mem, PNM-DRAM);
-* Inside a DRAM chip on a separate stacked die (deep PIM-DRAM);
+* Inside a DRAM chip on a separate stacked die (in-package PIM-DRAM);
 * On a DRAM memory *die* (PIM-DRAM);
 * Inside a network router;
 * < ...your idea here... >
 
 In all cases kernel's code running in such xPUs will be able to communicate bidirectionally with the rest of environment. 
 
-Both HRPC (low-level) and system-level endpoints specification is meant to be an open protocol, so independent manufacturers may contribute both _specialized cores_ and _middleware_ into the ecosystem. Software tools will be able to adapt to a new hardware either automatically or with minimal efforts.
+Both HRPC (low-level) and system-level endpoints specification is meant to be an open protocol, so independent manufacturers may contribute both _specialized cores_ and _middleware_ into the Framework-supported ecosystem. Software tools will be able to adapt to a new hardware either automatically or with minimal manual efforts.
 
-Memoria code may be pretty large and have deep function call chains, so instruction cache is essential in this design (with instruction latencies caused by it). Another essential part of the core is 'stack cache' -- dedicated data cache for handling thread stacks. It's necessary when internal data memory is used as a scratchpad, not a D$:
+Memoria code may be pretty large and have deep function call chains, so instruction cache is essential in this design (with, unfortunately, unpredictable instruction execution latencies caused by that). Another essential part of the core is 'stack cache' -- dedicated data cache for handling thread stacks. It's necessary when internal data memory is used as a scratchpad, not a D$:
 
 {{< figure src="xpu.svg" >}}
 
-What this architecture is not going to have, is _cache coherency_ support (unless it's really necessary in some narrow cases). MAA relies on persistent and functional data structures where mutable data is private to a writer, and readers may see only immutable data. If there is some shared structured mutable data access, like atomic reference counting, it can be done explicitly via RPC-style messaging (HRPC) and hardware-accelerated services.
+What this architecture is not going to have, is _cache coherency_ support (unless it's really necessary in some narrow cases). MAA relies on PDS where mutable data is private to a writer, and readers may see only immutable data. If there is some shared structured mutable data access, like atomic reference counting, it can be done explicitly via RPC-style messaging (HRPC) and hardware-accelerated services.
 
 ## Accelerator Module
 
 The whole point of MAA is to maximize utilization of available _memory parallelism_ by moving processing closer to the data, primarily for _lowering access latency_, but also for _increasing throughput_.
 
-Ideally, every *memory bank* in the system should have either xPU or a fixed functions associated with it. Embedding logic into a DRAM die is technically challenging, although some solutions are already [commercially available](https://arxiv.org/pdf/2105.03814). Stacking DRAM and processing dies is more expensive, but may be better fit into existing processes. This is what we call here "Processing In Memory" or PIM.
+Ideally, every *memory bank* in the system should have either xPU or a fixed functions associated with it. Embedding logic into a DRAM die is technically challenging, although some solutions are already [commercially available](https://arxiv.org/pdf/2105.03814). Stacking DRAM and processing dies is more expensive, but may be better fit into existing processes.
 
-The simplest way is to put xPU and fixed functions into a DRAM memory controller (MC), making it 'smart' this way. Here the logic is operating at the memory speed and has the shortest part to. No caches, switches and clock doming crossing. But processing throughput is limited comparing to what is possible with PIM mode. This is "Processing Near Memory" or PNM.
+The simplest way is to put xPU and fixed functions into a DRAM memory controller (MC), making it 'smart' this way. Here the logic is operating at the memory speed and has the shortest part to. No caches, switches and clock doming crossing. But processing throughput is limited comparing to what is possible with PIM mode.
 
 So, **optimization for memory parallelism with PNM/PIM modes** and **targeting memory access latency**, not just throughput, is what makes some computational architecture good for Memoria applications.
 
@@ -145,18 +145,20 @@ Other than PNM/PIM and HRPC and the use of persistent data structures, Memoria F
 Here there are following essential components:
 
 1. Processing elements ([xPU](#processing-element)) -- RISC-V cores with hardware support for HRPC and essential Memoria algorithms and data structures.
-1. Network-on-Chip (NoC) in a form of a 2D array (best for matrix multiplication) or an N-dimensional hypercube (best for latency in general case).
-1. Main HRPC service gateway and many local HRPC routers. 
+1. Network-on-Chip (NoC) in a form of either 2D array (simpler, best for matrix multiplication) or an N-dimensional hypercube (more complex, but best for latency in general case).
+1. Main HRPC service gateway and many local HRPC routers.
 1. Service endpoints for hardware-implemented functions like atomic reference counting (ARC) and other shared concurrency primitives.
-1. Shared on-die SRAM, accessible by all cores. It can be distributed and has many functions -- scratchpad memory, caching, ring buffers and other *hardware assisted* data structures, etc. May be physically split im many parts and distributed on the die.
-1. Smart DRAM controller with embedded PNM xPU and/or hardwired [Memoria functions](#memoria-containers). 
+1. Shared on-die SRAM, accessible by all cores. It can be distributed and has many functions -- scratchpad memory, caching, ring buffers and other *hardware assisted* data structures, etc. May be physically split into many segments and distributed on the die.
+1. Smart DRAM controller with embedded PNM xPUs and/or hardwired [Memoria functions](#memoria-containers). 
 1. External connectivity modules (Transceivers, PCIe, etc).
 
-The main feature of this architecture in the context of Memoria is that it's *scalable*. There are no inherent scalability bottlenecks like whole-chip cache coherence. Of course, synchronization primitives like ARC and mutexes *theoretically* aren't scalable, but they can be _practically_ made efficient enough if implemented in the hardware directly, instead of doing it in the software over a cache-coherency protocol (that can't even control).
+The main feature of this architecture in the context of Memoria is that it's *scalable*. There are no inherent system-wide scalability bottlenecks like whole-chip cache coherence. Of course, synchronization primitives like ARC and mutexes *theoretically* aren't scalable, but they can be _practically_ made efficient enough if implemented in the hardware directly, instead of doing it in the software over a cache-coherency protocol (that we can't even control).
+
+Other properties of this design:
 
 1. It can be _scaled down_ to the size and power budget of an MCU and _scaled up_ to the size of an entire wafer (and beyond). 
 1. It's _composable_. Memoria applications do not rely on a shared array-structured memory. They may use fast structured [transactional](/docs/overview/storage) memory for that. At the hardware level it's just bunch of chips talking to each other via an open messaging protocol.
-1. It's extensible. Extra functionality can be added into xPUs (regular RISC-V instruction set extensions), hardened shared functions, HRPC middleware and others. The only requirement is using HRPC protocol for communication and published HW/SW interfaces.
+1. It's extensible. Extra functionality can be added into xPUs (regular and custom RISC-V instruction set extensions), hardened shared functions, HRPC middleware and others. The only requirement is the use of HRPC protocol for communication via published HW/SW interfaces.
 
 ## CPU mode
 
