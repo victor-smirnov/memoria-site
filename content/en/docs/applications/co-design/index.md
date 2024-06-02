@@ -10,6 +10,8 @@ weight: 2050
 toc: true
 ---
 
+**This page describes functionality or feature that may not necessary exist at the time of writing. HW/SW co-design is meant to be a _showcase_ of Memoria as an application development framework, it will be gradually available when it's ready.**
+
 ## Basic information
 
 By hardware/software co-design we mean a system design process when, given some functionality, we have a choice to implement it in hardware or in software. Actually, there are not that much of substantial difference between those two options, the problem is that corresponding engineering practices are _very different_. Co-design framework aims to align them to each other and, if possible, unify into a single seamless _super-process_.
