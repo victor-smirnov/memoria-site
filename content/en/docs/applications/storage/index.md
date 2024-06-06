@@ -51,15 +51,29 @@ The main difference in this design is using message-oriented [HRPC](/docs/overvi
 
 Latest generations of SSD controllers allow running Linux with applications, so running a persistent queue software or a _database_ software is not an issue. But Memoria can do _even better_.
 
-## The IO Stack
+## Execution Stack
+
+Memoria has a pretty common stack of _essential_ abstractions for data-focused applications: processing layer ([DSLEngine](/docs/overview/vm)), data layer ([Containers](/docs/overview/containers)) and storage layer ([Storage engines](/docs/overview/storage)). Layers are perfectly isolated via virtual interfaces (can be compiled independently). HRPC-based interfaces provide binary compatibility.
+
+The whole point of a CSD is to execute queries as close to the data as possible. Given fundamental power/heat constraints of memory media, it's not reasonable to run 'heavy' queries right on the device. Ideally, CSD should support a mode of operation/API when _raw data_ ca be exported to be processed on an external powerful accelerator.
+
+Below is the diagram explaining it in greater details:
 
 {{< figure src="/docs/applications/storage/io-stack.svg" >}}
 
+Here the stack has two parts: HRPC Gateway (endpoints and services) and Memoria Essentials are open and provided by the Memoria Framework. Hardware-dependent part (low-level aspects of the Store's implementation and Hardware Abstraction Layer) may be open, but may be a closed vendor-specific hardware abstraction.
+
 ## Controller
+
+Technically, we don't need a custom designed controller to run the execution stack. Any decent _64-bit_ SSD controller supporting embedded or external nvRAM should be enough. Custom chip can be equipped with accelerators so we can do _much more processing_ within CSD's allowed power budget. 
+
+The idea is to use the same HW/SW architecture as outlined in [this document](/docs/overview/accel), adapted to specific requirements and constraints of computational storage devices.
+
+
 
 {{< figure src="/docs/applications/storage/accelerator.svg" >}}
 
-## SWMRStore
+## Storage Engines
 
 
 
