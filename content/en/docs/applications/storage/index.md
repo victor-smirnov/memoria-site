@@ -45,11 +45,19 @@ This wat we can save a lot of unnecessary block transfers and a lot of PCIe roun
 
 {{< figure src="/docs/applications/storage/queue-smart-stor.svg" >}}
 
-Dedicated PCIe link can be pretty fast, with latency well under 1 microsecond, so we can safely assume that `push()` latency can be withing this number as well. Computational Network Device may handle networking part of the service, sending prepared data to the CSD. What it cool about this design that CPU is no more the bottleneck. Such queue may achieve very high message rates with extremely low latencies, bounded only be the network itself.
+Dedicated PCIe link can be pretty fast, with latency well under 1 microsecond, so we can safely assume that `push()` latency can be withing this number as well. Computational Network Device may handle networking part of the service, sending prepared data to the CSD. What is cool about this design that CPU is no more the bottleneck. Such queue may achieve very high message rates with extremely low latencies, bounded only be the network itself.
 
 The main difference in this design is using message-oriented [HRPC](/docs/overview/hrpc) protocol instead of block-oriented NVMe to communicate with CSD. 
 
 Latest generations of SSD controllers allow running Linux with applications, so running a persistent queue software or a _database_ software is not an issue. But Memoria can do _even better_.
+
+## The IO Stack
+
+{{< figure src="/docs/applications/storage/io-stack.svg" >}}
+
+## Controller
+
+{{< figure src="/docs/applications/storage/accelerator.svg" >}}
 
 ## SWMRStore
 
