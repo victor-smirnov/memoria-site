@@ -67,16 +67,17 @@ Here the stack has two parts: HRPC Gateway (endpoints and services) and Memoria 
 
 Technically, we don't need a custom designed controller to run the execution stack. Any decent _64-bit_ SSD controller supporting embedded or external nvRAM should be enough. Custom chip can be equipped with accelerators so we can do _much more processing_ within CSD's allowed power budget. 
 
-The idea is to use the same HW/SW architecture as outlined in [this document](/docs/overview/accel), adapted to specific requirements and constraints of computational storage devices.
-
-
+The idea is to use the same HW/SW architecture as outlined in [this document](/docs/overview/accel), adapted to specific requirements and constraints of computational storage devices. The controller consists of a cluster (grid, hypercube) of RISC-V based [processing elements](/docs/overview/accel#processing-element) (xPU) equipped with Memoria-specific ISA extensions accelerating algorithms and data structures. 
 
 {{< figure src="/docs/applications/storage/accelerator.svg" >}}
+
+Accelerator's architecture is 'standard' (unified). The only difference is problem-specific blocks (NAND Flash controllers) and, possibly, some other functions.
+
+The main featurs of this controller's architecture are scalability and extensibility. We can add more processing elements if we want faster on-device query processing. Third-parties may add thier own processing elements as long as they support HRPC interfaces of the accelerator.
 
 ## Storage Engines
 
 
 
-## 
 
 
