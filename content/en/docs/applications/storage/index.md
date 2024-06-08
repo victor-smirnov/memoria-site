@@ -91,7 +91,7 @@ There are three main features of Memoria-based CSDs:
 
 1. Allows running _user-supplied queries_ in a secure, sandboxed environment on-device.
 2. Much better failure recovery guarantees (including transactional durability), comparing to block-based storage devices like SSDs and HDDs, because CSD manufactures may control the entire _critical data path_.
-3. We don't need a separate, dedicated CPU to use them.
+3. We don't need a separate, dedicated CPU to use them. CSD can be connected directly to an accelerator via a low-latency dedicated link, or to a fabric. Computational architecture becomes much more _distributed_ (no _CPU_).
 
 Using CSD is straightforward. CSD provide HRPC message-based streaming interface, so any HRPC-enabled infrastructure may discover and use these resources as usual. From a functional perspective, working with CSD may look very much like working with a multimodel database via network connection.
 
