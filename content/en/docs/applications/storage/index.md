@@ -73,11 +73,28 @@ The idea is to use the same HW/SW architecture as outlined in [this document](/d
 
 Accelerator's architecture is 'standard' (unified). The only difference is problem-specific blocks (NAND Flash controllers) and, possibly, some other functions.
 
-The main featurs of this controller's architecture are scalability and extensibility. We can add more processing elements if we want faster on-device query processing. Third-parties may add thier own processing elements as long as they support HRPC interfaces of the accelerator.
+The main featurs of this controller's architecture are scalability and extensibility. We can add more processing elements if we want faster on-device query processing. Third-parties may add their own processing elements as long as they support HRPC interfaces of the accelerator.
+
+One notable feature of this CSD architecture is that it does not need an [FTL](https://en.wikipedia.org/wiki/Flash_memory_controller) typical to block-based SSDs, that is usually provisioned at the rate of 1GB DRAM per 1TB NAND. All the memory in the system may be used for running queries.
 
 ## Storage Engines
 
+Memoria currently has two storage engines for _block devices_ (BD) -- SWMRStore and OLTPStore, both supporting single serialized writer but multiple concurrent readers (SWMR), all in a wait-free mode. Both are transactional and support flexible commit policy. The biggest difference between them is that OLTPStore does not use block reference counters for memory management and is much faster for write transaction. But it does not support explicit version history because of that (there are other limitations too). BD-oriented storage engines need special _block allocator_. Notable feature of  SWMR storage engines in Memoria is that block allocator is transactional and has logarithmic worst-case allocation complexity. 
 
+[NANDStore](/docs/overview/storage/#nandstore) is a version of OLTPStore, optimized for NAND Flash and [ZNS](https://zonedstorage.io/docs/introduction/zns) models of operation. The idea is that this storage engine is stacked on top of HRPC interfaces provided by the _Low Level Store/HAL_ of the CSD (see diagram above).
 
+Note that SWMRStore can also be used inside a CSD, there are no technical restrictions for that. Moreover, it's preferable for analytical (read-optimized) applications that benefit the most from using CSDs. Just right now it's not a priority.
+
+## Usage
+
+There are three main features of Memoria-based CSDs:
+
+1. Allows running _user-supplied queries_ in a secure, sandboxed environment on-device.
+2. Much better failure recovery guarantees (including transactional durability), comparing to block-based storage devices like SSDs and HDDs, because CSD manufactures may control the entire _critical data path_.
+3. We don't need a separate, dedicated CPU to use them.
+
+Using CSD is straightforward. CSD provide HRPC message-based streaming interface, so any HRPC-enabled infrastructure may discover and use these resources as usual. From a functional perspective, working with CSD may look very much like working with a multimodel database via network connection.
+
+Integration of CSDs as a storage devices into existing OS and applications is trickier. There is no technical issues in providing either block device interface (to run regular FS) on top of CSD, or to provide a regular FUSE/NFS-like remote interface to data as a virtual filesystem. 
 
 
