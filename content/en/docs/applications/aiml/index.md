@@ -29,5 +29,13 @@ There may be many more compressibility domains than just two, so, potentially, w
 
 In Memoria, by "Hybrid AI" it's meant an architecture spawning multiple different compression domains. 
 
+## Probabilistic LM-based Hybridization
+
+A probabilistic language model is simply a probability distribution over a set of strings $S$ representing texts in this language: $P(S)$, where $S = w_0w_1w_2...w_i$ -- is a sequence of text elements (usually, _tokens_). Probabilistic models are used by _sampling_ (generating elements) from them. For sampling from language models we may use _autoregressive_ schema by sampling form _conditional distribution_ $P(w_i|w_{i-1}...w_0)$ -- probability of a next element in the string given its prefix. 
+
+Autoregressive sampling means that we generate a string element by element left-to-right, each time appending newly sampled elements to the prefix. Additional techniques, like [beam search](https://en.wikipedia.org/wiki/Beam_search), may be used to increase the probability value of the generated string. Autoregressive sampling gives us one additional important feature: we can sample strings that are _continuations_ of a given prefix, that is called a _prompt_. 
+
+
+
 TBC ...
 
