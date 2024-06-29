@@ -47,6 +47,25 @@ Actually, the latter isn't an issue if we want to achieve HXL-AI (Human-Expert L
 
 Using LLMs as a human-like interface to various problem solvers greatly increases their exposure to the potential audience. Problem solvers, despite having great potential _value_ are pretty hard to use directly. 
 
+## Hybrid and Approximate Reasoning
+
+By "reasoning" we mean what is usually meant by "declarative problem solving": logic (of various types), constraint solving, SAT/SMT, theorem proving, planning and many other types of combinatorial problem solving (CPS). CPS was initially meant as a main purpose of AI because of the _value_ it creates. It literally solves problems and makes our life _better_. But there are two main obstacles:
+
+1. CPS is rather hard to set up and use: "you need a PhD for that". 
+2. CPS is _very slow_. Many important problems are out of our reach. 
+
+Complexity of CPS methods may be addressed with specialized LLMs, translating from problem description obtained in a dialogue with a user to structured problem representation. Right now (2024) it doesn't work well in many ways, a lot of improvements of are still ahead. But at least this specific direction looks feasible and economically viable. 
+
+_Computational complexity_ of CPS is mach harder to solve issue because, basically, there is no workaround. Logic is computationally complex. If we augment an LLM with a reasoner that will be logical parts of the query, it may take practically infinite time for even apparently simple problems. Inference time is rather hard to predict.
+
+Approximate reasoning may be useful in _some_ cases. He, humans, aren't perfect in logic and other types of CPS either, but that's OK. Especially if there are ways to _improve_ a partial or approximate solution. There are two main ways to implement approximate CPS:
+
+1. Heuristic (ex: greedy) methods.
+2. Trading speed for memory.
+
+Heuristic methods are some statistically and _statically_ inferred rules that we can use to reduce computational complexity of a CPS method and produce a "very good" result in many (but not most!) cases.
+
+Trading speed for memory is a large family of computational complexity reducing methods, with dynamic programming as a famous example.
 
 TBC ...
 
