@@ -58,14 +58,22 @@ Complexity of CPS methods may be addressed with specialized LLMs, translating fr
 
 _Computational complexity_ of CPS is mach harder to solve issue because, basically, there is no workaround. Logic is computationally complex. If we augment an LLM with a reasoner that will be logical parts of the query, it may take practically infinite time for even apparently simple problems. Inference time is rather hard to predict.
 
-Approximate reasoning may be useful in _some_ cases. He, humans, aren't perfect in logic and other types of CPS either, but that's OK. Especially if there are ways to _improve_ a partial or approximate solution. There are two main ways to implement approximate CPS:
+Approximate reasoning may be useful in _some_ cases. We, humans, aren't perfect in logic and other types of CPS either, but that's OK. Especially if there are ways to _improve_ a partial or approximate solution. There are two main ways to implement approximate CPS:
 
 1. Heuristic (ex: greedy) methods.
 2. Trading speed for memory.
 
 Heuristic methods are some statistically and _statically_ inferred rules that we can use to reduce computational complexity of a CPS method and produce a "very good" result in many (but not most!) cases.
 
-Trading speed for memory is a large family of computational complexity reducing methods, with dynamic programming as a famous example.
+Trading speed for memory (TSM) is a large family of computational complexity reducing methods, with dynamic programming as a famous example. TSM may also be used for saving energy, if energy costs of storing and retrieving a solution is lower than costs or recomputing it. 
+
+TSM can also be viewed as a heuristic method with an _unbound_ number of heuristics, so we accumulate useful heuristics in memory as soon as they help reducing computational complexity (even at the expense of precision). Example: heuristic instance-based reasoning. 
+
+The challenge is that the number of instances/heuristics/solutions stored in memory and their descriptional complexity may be pretty large. Specifically for that, Memoria provides highly-functional solutions: advanced data structures, query engines, possibility of hardware acceleration, integrated storage stack from bare metal to high-level computing, decentralisation and many other useful features. 
+
+
+
+
 
 TBC ...
 
