@@ -71,7 +71,9 @@ TSM can also be viewed as a heuristic method with an _unbound_ number of heurist
 
 The challenge is that the number of instances/heuristics/solutions stored in memory and their descriptional complexity may be pretty large. Specifically for that, Memoria provides highly-functional solutions: advanced data structures, query engines, possibility of hardware acceleration, integrated storage stack from bare metal to high-level computing, decentralisation and many other useful features. 
 
+## External memory for LLM
 
+One of the most well-known ways of augmenting an LLM with external memory is [RAG](https://arxiv.org/abs/2312.10997). Here, simply speaking, a prompt is translated into one or more queries to external data sources like web pages and databases. Retrieved result is summarized and returned to the user. Another way is to augment transformer with [_explicit_ memory](https://arxiv.org/abs/2407.01178). By doing this, authors have reported significant reduction in effective model size required for the same level of performance. 
 
 
 
