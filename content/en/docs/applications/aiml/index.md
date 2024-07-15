@@ -77,9 +77,15 @@ One of the most well-known ways of augmenting an LLM with external memory is [RA
 
 Implicit or _parameters_ memory of LLMs is very expensive: computational costs are in the other of O(N) where N is a number of parameters. The number of parameters itself is quadratic from the number of structural units in attention and fully connected layers. This does not scale well, especially when a model generalizes poorly for objective reasons and needs to memorize more. 
 
-From other side, database technology provides searchable spatial data structures with logarithmic (on average) lookup time complexity. Memoria has specially designed [associative memory](/docs/data-zoo/associative-memory-2) -- multiary relation complying with Paul Smolensky's [requirements for compositional neuro-symbolic representations](https://www.researchgate.net/publication/360353836_Neurocompositional_computing_From_the_Central_Paradox_of_Cognition_to_a_new_generation_of_AI_systems). 
+From other side, database technology provides searchable spatial data structures with logarithmic (on average) lookup time complexity. Memoria has specially designed [associative memory](/docs/data-zoo/associative-memory-2) -- multiary relation complying with Paul Smolensky's [requirements for compositional neuro-symbolic representations](https://www.researchgate.net/publication/360353836_Neurocompositional_computing_From_the_Central_Paradox_of_Cognition_to_a_new_generation_of_AI_systems). Unlike traditional database technologies where relations link _points_ together, associative memory links together _sub-volumes_. And a point is a special case of unit volume. Like with neural networks splitting space with hyper-planes, associative memory splits space with volumes, and infinitely many actual data points may fit into a single volume.
 
+Given those 'hybrid' properties of Memoria's associative memory, it's a much better candidate for using with connectionist ML than classical graphs- and relations-based data structures (like classical RDF-like knowledge graphs).
 
+Running complex queries over classical relational and graph data is a costly process, both in terms of memory and compute. Querying 'hybrid' advanced data structures like associative may be even more costly, because we need to use _sampling_-like algorithms for that. While it's nothing special from algorithmic perspective, we do need a specialized hardware for achieving maximal efficiency. Memoria Acceleration Architecture ([MAA](/docs/overview/accel)) may use associative memory as one of its design and performance targets.
+
+## MC-AIXI-CTW
+
+[AIXI](https://en.wikipedia.org/wiki/AIXI) is a theoretical mathematical formalism for artificial general intelligence. It's a reinforcement learning _agent_, maximizing the expected total reward received from the environment. AIXI is a clever _mathematical trick_ that is based on so-called [Universal Prior](https://www.lesswrong.com/posts/RKfg86eKQuqLnjGxx/occam-s-razor-and-the-universal-prior) (UP). It's universal, because it already contains all possible solutions for all problems packed into a format of a _probability distribution_. AIXI is an ultimate, universal RL-based agent, but it's uncomputable. So, it's not feasible in its ultimate form. 
 
 TBC ...
 
