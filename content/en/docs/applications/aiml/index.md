@@ -75,7 +75,9 @@ The challenge is that the number of instances/heuristics/solutions stored in mem
 
 One of the most well-known ways of augmenting an LLM with external memory is [RAG](https://arxiv.org/abs/2312.10997). Here, simply speaking, a prompt is translated into one or more queries to external data sources like web pages and databases. Retrieved result is summarized and returned to the user. Another way is to augment transformer with [_explicit_ memory](https://arxiv.org/abs/2407.01178). By doing this, authors have reported significant reduction in effective model size required for the same level of performance. 
 
-Implicit or _parameters_ memory of LLMs is very expensive: computational costs are in the other of O(1) by a parameters. The number of parameters is quadratic from the number of input elements in attention and fully connected layers.
+Implicit or _parameters_ memory of LLMs is very expensive: computational costs are in the other of O(N) where N is a number of parameters. The number of parameters itself is quadratic from the number of structural units in attention and fully connected layers. This does not scale well, especially when a model generalizes poorly for objective reasons and needs to memorize more. 
+
+From other side, database technology provides searchable spatial data structures with logarithmic (on average) lookup time complexity. Memoria has specially designed [associative memory](/docs/data-zoo/associative-memory-2) -- multiary relation complying with Paul Smolensky's [requirements for compositional neuro-symbolic representations](https://www.researchgate.net/publication/360353836_Neurocompositional_computing_From_the_Central_Paradox_of_Cognition_to_a_new_generation_of_AI_systems). 
 
 
 
