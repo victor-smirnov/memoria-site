@@ -85,7 +85,18 @@ Running complex queries over classical relational and graph data is a costly pro
 
 ## MC-AIXI-CTW
 
-[AIXI](https://en.wikipedia.org/wiki/AIXI) is a theoretical mathematical formalism for artificial general intelligence. It's a reinforcement learning _agent_, maximizing the expected total reward received from the environment. AIXI is a clever _mathematical trick_ that is based on so-called [Universal Prior](https://www.lesswrong.com/posts/RKfg86eKQuqLnjGxx/occam-s-razor-and-the-universal-prior) (UP). It's universal, because it already contains all possible solutions for all problems packed into a format of a _probability distribution_. AIXI is an ultimate, universal RL-based agent, but it's uncomputable. So, it's not feasible in its ultimate form. 
+[AIXI](https://en.wikipedia.org/wiki/AIXI) is a theoretical mathematical formalism for artificial general intelligence. It's a reinforcement learning _agent_, maximizing the expected total reward received from the environment. AIXI is a clever _mathematical trick_ that is based on so-called [Universal Prior](https://www.lesswrong.com/posts/RKfg86eKQuqLnjGxx/occam-s-razor-and-the-universal-prior) (UP). It's universal, because it already contains all possible solutions for all problems packed into a format of a _probability distribution_. AIXI is an ultimate, universal RL-based agent, but it's uncomputable. So, it's not feasible in its ultimate form. Navertheless it's a simple and elegant formalism demonstrating how very different algoritms can be get working together as a single holistic system, by reducing everything to probabilistic string prediction. Auto-regressive LLMs are also just predicting next token in a text, but a lot of 'magic' implicitly happens behind the scene. 
+
+AIXI is infeasible to implement, but surprisingly it can be _approximated_. One of such known approximations is [MC-AIXI-CTW](https://arxiv.org/abs/0909.0801). It approximates Universal Prior with [variable-order markov models](https://en.wikipedia.org/wiki/Variable-order_Markov_model) (VMM), represented as _trees_. For unknown string probability estimations it uses [Context Tree Weighting](https://en.wikipedia.org/wiki/Context_tree_weighting) method. 
+
+What is interesting about MC-AIXI-CTW, is that:
+
+1. It's based on a language model, backed with VMMs. Very much like with NN-bassed LLMs, intelligence is proportional to the model's abilities to estimate probability of unknown strings correctly. This is what we call 'generalization' of a model.
+2. It's an _agent_ acting in a _environment_ according to some RL _policy_. So, ulike a raw LLM, it's an almost-ready-to-use AI.
+3. VMM, implemented as a tree, is much easier interpretable and hybridizable than a neural network.
+4. VMM is a _database_, requirng latency-optimized architecture. And can be an interesting benchmark for [MAA](/docs/overview/accel/).
+
+Unfortunately for AIXI apprroximations, they have lost in a shade of DL revolution in 2010th. 
 
 TBC ...
 
