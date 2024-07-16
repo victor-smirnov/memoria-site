@@ -93,10 +93,18 @@ What is interesting about MC-AIXI-CTW, is that:
 
 1. It's based on a language model, backed with VMMs. Very much like with NN-bassed LLMs, intelligence is proportional to the model's abilities to estimate probability of unknown strings correctly. This is what we call 'generalization' of a model.
 2. It's an _agent_ acting in a _environment_ according to some RL _policy_. So, ulike a raw LLM, it's an almost-ready-to-use AI.
-3. VMM, implemented as a tree, is much easier interpretable and hybridizable than a neural network.
-4. VMM is a _database_, requirng latency-optimized architecture. And can be an interesting benchmark for [MAA](/docs/overview/accel/).
+3. VMM, implemented as a tree, is **much easier interpretable and hybridizable** than a neural network.
+4. VMM is a _database_, requiring latency-optimized architecture. And can be an interesting benchmark for [MAA](/docs/overview/accel/).
 
-Unfortunately for AIXI apprroximations, they have lost in a shade of DL revolution in 2010th. 
+Unfortunately for AIXI approximations, they have been lost in the shade of DL revolution in 2010th. Now, with broad interest resurrecting to many previously forgotten AI approaches, AIXI may see its second life. What we do need here is _specialized hardware_ (and related software) to accelerate this type of probabilistic models.
+
+## Hardware
+
+Neural network is just a bunch of dense arrays -- pretty simple _data structures_. Matrix multiplication generates simple and predictable memory access pattern. Computations can be easily scheduled statically ahead-of-time and at the scale of an entire cluster.
+
+In case of Hybrid AI we need full set of hardware architectures, optimized for _static_ and _dynamic_ parallelism, optimized for minimizing memory access latency and maximizing throughput. There is no way to provide a single capable architecture. Instead, we need a constructor to build an architecture, specialized for a specific problem class.
+
+## Software
 
 TBC ...
 
