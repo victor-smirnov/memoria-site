@@ -102,9 +102,11 @@ Unfortunately for AIXI approximations, they have been lost in the shade of DL re
 
 Neural network is just a bunch of dense arrays -- pretty simple _data structures_. Matrix multiplication generates simple and predictable memory access pattern. Computations can be easily scheduled statically ahead-of-time and at the scale of an entire cluster.
 
-In case of Hybrid AI we need full set of hardware architectures, optimized for _static_ and _dynamic_ parallelism, optimized for minimizing memory access latency and maximizing throughput. There is no way to provide a single capable architecture. Instead, we need a constructor to build an architecture, specialized for a specific problem class.
+In case of Hybrid AI we need full set of hardware architectures, optimized for _static_ and _dynamic_ parallelism, optimized for minimizing memory access latency and maximizing throughput. There is no way to provide a single capable architecture. Instead, we need a constructor to build an architecture, specialized for a specific problem class. [Memoria Accelerated Architecture](/docs/overview/accel/) (MAA) is addressing this issue.
 
 ## Software
+
+
 
 TBC ...
 
