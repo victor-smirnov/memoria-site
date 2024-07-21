@@ -106,7 +106,25 @@ In case of Hybrid AI we need full set of hardware architectures, optimized for _
 
 ## Software
 
+NN-oriented ML frameworks are relatively simple. Neural network is a bunch of dense arrays, the only fundamental data structure we need. We also need powerful optimizing compiler converting data-flow graph of a program into sequence of computational kernels invocation, handling alos data flow in the process. Specifics of most neural networks is that computations have highly regular and predictable data flow, so there is a lot  of opportunity for static-time optimizations, even claster-wide.
 
+Symbolic AI, explicitly or implicitly, relies on some _search_ technique is _state space_. So, _represetation_ of the state space becomes crucial. The state space may be huge and highly irrecular requiring large complex data structures and software and hardware that can leverage _dynamic parallelism_. 
+
+Sufficiently general _reasoning engine_ is much more complex than an advanced relational DBMS and includes it. [Relational algebra](https://en.wikipedia.org/wiki/Relational_algebra) is a derivative of [relational calculus](https://en.wikipedia.org/wiki/Relational_calculus) -- that is a tractable subset of [first-order logic](https://en.wikipedia.org/wiki/First-order_logic) (FOL). RDBMS sacrifice expressiveness of FOL for predictable performance, they also lose the _deductive_ component -- ability to infer _new facts_ from _existing ones_. Reasoning engines may generate large intermediate state and/or results and operate on large datasets, so building it on top of a powerful and generic query engine is essential.
+
+Memoria Framework provides necessary basic and advanced elements for building standalone and hybrid reasoning engines. The main elements of the stack are:
+
+1. [Hermes](/docs/overview/hermes) data format, deeply ontegrated with the rest of the framework, including hardware acceleration at the level of MAA if/when necessary. Hermes is flexible enough to support all the necessary structured formats like knowlege graphs, no thierd-party libraries are needed.
+2. Hermes-based [HRPC](/docs/overview/hrpc) accelerated communication protocol.
+3. Rich set of trivial and advanced [data structures](/docs/overview/containers). No external database or storage system is ever needed.
+4. Accelerated query [execution exngine](/docs/overview/vm). Turing complete superset of SQL/Datalog and beyond. Backward chaining mode (query execution) and RETE-based forward-chaining engine for event-driven computations: robotics, agents, embedded systems and [IoT](/docs/applications/eiot).
+5. Computational [storage layer](/docs/applications/storage). Memoria fully [redefines](/docs/overview/accel) storage and processing stack comparing to a traditional one, besed on CPU and monolythic operatin systems with integrated complex storage layers (file systems). 
+
+## Beyond Reasoning
+
+TBC ...
+
+## Memoria as a Dataset
 
 TBC ...
 
