@@ -12,7 +12,7 @@ toc: true
 
 ## What is "Hybrid AI" in Memoria?
 
-Historically, by Hybrid AI people meant something related to Khaneman's [Dual process theory](https://en.wikipedia.org/wiki/Dual_process_theory) or any combination of "intuitive reasoning" (shallow, fast and wide System 1) and "symbolic reasoning" (deep, slow and narrow System 2) that are expected to _complement_ each other. LLMs turned out to be well-hybridizable with many different technologies, not limited to symbolic reasoners and databases. So, interests in ANNs is fuelling _secondary_ interest in technologies that previously have been resting in an oblivion.
+Historically, by Hybrid AI people meant something related to Khaneman's [Dual process theory](https://en.wikipedia.org/wiki/Dual_process_theory) or any combination of "intuitive reasoning" (shallow, fast and wide System 1) and "symbolic reasoning" (deep, slow and narrow System 2) that are expected to _complement_ each other. LLMs turned out to be well-hybridizable with many different technologies, not limited to symbolic reasoners and databases. So, interests in ANNs is fueling _secondary_ interest in technologies that previously have been resting in an oblivion.
 
 In Memoria, the meaning of this term is slightly different (but not contradicting). Memoria project follows the intuition that there is no any specific "secret" in human intelligence in particular, and in intelligence in general: at the end of the day (after all possible _optimizations_ have been applied) it's all about resources -- _compute_ and _memory_. This position should not be confused with Sutton's [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html). While both are similar in wording and final resolutions, Memoria implies that _resources are always limited_, and that makes huge difference: _problem-specific optimizations do matter_. Ultimately:
 
@@ -117,10 +117,14 @@ Memoria Framework provides necessary basic and advanced elements for building st
 1. [Hermes](/docs/overview/hermes) data format, deeply ontegrated with the rest of the framework, including hardware acceleration at the level of MAA if/when necessary. Hermes is flexible enough to support all the necessary structured formats like knowlege graphs, no thierd-party libraries are needed.
 2. Hermes-based [HRPC](/docs/overview/hrpc) accelerated communication protocol.
 3. Rich set of trivial and advanced [data structures](/docs/overview/containers). No external database or storage system is ever needed.
-4. Accelerated query [execution exngine](/docs/overview/vm). Turing complete superset of SQL/Datalog and beyond. Backward chaining mode (query execution) and RETE-based forward-chaining engine for event-driven computations: robotics, agents, embedded systems and [IoT](/docs/applications/eiot).
-5. Computational [storage layer](/docs/applications/storage). Memoria fully [redefines](/docs/overview/accel) storage and processing stack comparing to a traditional one, besed on CPU and monolythic operatin systems with integrated complex storage layers (file systems). 
+4. Accelerated query [execution exngine](/docs/overview/vm). Turing complete superset of SQL/Datalog and beyond. Backward chaining mode (query execution) and [RETE](https://en.wikipedia.org/wiki/Rete_algorithm)-based forward-chaining engine for event-driven computations: robotics, agents, embedded systems and [IoT](/docs/applications/eiot).
+5. Computational [storage layer](/docs/applications/storage). Memoria fully [redefines](/docs/overview/accel) storage and processing stacks comparing to a traditional ones, based on CPUs and monolithic operating systems with integrated complex storage layers (file systems). Complex distributed and heterogeneous architectures become much simpler.
 
 ## Beyond Reasoning
+
+LLMs are considered to be _language_ models. Language models trained on human-generated textual data are _much more_ than just that. They are capturing not only the language itself, but also _functional approximations_ of higher mental functions, including _agency_. Conversation with a sufficiently powerful and properly-tuned LLM looks and feels like a conversation with a real well-educated person with encyclopedic knowledge. Apparent human-likeness of conversations with LLMs is impressive, especially when we take into account implicit functional aspects of it (intuitive understanding), but it should not be deceiving. LLMs do not _feel_ or really _experience_ what they say _the way we do_: generative processes in LLMs are sufficiently different from ours. We should not attribute any of our _mental states_ to them (we may do it, but only with great precaution). 
+
+
 
 TBC ...
 
