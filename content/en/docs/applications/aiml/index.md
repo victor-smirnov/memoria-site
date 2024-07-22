@@ -124,7 +124,7 @@ Memoria Framework provides necessary basic and advanced elements for building st
 
 LLMs are considered to be _language_ models. Language models trained on human-generated textual data are _much more_ than just that. They are capturing not only the language itself, but also _functional approximations_ of higher mental functions, including _agency_. Conversation with a sufficiently powerful and properly-tuned LLM looks and feels like a conversation with a real well-educated person with encyclopedic knowledge. Apparent human-likeness of conversations with LLMs is impressive, especially when we take into account implicit functional aspects of it (intuitive understanding), but it should not be deceiving. LLMs do not _feel_ or really _experience_ what they say _the way we do_: generative processes in LLMs are sufficiently different from ours. We should not attribute any of our _mental states_ to them (we may do it, but only with great precaution). 
 
-
+Despite 'metal states' of LLMs (if any) are very different from ours, their _observable effects_ are consistent with corresponding effects of our mental states. This is _the_ reason why it [feels so human-like](https://www.scientificamerican.com/article/google-engineer-claims-ai-chatbot-is-sentient-why-that-matters/) in conversations. [is known to be really hard](https://en.wikipedia.org/wiki/Hard_problem_of_consciousness)
 
 TBC ...
 
