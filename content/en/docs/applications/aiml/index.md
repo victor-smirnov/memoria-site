@@ -132,7 +132,9 @@ Certain important mental states have no textual expression at all. They may be n
 
 It's yet to be proven that reducing skewedness of datasets by enriching them with textual descriptions of inner mental processes (intermediate cognitive material) will improve performance of language models in general and agent-related tests. Nevertheless, it's a solid and grounded intuition because it works this way for humans. In order to get this data from our minds, we need to develop [intrapersonal intelligence](https://en.wikipedia.org/wiki/Theory_of_multiple_intelligences#Intrapersonal) -- the ability to understand yourself, including your thoughts, feelings, motivations, and fears, and to use that understanding to make decisions and communicate -- in a way that is compatible with AI. Figuratively speaking, we need to understand our 'inner machine' and describe it in terms of algorithms and data structures expressed as scripts for agents.
 
-There is an ongoing [multidisciplinary research process](https://github.com/victor-smirnov/digital-philosophy/blob/master/Artificial%20Intelligence.md) around Memoria targeting unification of intrapersonal intelligence from Psychology, Philosophy of Mind, Physiology Mathematics and Computer Science. The goal is to build a conceptual bridge between first-person experience and computations in the form of minimalist computational models of fundamental higher mental functions like _Observer_ and _beingness_, _feelings_ and _intuition_ and many others. Positive results may be used ...
+There is an ongoing [multidisciplinary research process](https://github.com/victor-smirnov/digital-philosophy/blob/master/Artificial%20Intelligence.md) around Memoria targeting unification of intrapersonal intelligence from Psychology, Philosophy of Mind, Physiology Mathematics and Computer Science. The goal is to build a conceptual bridge between first-person experience and computations in the form of minimalist computational models of fundamental higher mental functions like _Observer_ and _beingness_, _feelings_, _intuition_ and many others. Positive results may be used ...
+
+
 
 TBC ...
 
