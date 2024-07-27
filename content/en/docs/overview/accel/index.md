@@ -166,3 +166,24 @@ As it has been noted above, multicore MMU-enabled CPUs aren't the best runtime e
 
 So, Memoria Framework is going to support it as a first-class member in its hardware platform family. Once specialized hardware becomes available, it can be incrementally included into the ecosystem.
 
+## Implementation Strategy
+
+Implementing MAA is a major technical and organizational challenge for the Memoria project. In order to get the whole idea faster into the prototyping stage, a configurable RV ISA-level (with Memoria-specific ISA extensions, memory- and HRPC-related machinery) software emulator of MAA is planned at first. 
+
+The emulator needs a C/C++ compiler with MAA-specific RISC-V extensions, that is also planned based on [Jenny](https://github.com/victor-smirnov/jenny) (Memoria-specific Clang's fork).
+
+The main purpose of emulator is to start experimenting early with porting Memoria's core algorithms and data structures to MAA. Later, this emulator may be used for software development when actual hardware is not available.
+
+The second phase is developing reference implementations of HDL IP and other related artifacts for FPGA and ASIC:
+
+1. Hermes core algorithms and data structures as RV ISA extension instructions.
+2. HRPC core protocol, transport and routing circuitry. 
+3. Configurable RISC-V xPU in some pre-existing HDL.
+
+The goal is to create a minimal, not necessary fully optimized, but functional MAA _envoronment_ for hardware developers to experiment with the framework.
+
+There is a hardware for that:
+
+{{< figure src="U50.jpg" >}}
+
+The third phase is to integrate [DSLEngine](/docs/overview/vm) and [MBT](/docs/overview/mbt), the emulator into an automated development platform. 

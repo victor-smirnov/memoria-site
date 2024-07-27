@@ -143,6 +143,3 @@ On the HW/SW side of things insights form intrapersonal intelligence are expecte
 LLMs create a lot of opportunities for opensource software. A lot of code is currently unmaintained and forgotten. OSS authors struggles looking for users attention to their projects. If this code is used for training LLMs it will be used. LMM this this sense create completely new opportunity for idealistically-motivated authors. Even if their works do not have sufficient _direct_ audience right now, _the message_ hidden in thier works will live in the models trained on these works.
 
 Memoria, as a project, does recognize this opportunity to provide not only direct software artifacts, but also indirect generative architectural patters if/when the project is used for LLM training. Memoria itself is going to use this pattern for automation of the project evolution. More details of this later... 
-
-TBC ...
-
