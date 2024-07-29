@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Memoria"
+title: "Introduction to Memoria Framework"
 description: ""
 lead: ""
 draft: false
@@ -11,9 +11,7 @@ weight: 10
 toc: true
 ---
 
-> Data dominates. If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.
-
--- Rob Pike in [“Notes on Programming in C”](http://www.lysator.liu.se/c/pikestyle.html), 1989.
+Memoria is a hardware/software co-design framework for solving data-intensive problems. 
 
 Memoria is ... 
 * a "full-stack" data-centric framework for latency-sensitive class of computations covering data- and knowledge bases, logical reasoners, constraint solving for both exact and approximate (including Any-Time) types of inference.

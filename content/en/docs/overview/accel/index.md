@@ -11,6 +11,10 @@ weight: 65
 toc: true
 ---
 
+> Data dominates. If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.
+
+-- Rob Pike in [“Notes on Programming in C”](http://www.lysator.liu.se/c/pikestyle.html), 1989.
+
 ## Basic Information
 
 Processing can be compute-intensive, IO-intensive or combined/hybrid. Processing is compute intensive if each element of data is processed many times. Examples: sorting and matrix multiplication. Otherwise it's IO-intensive. Example: hashtable with random access. Hybrid processing may contain both compute-intensive and IO-intensive *stages*, but they will be clearly separable. Like, in evaluating SQL query, JOIN is IO-intensive and SORT is compute-intensive. Physically, the more processing is compute-intensive, the less it's IO-intensive. Just because while we are processing a data element intensively, we can't do IO.
