@@ -170,6 +170,24 @@ As it has been noted above, multicore MMU-enabled CPUs aren't the best runtime e
 
 So, Memoria Framework is going to support it as a first-class member in its hardware platform family. Once specialized hardware becomes available, it can be incrementally included into the ecosystem.
 
+## Matrices, Tensors and Operations on Them
+
+Many data structures can be represented as arrays. Ordinary graphs can be represented as a square matrix and, if graph is _dense_, such representation will be optimal both in terms of memory size and in terms of memory access patterns. Many algorithms on graphs can be efficiently reduced to operations on matrices. And if we operate on matrices, we can enjoy _static_ scheduling of data/control flow and, in case of matrix multiplication for instance, short data trips of systolic processing. Matrices are rarely dense, but if it's the case, benefits may be huge. 
+
+MAA does need support for efficient matrix operations, but this entire area is currently being passionately explored in companies creating accelerators for neural networks. Solutions are very complex and highly optimized (including software side -- _compilers_), and it seems they are pretty close to the ideal.
+
+Memoria is focusing primarily on sparse data structures processing by relying on in/near-memory computing (PIM/PNM), that is expected to reduce data access latency. There are three possible strategies how to fuse these two different types of processing in one architecture:
+
+1. Add systolic processors/CGRAs to xPUs. They can be implemented as HRPC accessible devices to coexist peacefully with threads. But area will be wasted if this functionality isn't used.
+2. Design a separate GEMM-optimized architecture in the context of MAA either in a form of specialized xPU (preferably) or even a separate accelerator module.
+3. Outsource this functionality to external projects. There is substantial interest to GEMM in both open source and proprietary domains.
+
+In all three cases hardware implementation of HRPC endpoints and middleware becomes foundational for both internal communication within MAA and with external systems. 
+
+The whole idea of hardware HRPC is to _generate_ corresponding IP from semantically enriched IDL, much like we are doing it currently for service-oriented architectures in the context of distributed computing. Specifying interfaces in a separate place and auto-generating software (and hardware) artifacts supporting them is an efficient way to reduce solution complexity. 
+
+Hardware implementation of HRPC (including related tools) will be a high priority for the project.
+
 ## Implementation Strategy
 
 Implementing MAA is a major technical and organizational challenge for the Memoria project. In order to get the whole idea faster into the prototyping stage, a configurable RV ISA-level (with Memoria-specific ISA extensions, memory- and HRPC-related machinery) software emulator of MAA is planned at first. 
