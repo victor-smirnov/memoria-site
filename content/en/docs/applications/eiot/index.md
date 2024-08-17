@@ -36,6 +36,6 @@ Reference HDL/HCL implementation for such an MCU is a priority for Memoria.
 
 There are two directions that are currently in mind for such accelerators. 
 
-**First**, computational storage devices in the format of a single chip. They may provide rich storage and in-storage processing functions together with advanced features like transactions and nearly-perfect power outage resilience. 
+**First**, computational storage devices in the format of a single chip. They may provide rich storage and in-storage processing functions together with advanced features like transactions and nearly-perfect power outage resilience. Factoring out storage and data processing functions into a dedicated device may dramatically simplify design of an embedded system at the expense of single additional chip (that is usually an SPI flash anyway). 
 
 **Second**, DSLEngine accelerators for embedded systems. DSLEngine is a database/stream/complex-event-processing engine that can be useful for handling various complex (composite) events in IoT applications and process controllers. RETE algorithm is useful but is pretty memory-hungry, so specialized device capable of running it may be welcome here.
